@@ -1,0 +1,21 @@
+{
+  "name": "sky-music",
+  "version": "0.1.0",
+  "private": true,
+  "author": "Vincent Lee <vv314@foxmail.com>",
+  "scripts": {
+    "build": "marax build",
+    "test": "marax test",
+    "dev": "marax dev"
+  },
+  "dependencies": {
+    "vue": "^2.6.10"
+  },
+  "devDependencies": {
+    "@mara/x": "^2.3.3",
+    "vue-template-compiler": "^2.6.10"
+  },
+  "eslintConfig": {
+    "extends": "eslint-config-sinamfe"
+  }
+}

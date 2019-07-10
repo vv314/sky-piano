@@ -1,0 +1,86 @@
+stages:
+  - dummy
+  - dev
+  - test
+  - deploy
+
+Ready Step:
+  stage: dummy
+  script:
+    - echo "Ready"
+  tags:
+    - SINA_MFE
+  only:
+    - /^tag__.+__.+/
+
+dev:
+  stage: dev
+  script:
+    - echo $GITLAB_USER_EMAIL $USER $CI_PROJECT_URL $CI_COMMIT_REF_NAME $CI_PROJECT_NAME $CI_COMMIT_REF_SLUG
+    - cnpm install @mfelibs/ci-runner-script
+    - node ./node_modules/@mfelibs/ci-runner-script/index.js $GITLAB_USER_EMAIL $USER $CI_PROJECT_URL $CI_COMMIT_REF_NAME $CI_PROJECT_NAME dev excute $CI_COMMIT_SHA $CI_BUILD_ID $CI_PROJECT_PATH
+  tags:
+    - SINA_MFE
+  when: manual
+  only:
+    - /^tag__.+__.+/
+
+simulate:
+  stage: test
+  script:
+    - echo $GITLAB_USER_EMAIL $USER $CI_PROJECT_URL $CI_COMMIT_REF_NAME $CI_PROJECT_NAME $CI_COMMIT_REF_SLUG  $CI_COMMIT_SHA $CI_BUILD_ID $CI_PROJECT_PATH
+    - cnpm install @mfelibs/ci-runner-script
+    - node ./node_modules/@mfelibs/ci-runner-script/index.js $GITLAB_USER_EMAIL $USER $CI_PROJECT_URL $CI_COMMIT_REF_NAME $CI_PROJECT_NAME simulate excute $CI_COMMIT_SHA $CI_BUILD_ID $CI_PROJECT_PATH
+  tags:
+    - SINA_MFE
+  when: manual
+  only:
+    - /^tag__.+__.+/
+
+alpha:
+  stage: test
+  script:
+    - echo $GITLAB_USER_EMAIL $USER $CI_PROJECT_URL $CI_COMMIT_REF_NAME $CI_PROJECT_NAME $CI_COMMIT_REF_SLUG $CI_BUILD_BEFORE_SHA $CI_BUILD_ID $CI_PROJECT_PATH
+    - cnpm install @mfelibs/ci-runner-script
+    - node ./node_modules/@mfelibs/ci-runner-script/index.js $GITLAB_USER_EMAIL $USER $CI_PROJECT_URL $CI_COMMIT_REF_NAME $CI_PROJECT_NAME alpha excute $CI_COMMIT_SHA $CI_BUILD_ID $CI_PROJECT_PATH
+  tags:
+    - SINA_MFE
+  when: manual
+  only:
+    - /^tag__.+__.+/
+
+deploy:
+  stage: deploy
+  script:
+    - echo $GITLAB_USER_EMAIL $USER $CI_PROJECT_URL $CI_COMMIT_REF_NAME $CI_PROJECT_NAME $CI_COMMIT_REF_SLUG  $CI_BUILD_BEFORE_SHA $CI_BUILD_ID $CI_PROJECT_PATH
+    - cnpm install @mfelibs/ci-runner-script
+    - node ./node_modules/@mfelibs/ci-runner-script/index.js $GITLAB_USER_EMAIL $USER $CI_PROJECT_URL $CI_COMMIT_REF_NAME $CI_PROJECT_NAME nogrey excute $CI_COMMIT_SHA $CI_BUILD_ID $CI_PROJECT_PATH
+  tags:
+    - SINA_MFE
+  when: manual
+  only:
+    - /^tag__.+__.+/
+
+grey:
+  stage: deploy
+  script:
+    - echo $GITLAB_USER_EMAIL $USER $CI_PROJECT_URL $CI_COMMIT_REF_NAME $CI_PROJECT_NAME $CI_COMMIT_REF_SLUG  $CI_BUILD_BEFORE_SHA $CI_BUILD_ID $CI_PROJECT_PATH
+    - cnpm install @mfelibs/ci-runner-script
+    - node ./node_modules/@mfelibs/ci-runner-script/index.js $GITLAB_USER_EMAIL $USER $CI_PROJECT_URL $CI_COMMIT_REF_NAME $CI_PROJECT_NAME grey excute $CI_COMMIT_SHA $CI_BUILD_ID $CI_PROJECT_PATH
+  tags:
+    - SINA_MFE
+  when: manual
+  only:
+    - /^tag__.+__.+/
+
+addjs:
+  stage: deploy
+  script:
+    - echo $GITLAB_USER_EMAIL $USER $CI_PROJECT_URL $CI_COMMIT_REF_NAME $CI_PROJECT_NAME $CI_COMMIT_REF_SLUG $CI_BUILD_BEFORE_SHA $CI_BUILD_ID $CI_PROJECT_PATH
+    - cnpm install @mfelibs/ci-runner-script
+    - node ./node_modules/@mfelibs/ci-runner-script/index.js $GITLAB_USER_EMAIL $USER $CI_PROJECT_URL $CI_COMMIT_REF_NAME $CI_PROJECT_NAME addjs excute $CI_COMMIT_SHA $CI_BUILD_ID $CI_PROJECT_PATH
+  tags:
+    - SINA_MFE
+  when: manual
+  only:
+    - /^tag__.+__.+/
