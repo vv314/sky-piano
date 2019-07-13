@@ -6,9 +6,9 @@
   "marax": "2.3.3",
   "publicPath": "./",
   "manifest": {
-    "static/js/index.js": "./static/js/index.591257b1.js",
-    "static/js/vendors_index.js": "./static/js/vendors_index.7c8914ab.chunk.js",
-    "static/css/index.css": "./static/css/index.9b4c88a5.css",
+    "static/js/index.js": "./static/js/index.adcdde1e.js",
+    "static/js/vendors_index.js": "./static/js/vendors_index.9ab89450.chunk.js",
+    "static/css/index.css": "./static/css/index.91eb334a.css",
     "dependencyGraph.json": "./dependencyGraph.json",
     "index.html": "./index.html",
     "manifest.json": "./manifest.json",
