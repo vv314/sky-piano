@@ -1,5 +1,5 @@
 {
-  "name": "sky-music",
+  "name": "sky-piano",
   "version": "0.1.0",
   "private": true,
   "author": "Vincent Lee <vv314@foxmail.com>",
@@ -9,6 +9,7 @@
     "dev": "marax dev"
   },
   "dependencies": {
+    "tone": "^13.4.9",
     "vue": "^2.6.10"
   },
   "devDependencies": {
