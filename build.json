@@ -1,6 +1,6 @@
 {
   "target": "web",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "env": "online",
   "debug": false,
   "marax": "2.3.3",
