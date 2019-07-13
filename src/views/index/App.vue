@@ -51,7 +51,7 @@ export default {
       console.log('force landscape')
     },
     autoOrientation() {
-      const size = [window.innerHeight, window.innerWidth].sort()
+      const size = [window.innerHeight, window.innerWidth].sort((a, b) => a - b)
 
       this.innerHeight = size[0]
       this.innerWidth = size[1]
