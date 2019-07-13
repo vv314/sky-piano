@@ -6,14 +6,18 @@
   "scripts": {
     "build": "marax build",
     "test": "marax test",
-    "dev": "marax dev"
+    "dev": "marax dev",
+    "deploy": "node build/deploy.js",
+    "release": "npm run build && npm run deploy -s"
   },
+  "homepage": "https://vv314.github.io/sky-piano",
   "dependencies": {
     "tone": "^13.4.9",
     "vue": "^2.6.10"
   },
   "devDependencies": {
     "@mara/x": "^2.3.3",
+    "gh-pages": "^2.0.1",
     "vue-template-compiler": "^2.6.10"
   },
   "eslintConfig": {
