@@ -1,12 +1,12 @@
 {
   "target": "web",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "env": "online",
   "debug": false,
   "marax": "2.3.3",
   "publicPath": "./",
   "manifest": {
-    "static/js/index.js": "./static/js/index.adcdde1e.js",
+    "static/js/index.js": "./static/js/index.e72a2c1d.js",
     "static/js/vendors_index.js": "./static/js/vendors_index.9ab89450.chunk.js",
     "static/css/index.css": "./static/css/index.91eb334a.css",
     "dependencyGraph.json": "./dependencyGraph.json",

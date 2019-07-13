@@ -20,7 +20,7 @@ export default {
     return {
       innerHeight: 0,
       innerWidth: 0,
-      version: '0.1.0'
+      version: '0.1.1'
     }
   },
   created() {

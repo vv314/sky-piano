@@ -1,14 +1,14 @@
 {
   "name": "sky-piano",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "private": true,
   "author": "Vincent Lee <vv314@foxmail.com>",
   "scripts": {
     "build": "marax build",
     "test": "marax test",
     "dev": "marax dev",
-    "deploy": "node build/deploy.js",
-    "release": "npm run build && npm run deploy -s"
+    "predeploy": "npm run build",
+    "deploy": "node build/deploy"
   },
   "homepage": "https://vv314.github.io/sky-piano",
   "dependencies": {
