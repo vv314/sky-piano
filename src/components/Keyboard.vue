@@ -1,12 +1,13 @@
 <template>
   <div class="keyboard">
-    <ul class="container" @touchmove="sss">
+    <ul class="container">
       <li
         class="item"
         v-for="item in list"
         :ref="'k_' + item.index"
-        @click="tap(item, $event)"
-        @touchstart.stop="tap(item, $event)"
+        @mousedown="tap(item, $event)"
+        @touchstart="tap(item, $event)"
+        @touchend="tapEnd(item, $event)"
       >
         <div class="item__content">
           <Item :type="item.shape" />
@@ -61,19 +62,23 @@ export default {
         this.hasTouchEvt = true
       }
 
-      // 触屏下跳过 click 事件，防止多次响应
-      if (this.hasTouchEvt && !isTouchEvt) return
+      // if (this.hasTouchEvt && !isTouchEvt) return
 
-      const el = this.$refs[`k_${item.index}`][0]
+      if (this.hasTouchEvt) {
+        // 触屏下接收但忽略 click 事件处理
+        if (!isTouchEvt) return
 
-      el.classList.add('item--active')
-      setTimeout(() => el.classList.remove('item--active'), 150)
+        const el = this.$refs[`k_${item.index}`][0]
+
+        el.classList.add('item--active')
+      }
 
       console.log(isTouchEvt ? 'tap' : 'click', item.note)
       this.play(item.note)
     },
-    sss() {
-      console.log('move')
+    tapEnd(item) {
+      const el = this.$refs[`k_${item.index}`][0]
+      el.classList.remove('item--active')
     }
   }
 }
@@ -83,13 +88,13 @@ function random(max = 1, min = 0) {
 }
 
 function createKeyboard({ total, tone, notes, shapes }) {
-  const first = shapes.splice(0, 1)[0]
-  const slen = shapes.length
+  const first = shapes[0]
+  const rest = shapes.slice(1)
   const nlen = notes.length
   let currLv = tone - 1
 
   return [...Array(total)].map((e, i) => {
-    const shape = i % nlen == 0 ? first : shapes[i % slen]
+    const shape = i % nlen == 0 ? first : rest[i % rest.length]
     const note = notes[i % nlen]
 
     if (note === notes[0]) currLv++
@@ -100,6 +105,10 @@ function createKeyboard({ total, tone, notes, shapes }) {
 </script>
 
 <style>
+.keyboard {
+  user-select: none;
+}
+
 .container {
   list-style: none;
   display: grid;
@@ -123,11 +132,13 @@ function createKeyboard({ total, tone, notes, shapes }) {
   height: 100%;
 }
 
+.item:active,
 .item--active {
   transform: scale(0.8);
   transition: transform 0.1s;
 }
 
+.item:active .item__content,
 .item--active .item__content {
   transform: rotateY(360deg);
   transition: transform 0.25s;
