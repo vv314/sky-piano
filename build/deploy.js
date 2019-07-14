@@ -1,3 +1,4 @@
+const chalk = require('chalk')
 const ghpages = require('gh-pages')
 const { version } = require('../package.json')
 
@@ -9,10 +10,10 @@ ghpages.publish(
   },
   err => {
     if (err) {
-      console.log('deploy error!')
-      console.log(err.message)
+      console.log(chalk.red('deploy error!'))
+      console.log(chalk.red(err.message))
     }
 
-    console.log('deploy success!')
+    console.log(chalk.green('deploy success!'))
   }
 )
