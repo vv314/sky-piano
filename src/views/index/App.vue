@@ -10,6 +10,9 @@
 
 <script>
 import Keyboard from '~/components/Keyboard.vue'
+import getClientSize from '../../lib/clientSize'
+import wintip from '../../lib/wintip'
+import config from '../../config'
 
 export default {
   name: 'app',
@@ -20,7 +23,7 @@ export default {
     return {
       innerHeight: 0,
       innerWidth: 0,
-      version: '0.1.1'
+      version: config.version
     }
   },
   created() {
@@ -35,27 +38,56 @@ export default {
         screen.msOrientation ||
         screen.mozOrientation ||
         (screen.orientation || {}).type
+      const clientSize = getClientSize()
 
       if (
         orientation === 'portrait-secondary' ||
         orientation === 'portrait-primary'
       ) {
-        this.forceLandscape()
+        this.forceLandscape(clientSize)
       } else {
-        this.autoOrientation()
+        this.autoOrientation(clientSize)
       }
+
+      // screenInfo()
     },
-    forceLandscape() {
-      this.innerHeight = window.innerWidth
-      this.innerWidth = window.innerHeight
-      console.log('force landscape')
+    forceLandscape(clientSize) {
+      this.innerHeight = clientSize.width
+      this.innerWidth = clientSize.height
+      console.log(
+        'force landscape:',
+        'height',
+        this.innerHeight,
+        'width',
+        this.innerWidth
+      )
+      wintip.$('size')(
+        'force landscape:',
+        'height',
+        this.innerHeight,
+        'width',
+        this.innerWidth
+      )
     },
-    autoOrientation() {
-      const size = [window.innerHeight, window.innerWidth].sort((a, b) => a - b)
+    autoOrientation(clientSize) {
+      const size = [clientSize.height, clientSize.width].sort((a, b) => a - b)
 
       this.innerHeight = size[0]
       this.innerWidth = size[1]
-      console.log('auto orientation')
+      console.log(
+        'auto orientation:',
+        'height',
+        this.innerHeight,
+        'width',
+        this.innerWidth
+      )
+      wintip.$('size')(
+        'auto orientation:',
+        'height',
+        this.innerHeight,
+        'width',
+        this.innerWidth
+      )
     }
   }
 }
