@@ -71,7 +71,7 @@ export default {
   box-sizing: border-box;
   transform-style: preserve-3d;
   border: 1px solid #fefcb2;
-  box-shadow: 0px 0px 1px 1px #fefcb2;
+  box-shadow: 0px 0px 2px 0px #fefcb2;
 }
 
 .rect::after {
