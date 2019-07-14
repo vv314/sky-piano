@@ -41,7 +41,6 @@ export default {
     }
   },
   created() {
-    console.log('Init keyboard')
     console.table(createKeyboard(conf))
   },
   mounted() {
