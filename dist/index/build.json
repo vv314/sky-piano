@@ -1,14 +1,14 @@
 {
   "target": "web",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "env": "online",
   "debug": false,
   "marax": "2.5.0",
   "publicPath": "./",
   "manifest": {
-    "static/js/index.js": "./static/js/index.98a14252.js",
+    "static/js/index.js": "./static/js/index.128cb733.js",
     "static/js/vendors_index.js": "./static/js/vendors_index.f362cc56.chunk.js",
-    "static/css/index.css": "./static/css/index.0b01deb1.css",
+    "static/css/index.css": "./static/css/index.6f1a5e51.css",
     "dependencyGraph.json": "./dependencyGraph.json",
     "index.html": "./index.html",
     "manifest.json": "./manifest.json",
