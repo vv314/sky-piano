@@ -1,16 +1,13 @@
 <template>
-  <div
-    id="app"
-    :style="{ height: innerHeight + 'px', width: innerWidth + 'px' }"
-  >
-    <Keyboard />
+  <div id="app">
+    <Keyboard :stageWidth="stageWidth" />
     <span class="version">v{{ version }}</span>
   </div>
 </template>
 
 <script>
 import Keyboard from '~/components/Keyboard.vue'
-import getClientSize from '../../lib/clientSize'
+import { fixOrientation } from '../../lib/clientSize'
 import wintip from '../../lib/wintip'
 import config from '../../config'
 
@@ -21,74 +18,18 @@ export default {
   },
   data() {
     return {
-      innerHeight: 0,
-      innerWidth: 0,
+      stageWidth: fixOrientation().width,
       version: config.version
     }
   },
-  created() {
-    this.fixOrientation()
-
-    window.addEventListener('resize', this.fixOrientation.bind(this), false)
-  },
-  mounted() {},
-  methods: {
-    fixOrientation() {
-      const orientation =
-        screen.msOrientation ||
-        screen.mozOrientation ||
-        (screen.orientation || {}).type
-      const clientSize = getClientSize()
-
-      if (
-        orientation === 'portrait-secondary' ||
-        orientation === 'portrait-primary'
-      ) {
-        this.forceLandscape(clientSize)
-      } else {
-        this.autoOrientation(clientSize)
-      }
-
-      // screenInfo()
-    },
-    forceLandscape(clientSize) {
-      this.innerHeight = clientSize.width
-      this.innerWidth = clientSize.height
-      console.log(
-        'force landscape:',
-        'height',
-        this.innerHeight,
-        'width',
-        this.innerWidth
-      )
-      wintip.$('size')(
-        'force landscape:',
-        'height',
-        this.innerHeight,
-        'width',
-        this.innerWidth
-      )
-    },
-    autoOrientation(clientSize) {
-      const size = [clientSize.height, clientSize.width].sort((a, b) => a - b)
-
-      this.innerHeight = size[0]
-      this.innerWidth = size[1]
-      console.log(
-        'auto orientation:',
-        'height',
-        this.innerHeight,
-        'width',
-        this.innerWidth
-      )
-      wintip.$('size')(
-        'auto orientation:',
-        'height',
-        this.innerHeight,
-        'width',
-        this.innerWidth
-      )
-    }
+  mounted() {
+    window.addEventListener(
+      'resize',
+      () => {
+        this.stageWidth = fixOrientation().width
+      },
+      false
+    )
   }
 }
 </script>
@@ -106,11 +47,14 @@ body {
   right: 0;
   left: 0;
   bottom: 0;
+  transform-style: preserve-3d;
+  perspective: 900px;
 }
 
 #app {
-  height: 100%;
-  width: 100%;
+  float: left;
+  height: 100vmin;
+  width: 100vmax;
   position: absolute;
   left: 50%;
   top: 50%;
@@ -131,6 +75,7 @@ body {
   bottom: 5px;
   font-size: 14px;
   color: white;
+  opacity: 0.8;
 }
 
 @media screen and (orientation: portrait) {
