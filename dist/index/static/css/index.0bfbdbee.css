@@ -1,6 +1,6 @@
 /*!
- * @version 0.1.3
- * @date 2019-07-15
+ * @version 0.2.0
+ * @date 2019-07-16
  * @generated web
  */
 .fade-enter-active,
@@ -13,14 +13,66 @@
 .fade-leave-to {
   opacity: 0;
 }
-.btn-shape {
-  width: 100%;
+.note {
   height: 100%;
+  width: 100%;
+  padding: 10%;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+.note_content {
+  border-radius: 10px;
+  cursor: pointer;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  background-color: rgba(0, 0, 0, 0.2);
+}
+.note_content,
+.note_shape {
+  height: 100%;
+  width: 100%;
+  -webkit-transform-style: preserve-3d;
+  transform-style: preserve-3d;
+}
+.note_shape {
   position: relative;
   -webkit-animation: breathe 1s ease-in-out infinite alternate both;
   animation: breathe 1s ease-in-out infinite alternate both;
-  -webkit-transform-style: preserve-3d;
-  transform-style: preserve-3d;
+  -webkit-backface-visibility: visible;
+  backface-visibility: visible;
+}
+.note--active .note_content {
+  -webkit-transform: scale(0.8);
+  -ms-transform: scale(0.8);
+  transform: scale(0.8);
+  -webkit-transition: -webkit-transform 0.1s;
+  transition: -webkit-transform 0.1s;
+  -o-transition: transform 0.1s;
+  transition: transform 0.1s;
+  transition: transform 0.1s, -webkit-transform 0.1s;
+}
+.note--ani .note_shape {
+  -webkit-animation: rotateY 0.3s;
+  animation: rotateY 0.3s;
+}
+@-webkit-keyframes rotateY {
+  0% {
+    -webkit-transform: rotateY(0deg);
+    transform: rotateY(0deg);
+  }
+  to {
+    -webkit-transform: rotateY(1turn);
+    transform: rotateY(1turn);
+  }
+}
+@keyframes rotateY {
+  0% {
+    -webkit-transform: rotateY(0deg);
+    transform: rotateY(0deg);
+  }
+  to {
+    -webkit-transform: rotateY(1turn);
+    transform: rotateY(1turn);
+  }
 }
 @-webkit-keyframes breathe {
   0% {
@@ -47,9 +99,12 @@
   height: 100%;
   left: 50%;
   top: 50%;
+  float: left;
   -webkit-transform: translate(-50%, -50%);
   -ms-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
+  -webkit-transform-style: preserve-3d;
+  transform-style: preserve-3d;
   position: absolute;
   display: -webkit-box;
   display: -webkit-flex;
@@ -91,8 +146,6 @@
   height: 50%;
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
-  -webkit-transform-style: preserve-3d;
-  transform-style: preserve-3d;
   border: 1px solid #fefcb2;
   -webkit-box-shadow: 0 0 2px 0 #fefcb2;
   box-shadow: 0 0 2px 0 #fefcb2;
@@ -105,56 +158,32 @@
 .cicle:after {
   border-radius: 50%;
 }
-.keyboard {
+.main {
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
+  margin-top: 2%;
 }
-.container {
+.keyboard {
+  height: 68vmin;
+  max-height: 380px;
+  width: 113.33333vmin;
+  max-width: 633.33333px;
   list-style: none;
-  display: grid;
-  margin-top: 40px;
-  grid-template-columns: repeat(5, 60px);
-  grid-template-rows: repeat(3, 60px);
-  -webkit-box-pack: center;
-  -webkit-justify-content: center;
-  -ms-flex-pack: center;
-  justify-content: center;
-  grid-gap: 20px;
+  margin: 0 auto;
 }
-.item {
-  cursor: pointer;
+.keyboard:after,
+.keyboard:before {
+  display: block;
+  content: '';
+  clear: both;
+}
+.keyboard li {
+  width: 20%;
+  height: 33.33333%;
+  float: left;
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
-  border-radius: 10px;
-  -webkit-transform-style: preserve-3d;
-  transform-style: preserve-3d;
-  background-color: rgba(0, 0, 0, 0.2);
-}
-.item__content {
-  width: 100%;
-  height: 100%;
-}
-.item--active,
-.item:active {
-  -webkit-transform: scale(0.8);
-  -ms-transform: scale(0.8);
-  transform: scale(0.8);
-  -webkit-transition: -webkit-transform 0.1s;
-  transition: -webkit-transform 0.1s;
-  -o-transition: transform 0.1s;
-  transition: transform 0.1s;
-  transition: transform 0.1s, -webkit-transform 0.1s;
-}
-.item--active .item__content,
-.item:active .item__content {
-  -webkit-transform: rotateY(1turn);
-  transform: rotateY(1turn);
-  -webkit-transition: -webkit-transform 0.25s;
-  transition: -webkit-transform 0.25s;
-  -o-transition: transform 0.25s;
-  transition: transform 0.25s;
-  transition: transform 0.25s, -webkit-transform 0.25s;
 }
 .pipline {
   height: 100px;
@@ -170,10 +199,15 @@ body {
   right: 0;
   left: 0;
   bottom: 0;
+  -webkit-transform-style: preserve-3d;
+  transform-style: preserve-3d;
+  -webkit-perspective: 900px;
+  perspective: 900px;
 }
 #app {
-  height: 100%;
-  width: 100%;
+  float: left;
+  height: 100vmin;
+  width: 100vmax;
   position: absolute;
   left: 50%;
   top: 50%;
@@ -195,6 +229,7 @@ body {
   bottom: 5px;
   font-size: 14px;
   color: #fff;
+  opacity: 0.8;
 }
 @media screen and (orientation: portrait) {
   #app {
