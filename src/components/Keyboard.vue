@@ -1,26 +1,31 @@
 <template>
-  <div class="keyboard">
-    <ul class="container">
+  <div class="main">
+    <ul class="keyboard">
       <li
-        class="item"
         v-for="item in list"
-        :ref="'k_' + item.index"
         @mousedown="tap(item, $event)"
+        @mouseup="tapEnd(item, $event)"
         @touchstart="tap(item, $event)"
         @touchend="tapEnd(item, $event)"
       >
-        <div class="item__content">
-          <Item :type="item.shape" />
-        </div>
+        <Item :ref="'n_' + item.index" :type="item.shape" />
       </li>
     </ul>
-    <div class="pipline"></div>
+    <Waveline
+      ref="waveline"
+      :amplitude="amplitude"
+      :speed="waveSpeed"
+      :width="stageWidth"
+    />
   </div>
 </template>
 
 <script>
 import Item from './Item.vue'
+import Waveline from './Waveline.vue'
 import SmapleLibrary from '../lib/Tonejs-Instruments'
+import Stopwatch from '../lib/Stopwatch'
+import wintip from '../lib/wintip'
 
 const conf = {
   total: 15,
@@ -31,12 +36,18 @@ const conf = {
 
 export default {
   name: 'Keyboard',
+  props: ['stageWidth'],
   components: {
-    Item
+    Item,
+    Waveline
   },
   data() {
     return {
       hasTouchEvt: false,
+      amplitude: 0.5,
+      waveSpeed: 0.01,
+      rateTimer: 3500,
+      stopwatch: new Stopwatch(),
       list: createKeyboard(conf)
     }
   },
@@ -47,43 +58,82 @@ export default {
     this.synth = SmapleLibrary.load({
       instruments: 'piano'
     }).toMaster()
+
+    // 开启心跳监测，计算点击速率
+    this.initRateRecord()
+    this.$refs.waveline.start()
   },
   methods: {
     play(note) {
       this.synth.triggerAttackRelease(note, '1n')
     },
     // 不要使用 prevent 阻止事件传播，以确保 click 能正常触发
-    tap(item, evt) {
+    // touchstart -> touchend -> mousedown -> mouseup -> click
+    tap({ index, note }, evt) {
       const isTouchEvt = evt.type === 'touchstart'
 
-      // 标识触屏
       if (isTouchEvt) {
-        this.hasTouchEvt = true
+        this.markTouchScreen()
       }
 
-      // if (this.hasTouchEvt && !isTouchEvt) return
+      if (this.hasTouchEvt && !isTouchEvt) return
 
-      if (this.hasTouchEvt) {
-        // 触屏下接收但忽略 click 事件处理
-        if (!isTouchEvt) return
+      this.getNoteIns(index).tapdown()
+      this.setWave(0.5 + (index + 1) / 5, this.heartRate())
+      this.play(note)
 
-        const el = this.$refs[`k_${item.index}`][0]
-
-        el.classList.add('item--active')
-      }
-
-      console.log(isTouchEvt ? 'tap' : 'click', item.note)
-      this.play(item.note)
+      const log = [
+        isTouchEvt ? 'tap' : 'click',
+        `{${evt.target.className}}`,
+        note
+      ]
+      console.log.apply(console, log)
+      wintip.$('event').apply(null, log)
     },
-    tapEnd(item) {
-      const el = this.$refs[`k_${item.index}`][0]
-      el.classList.remove('item--active')
+    tapEnd({ index }, evt) {
+      const isTouchEvt = evt.type === 'touchend'
+
+      if (this.hasTouchEvt && !isTouchEvt) return
+
+      this.getNoteIns(index).tapup()
+    },
+    markTouchScreen() {
+      this.hasTouchEvt = true
+    },
+    getNoteIns(index) {
+      return this.$refs[`n_${index}`][0]
+    },
+    initRateRecord() {
+      this.stopwatch.start()
+
+      setInterval(() => {
+        this.setWave(0.5, this.heartRate())
+      }, this.rateTimer)
+    },
+    heartRate() {
+      const rate = this.stopwatch.tick().checkBeats('fps', 5)
+      const maxRate = 5
+      const limitVal = 5
+
+      if (rate > maxRate) return limitVal
+
+      const val = ((limitVal - 1) / maxRate) * rate + 1
+
+      // range 1 ~ limitVal
+      return Number(val.toFixed(3))
+    },
+    setWave(amplitude, speedRatio = 1) {
+      const waveline = this.$refs.waveline
+      const speed = this.waveSpeed * speedRatio
+
+      if (!waveline) return
+
+      waveline.setSpeed(speed)
+
+      console.log('wave beats', amplitude, speedRatio)
+      wintip.$('wave')('amp:', amplitude, 'speed:', speedRatio)
     }
   }
-}
-
-function random(max = 1, min = 0) {
-  return Math.floor(Math.random() * (max - min + 1) + min)
 }
 
 function createKeyboard({ total, tone, notes, shapes }) {
@@ -104,43 +154,33 @@ function createKeyboard({ total, tone, notes, shapes }) {
 </script>
 
 <style>
-.keyboard {
+.main {
   user-select: none;
+  margin-top: 2%;
 }
 
-.container {
+.keyboard {
+  height: 68vmin;
+  max-height: 380px;
+  width: calc(68vmin / 3 * 5);
+  max-width: calc(380px / 3 * 5);
   list-style: none;
-  display: grid;
-  margin-top: 40px;
-  grid-template-columns: repeat(5, 60px);
-  grid-template-rows: repeat(3, 60px);
-  justify-content: center;
-  grid-gap: 20px;
+  margin: 0 auto;
+  /*outline: 1px dashed #fff;*/
 }
 
-.item {
-  cursor: pointer;
+.keyboard::before,
+.keyboard::after {
+  display: block;
+  content: '';
+  clear: both;
+}
+
+.keyboard li {
+  width: calc(100% / 5);
+  height: calc(100% / 3);
+  float: left;
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
-  border-radius: 10px;
-  transform-style: preserve-3d;
-  background-color: rgba(0, 0, 0, 0.2);
-}
-
-.item__content {
-  width: 100%;
-  height: 100%;
-}
-
-.item:active,
-.item--active {
-  transform: scale(0.8);
-  transition: transform 0.1s;
-}
-
-.item:active .item__content,
-.item--active .item__content {
-  transform: rotateY(360deg);
-  transition: transform 0.25s;
 }
 
 .pipline {
