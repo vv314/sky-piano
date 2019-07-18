@@ -1,6 +1,6 @@
 <template>
-  <div>
-    <form class="bg-btn">
+  <form class="input-form">
+    <label class="bg-btn">
       <svg
         class="bg-icon"
         viewBox="0 0 1024 1024"
@@ -24,8 +24,8 @@
         accept="image/gif,image/jpeg,image/jpg,image/png"
         @change="getImg"
       />
-    </form>
-  </div>
+    </label>
+  </form>
 </template>
 
 <script>
@@ -56,10 +56,17 @@ export default {
 </script>
 
 <style>
-.bg-btn {
-  position: relative;
+.input-form {
   height: 32px;
   width: 32px;
+  display: block;
+}
+
+.bg-btn {
+  width: 100%;
+  height: 100%;
+  display: block;
+  position: relative;
   border: 0px solid #fefcb2;
   /*border-radius: 50%;*/
   overflow: hidden;
@@ -69,16 +76,13 @@ export default {
 }
 
 .bg-btn:active {
-  background-color: rgba(0, 0, 0, 0.4);
+  background-color: rgba(0, 0, 0, 0.6);
 }
 
 .bg-btn input {
-  position: absolute;
-  left: 0;
-  top: 0;
   opacity: 0;
-  height: 100%;
-  width: 100%;
+  height: 0;
+  width: 0;
 }
 
 .bg-icon {

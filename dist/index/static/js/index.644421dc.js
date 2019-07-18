@@ -78,30 +78,35 @@
   ;(n.push = g), (n = n.slice())
   for (var a = 0; a < n.length; a++) g(n[a])
   var r = m
-  s.push([65, 1]), o()
+  s.push([67, 1]), o()
 })({
-  114: function(t, g, o) {
+  116: function(t, g, o) {
     'use strict'
     var e = o(25)
     o.n(e).a
   },
-  115: function(t, g, o) {
+  117: function(t, g, o) {
     'use strict'
     var e = o(26)
     o.n(e).a
   },
-  116: function(t, g, o) {
+  118: function(t, g, o) {
     'use strict'
     var e = o(27)
     o.n(e).a
   },
-  117: function(t, g, o) {
+  119: function(t, g, o) {
+    'use strict'
+    var e = o(28)
+    o.n(e).a
+  },
+  120: function(t, g, o) {
     'use strict'
     o.r(g)
-    var e = o(40),
-      i = o(64),
-      s = o(62),
-      p = o(63)
+    var e = o(41),
+      i = o(66),
+      s = o(63),
+      p = o(64)
     function n(t, g) {
       var o = t.reduce(function(t, g) {
         return t + g
@@ -231,7 +236,7 @@
           }
         }
       },
-      h = (o(114), o(7)),
+      h = (o(116), o(4)),
       c = Object(h.a)(
         r,
         function() {
@@ -421,7 +426,7 @@
           }
         }
       },
-      A = Object(h.a)(
+      f = Object(h.a)(
         d,
         function() {
           var t = this.$createElement
@@ -433,8 +438,8 @@
         null,
         null
       ).exports,
-      f = o(17),
-      C = o.n(f)
+      A = o(17),
+      C = o.n(A)
     document.querySelector('body').addEventListener(
       'click',
       function() {
@@ -1052,18 +1057,18 @@
           C6: 'C6.[mp3|ogg]'
         }
       },
-      F = o(39),
+      F = o(40),
       G = o.n(F)
-    var w = {
+    var b = {
       isDebug: (function(t) {
         var g = new RegExp('(^|&)' + t + '=([^&]*)(&|$)'),
           o = window.location.search.substr(1).match(g)
         return null === o ? null : decodeURI(o[2])
       })('__debug'),
-      version: '0.2.0'
+      version: '0.3.0'
     }
-    G.a.config({ output: w.isDebug && 'default', color: '#fff' })
-    var b = G.a,
+    G.a.config({ output: b.isDebug && 'default', color: '#fff' })
+    var w = G.a,
       E = {
         total: 15,
         tone: 4,
@@ -1086,85 +1091,221 @@
       })
     }
     var _ = {
-      name: 'Keyboard',
-      props: ['stageWidth'],
-      components: { Item: c, Waveline: A },
-      data: function() {
-        return {
-          hasTouchEvt: !1,
-          amplitude: 0.5,
-          waveSpeed: 0.01,
-          rateTimer: 3500,
-          stopwatch: new a(),
-          list: y(E)
-        }
-      },
-      created: function() {
-        console.table(y(E))
-      },
-      mounted: function() {
-        ;(this.synth = D.load({ instruments: 'piano' }).toMaster()),
-          this.initRateRecord(),
-          this.$refs.waveline.start()
-      },
-      methods: {
-        play: function(t) {
-          this.synth.triggerAttackRelease(t, '1n')
-        },
-        tap: function(t, g) {
-          var o = t.index,
-            e = t.note,
-            i = 'touchstart' === g.type
-          if ((i && this.markTouchScreen(), !this.hasTouchEvt || i)) {
-            this.getNoteIns(o).tapdown(),
-              this.setWave(0.5 + (o + 1) / 5, this.heartRate()),
-              this.play(e)
-            var s = [
-              i ? 'tap' : 'click',
-              '{'.concat(g.target.className, '}'),
-              e
-            ]
-            console.log.apply(console, s), b.$('event').apply(null, s)
+        name: 'Keyboard',
+        props: ['stageWidth'],
+        components: { Item: c, Waveline: f },
+        data: function() {
+          return {
+            hasTouchEvt: !1,
+            amplitude: 0.5,
+            waveSpeed: 0.01,
+            rateTimer: 3500,
+            stopwatch: new a(),
+            list: y(E)
           }
         },
-        tapEnd: function(t, g) {
-          var o = t.index,
-            e = 'touchend' === g.type
-          ;(this.hasTouchEvt && !e) || this.getNoteIns(o).tapup()
+        created: function() {
+          console.table(y(E))
         },
-        markTouchScreen: function() {
-          this.hasTouchEvt = !0
+        mounted: function() {
+          ;(this.synth = D.load({ instruments: 'piano' }).toMaster()),
+            this.initRateRecord(),
+            this.$refs.waveline.start()
         },
-        getNoteIns: function(t) {
-          return this.$refs['n_'.concat(t)][0]
-        },
-        initRateRecord: function() {
-          var t = this
-          this.stopwatch.start(),
-            setInterval(function() {
-              t.setWave(0.5, t.heartRate())
-            }, this.rateTimer)
-        },
-        heartRate: function() {
-          var t = this.stopwatch.tick().checkBeats('fps', 5)
-          return t > 5 ? 5 : Number((0.8 * t + 1).toFixed(3))
-        },
-        setWave: function(t) {
-          var g =
-              arguments.length > 1 && void 0 !== arguments[1]
-                ? arguments[1]
-                : 1,
-            o = this.$refs.waveline,
-            e = this.waveSpeed * g
-          o &&
-            (o.setSpeed(e),
-            console.log('wave beats', t, g),
-            b.$('wave')('amp:', t, 'speed:', g))
+        methods: {
+          play: function(t) {
+            this.synth.triggerAttackRelease(t, '1n')
+          },
+          tap: function(t, g) {
+            var o = t.index,
+              e = t.note,
+              i = 'touchstart' === g.type
+            if ((i && this.markTouchScreen(), !this.hasTouchEvt || i)) {
+              this.getNoteIns(o).tapdown(),
+                this.setWave(0.5 + (o + 1) / 5, this.heartRate()),
+                this.play(e)
+              var s = [
+                i ? 'tap' : 'click',
+                '{'.concat(g.target.className, '}'),
+                e
+              ]
+              console.log.apply(console, s), w.$('event').apply(null, s)
+            }
+          },
+          tapEnd: function(t, g) {
+            var o = t.index,
+              e = 'touchend' === g.type
+            ;(this.hasTouchEvt && !e) || this.getNoteIns(o).tapup()
+          },
+          markTouchScreen: function() {
+            this.hasTouchEvt = !0
+          },
+          getNoteIns: function(t) {
+            return this.$refs['n_'.concat(t)][0]
+          },
+          initRateRecord: function() {
+            var t = this
+            this.stopwatch.start(),
+              setInterval(function() {
+                t.setWave(0.5, t.heartRate())
+              }, this.rateTimer)
+          },
+          heartRate: function() {
+            var t = this.stopwatch.tick().checkBeats('fps', 5)
+            return t > 5 ? 5 : Number((0.8 * t + 1).toFixed(3))
+          },
+          setWave: function(t) {
+            var g =
+                arguments.length > 1 && void 0 !== arguments[1]
+                  ? arguments[1]
+                  : 1,
+              o = this.$refs.waveline,
+              e = this.waveSpeed * g
+            o &&
+              (o.setSpeed(e),
+              console.log('wave beats', t, g),
+              w.$('wave')('amp:', t, 'speed:', g))
+          }
         }
-      }
-    }
-    o(115)
-    function x() {
+      },
+      x =
+        (o(117),
+        Object(h.a)(
+          _,
+          function() {
+            var t = this,
+              g = t.$createElement,
+              o = t._self._c || g
+            return o(
+              'div',
+              { staticClass: 'main' },
+              [
+                o(
+                  'ul',
+                  { staticClass: 'keyboard' },
+                  t._l(t.list, function(g) {
+                    return o(
+                      'li',
+                      {
+                        on: {
+                          mousedown: function(o) {
+                            return t.tap(g, o)
+                          },
+                          mouseup: function(o) {
+                            return t.tapEnd(g, o)
+                          },
+                          touchstart: function(o) {
+                            return t.tap(g, o)
+                          },
+                          touchend: function(o) {
+                            return t.tapEnd(g, o)
+                          }
+                        }
+                      },
+                      [
+                        o('Item', {
+                          ref: 'n_' + g.index,
+                          refInFor: !0,
+                          attrs: { type: g.shape }
+                        })
+                      ],
+                      1
+                    )
+                  }),
+                  0
+                ),
+                o('Waveline', {
+                  ref: 'waveline',
+                  attrs: {
+                    amplitude: t.amplitude,
+                    speed: t.waveSpeed,
+                    width: t.stageWidth
+                  }
+                })
+              ],
+              1
+            )
+          },
+          [],
+          !1,
+          null,
+          null,
+          null
+        ).exports),
+      B = {
+        data: function() {
+          return { files: [] }
+        },
+        methods: {
+          getImg: function() {
+            var t = this,
+              g = this.$refs.fileInput.files[0],
+              o = new FileReader()
+            g &&
+              ((o.onload = function(g) {
+                var o = g.target.result
+                t.$emit('get-bg', o)
+              }),
+              o.readAsDataURL(g))
+          }
+        }
+      },
+      k =
+        (o(118),
+        Object(h.a)(
+          B,
+          function() {
+            var t = this.$createElement,
+              g = this._self._c || t
+            return g('form', { staticClass: 'input-form' }, [
+              g('label', { staticClass: 'bg-btn' }, [
+                g(
+                  'svg',
+                  {
+                    staticClass: 'bg-icon',
+                    attrs: {
+                      viewBox: '0 0 1024 1024',
+                      version: '1.1',
+                      xmlns: 'http://www.w3.org/2000/svg'
+                    }
+                  },
+                  [
+                    g('path', {
+                      attrs: {
+                        d:
+                          'M928 160H96c-17.7 0-32 14.3-32 32v640c0 17.7 14.3 32 32 32h832c17.7 0 32-14.3 32-32V192c0-17.7-14.3-32-32-32z m-40 632H136v-39.9l138.5-164.3 150.1 178L658.1 489 888 761.6V792z m0-129.8L664.2 396.8c-3.2-3.8-9-3.8-12.2 0L424.6 666.4l-144-170.7c-3.2-3.8-9-3.8-12.2 0L136 652.7V232h752v430.2z',
+                        'p-id': '7970',
+                        fill: '#fefcb2'
+                      }
+                    }),
+                    g('path', {
+                      attrs: {
+                        d:
+                          'M304 456c48.6 0 88-39.4 88-88s-39.4-88-88-88-88 39.4-88 88 39.4 88 88 88z m0-116c15.5 0 28 12.5 28 28s-12.5 28-28 28-28-12.5-28-28 12.5-28 28-28z',
+                        'p-id': '7971',
+                        fill: '#fefcb2'
+                      }
+                    })
+                  ]
+                ),
+                g('input', {
+                  ref: 'fileInput',
+                  attrs: {
+                    type: 'file',
+                    accept: 'image/gif,image/jpeg,image/jpg,image/png'
+                  },
+                  on: { change: this.getImg }
+                })
+              ])
+            ])
+          },
+          [],
+          !1,
+          null,
+          null,
+          null
+        ).exports)
+    function T() {
       var t =
           screen.msOrientation ||
           screen.mozOrientation ||
@@ -1184,7 +1325,7 @@
                 'width',
                 g.width
               ),
-              b.$('screen')('force,', 'height', g.height, 'width', g.width),
+              w.$('screen')('force,', 'height', g.height, 'width', g.width),
               g
             )
           })(g)
@@ -1201,106 +1342,62 @@
                 'width',
                 o.width
               ),
-              b.$('screen')('auto,', 'height', o.height, 'width', o.width),
+              w.$('screen')('auto,', 'height', o.height, 'width', o.width),
               o
             )
           })(g)
     }
-    var B = {
+    var O = o(65),
+      j = o.n(O),
+      M = {
         name: 'app',
-        components: {
-          Keyboard: Object(h.a)(
-            _,
-            function() {
-              var t = this,
-                g = t.$createElement,
-                o = t._self._c || g
-              return o(
-                'div',
-                { staticClass: 'main' },
-                [
-                  o(
-                    'ul',
-                    { staticClass: 'keyboard' },
-                    t._l(t.list, function(g) {
-                      return o(
-                        'li',
-                        {
-                          on: {
-                            mousedown: function(o) {
-                              return t.tap(g, o)
-                            },
-                            mouseup: function(o) {
-                              return t.tapEnd(g, o)
-                            },
-                            touchstart: function(o) {
-                              return t.tap(g, o)
-                            },
-                            touchend: function(o) {
-                              return t.tapEnd(g, o)
-                            }
-                          }
-                        },
-                        [
-                          o('Item', {
-                            ref: 'n_' + g.index,
-                            refInFor: !0,
-                            attrs: { type: g.shape }
-                          })
-                        ],
-                        1
-                      )
-                    }),
-                    0
-                  ),
-                  o('Waveline', {
-                    ref: 'waveline',
-                    attrs: {
-                      amplitude: t.amplitude,
-                      speed: t.waveSpeed,
-                      width: t.stageWidth
-                    }
-                  })
-                ],
-                1
-              )
-            },
-            [],
-            !1,
-            null,
-            null,
-            null
-          ).exports
-        },
+        components: { Keyboard: x, SetBg: k },
         data: function() {
-          return { stageWidth: x().width, version: w.version }
+          return { stageWidth: T().width, version: b.version, bgUrl: j.a }
+        },
+        created: function() {
+          var t = localStorage.getItem('bgUrl')
+          t && (this.bgUrl = t)
         },
         mounted: function() {
           var t = this
           window.addEventListener(
             'resize',
             function() {
-              t.stageWidth = x().width
+              t.stageWidth = T().width
             },
             !1
           )
+        },
+        methods: {
+          changeBg: function(t) {
+            ;(this.bgUrl = t), localStorage.setItem('bgUrl', t)
+          }
         }
       },
-      k =
-        (o(116),
+      S =
+        (o(119),
         Object(h.a)(
-          B,
+          M,
           function() {
             var t = this.$createElement,
               g = this._self._c || t
             return g(
               'div',
-              { attrs: { id: 'app' } },
+              {
+                style: { backgroundImage: 'url(' + this.bgUrl + ')' },
+                attrs: { id: 'app' }
+              },
               [
                 g('Keyboard', { attrs: { stageWidth: this.stageWidth } }),
+                g('SetBg', {
+                  staticClass: 'set-bg',
+                  on: { 'get-bg': this.changeBg }
+                }),
                 g('span', { staticClass: 'version' }, [
                   this._v('v' + this._s(this.version))
-                ])
+                ]),
+                g('div')
               ],
               1
             )
@@ -1314,14 +1411,18 @@
     ;(e.a.config.productionTip = !1),
       new e.a({
         render: function(t) {
-          return t(k)
+          return t(S)
         }
       }).$mount('#app')
   },
   25: function(t, g, o) {},
   26: function(t, g, o) {},
   27: function(t, g, o) {},
+  28: function(t, g, o) {},
   65: function(t, g, o) {
-    o(66), (t.exports = o(117))
+    t.exports = o.p + 'static/img/bg.d24257d1.jpg'
+  },
+  67: function(t, g, o) {
+    o(68), (t.exports = o(120))
   }
 })
