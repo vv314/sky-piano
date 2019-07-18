@@ -1,25 +1,38 @@
 <template>
-  <div id="app">
+  <div id="app" :style="{ backgroundImage: `url(${bgUrl})` }">
     <Keyboard :stageWidth="stageWidth" />
+    <SetBg class="set-bg" @get-bg="changeBg" />
     <span class="version">v{{ version }}</span>
+    <div></div>
   </div>
 </template>
 
 <script>
 import Keyboard from '~/components/Keyboard.vue'
+import SetBg from '~/components/SetBg.vue'
 import { fixOrientation } from '../../lib/clientSize'
+import defaultBgUrl from '../../assets/bg.jpg'
 import wintip from '../../lib/wintip'
 import config from '../../config'
 
 export default {
   name: 'app',
   components: {
-    Keyboard
+    Keyboard,
+    SetBg
   },
   data() {
     return {
       stageWidth: fixOrientation().width,
-      version: config.version
+      version: config.version,
+      bgUrl: defaultBgUrl
+    }
+  },
+  created() {
+    const bgUrl = localStorage.getItem('bgUrl')
+
+    if (bgUrl) {
+      this.bgUrl = bgUrl
     }
   },
   mounted() {
@@ -30,6 +43,12 @@ export default {
       },
       false
     )
+  },
+  methods: {
+    changeBg(url) {
+      this.bgUrl = url
+      localStorage.setItem('bgUrl', url)
+    }
   }
 }
 </script>
@@ -58,6 +77,8 @@ body {
   position: absolute;
   left: 50%;
   top: 50%;
+  font-size: 14px;
+  color: white;
   transform: translate(-50%, -50%);
   position: relative;
   text-align: center;
@@ -65,16 +86,23 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  background: url(../../assets/bg.jpg) no-repeat center/100%;
+  background-color: #333;
+  background-position: center;
   background-size: cover;
+  background-repeat: no-repeat;
+  transition: background-image 1s;
+}
+
+.set-bg {
+  position: absolute;
+  right: 20px;
+  top: 20px;
 }
 
 .version {
   position: absolute;
   right: 15px;
   bottom: 5px;
-  font-size: 14px;
-  color: white;
   opacity: 0.8;
 }
 
