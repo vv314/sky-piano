@@ -8,20 +8,20 @@
         @touchstart="tap(item, $event)"
         @touchend="tapEnd(item, $event)"
       >
-        <Item :ref="'n_' + item.index" :type="item.shape" />
+        <Note :ref="'n_' + item.index" :type="item.shape" />
       </li>
     </ul>
     <Waveline
       ref="waveline"
       :amplitude="amplitude"
       :speed="waveSpeed"
-      :width="stageWidth"
+      :width="stageSize.width"
     />
   </div>
 </template>
 
 <script>
-import Item from './Item.vue'
+import Note from './Note.vue'
 import Waveline from './Waveline.vue'
 import SmapleLibrary from '../lib/Tonejs-Instruments'
 import Stopwatch from '../lib/Stopwatch'
@@ -30,15 +30,15 @@ import wintip from '../lib/wintip'
 const conf = {
   total: 15,
   tone: 4,
-  shapes: ['muti', 'rect', 'cicle'],
+  shapes: ['muti', 'rect', 'circle'],
   notes: ['C', 'D', 'E', 'F', 'G', 'A', 'B']
 }
 
 export default {
   name: 'Keyboard',
-  props: ['stageWidth'],
+  props: ['stageSize'],
   components: {
-    Item,
+    Note,
     Waveline
   },
   data() {
@@ -46,7 +46,7 @@ export default {
       hasTouchEvt: false,
       amplitude: 0.5,
       waveSpeed: 0.01,
-      rateTimer: 3500,
+      rateTimer: 3000,
       stopwatch: new Stopwatch(),
       list: createKeyboard(conf)
     }
@@ -84,7 +84,7 @@ export default {
 
       const log = [
         isTouchEvt ? 'tap' : 'click',
-        `{${evt.target.className}}`,
+        // `{${evt.target.className}}`,
         note
       ]
       console.log.apply(console, log)
@@ -166,7 +166,7 @@ function createKeyboard({ total, tone, notes, shapes }) {
   max-width: calc(380px / 3 * 5);
   list-style: none;
   margin: 0 auto;
-  /*outline: 1px dashed #fff;*/
+  /*outline: 2px dashed #fefcb2;*/
 }
 
 .keyboard::before,
