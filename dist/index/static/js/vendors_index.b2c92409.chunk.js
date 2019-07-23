@@ -28,18 +28,12 @@
     },
     function(t, e, i) {
       var n = i(49),
-        o = i(3),
+        o = i(4),
         r = i(55),
         s = i(7).f
       t.exports = function(t) {
         var e = n.Symbol || (n.Symbol = {})
         o(e, t) || s(e, t, { value: r.f(t) })
-      }
-    },
-    function(t, e) {
-      var i = {}.hasOwnProperty
-      t.exports = function(t, e) {
-        return i.call(t, e)
       }
     },
     function(t, e, i) {
@@ -88,6 +82,12 @@
       i.d(e, 'a', function() {
         return n
       })
+    },
+    function(t, e) {
+      var i = {}.hasOwnProperty
+      t.exports = function(t, e) {
+        return i.call(t, e)
+      }
     },
     function(t, e) {
       t.exports = function(t) {
@@ -222,7 +222,7 @@
     },
     function(t, e, i) {
       var n = i(7).f,
-        o = i(3),
+        o = i(4),
         r = i(1)('toStringTag')
       t.exports = function(t, e, i) {
         t &&
@@ -15049,7 +15049,7 @@
       var n = i(0),
         o = i(14),
         r = i(9),
-        s = i(3),
+        s = i(4),
         a = i(33),
         u = i(46),
         l = i(34),
@@ -15122,7 +15122,7 @@
         r = i(12),
         s = i(13),
         a = i(18),
-        u = i(3),
+        u = i(4),
         l = i(44),
         c = Object.getOwnPropertyDescriptor
       e.f = n
@@ -15167,7 +15167,7 @@
         a = i(0),
         u = i(6),
         l = i(9),
-        c = i(3),
+        c = i(4),
         h = i(21),
         p = i(22),
         f = a.WeakMap
@@ -19471,7 +19471,7 @@
       t.exports = n('native-function-to-string', Function.toString)
     },
     function(t, e, i) {
-      var n = i(3),
+      var n = i(4),
         o = i(71),
         r = i(30),
         s = i(7)
@@ -19498,7 +19498,7 @@
       t.exports = i(0)
     },
     function(t, e, i) {
-      var n = i(3),
+      var n = i(4),
         o = i(13),
         r = i(72).indexOf,
         s = i(22)
@@ -19668,7 +19668,7 @@
         r,
         s = i(61),
         a = i(9),
-        u = i(3),
+        u = i(4),
         l = i(1),
         c = i(20),
         h = l('iterator'),
@@ -19686,7 +19686,7 @@
         (t.exports = { IteratorPrototype: n, BUGGY_SAFARI_ITERATORS: p })
     },
     function(t, e, i) {
-      var n = i(3),
+      var n = i(4),
         o = i(15),
         r = i(21),
         s = i(109),
@@ -19914,7 +19914,7 @@
         s = i(8),
         a = i(52),
         u = i(5),
-        l = i(3),
+        l = i(4),
         c = i(39),
         h = i(6),
         p = i(10),
@@ -20362,7 +20362,7 @@
       var n = i(11),
         o = i(8),
         r = i(0),
-        s = i(3),
+        s = i(4),
         a = i(6),
         u = i(7).f,
         l = i(47),
