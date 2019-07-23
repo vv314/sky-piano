@@ -37,24 +37,8 @@
 
 <script>
 import createKeyframes from '../lib/createKeyframes'
+import getSvgPathLength from '../lib/getSvgPathLength'
 import { random } from '../lib/util'
-
-function getPathLength(shape, el) {
-  const len = el.getTotalLength()
-
-  // safari 不支持 SVGGeometryElement.getTotalLength
-  if (len) return len
-
-  if (shape === 'circle') {
-    const r = el.r.baseVal.value
-
-    return 2 * Math.PI * r
-  } else {
-    const width = el.width.baseVal.value
-
-    return 4 * width
-  }
-}
 
 export default {
   props: ['shape'],
@@ -83,12 +67,12 @@ export default {
   mounted() {
     const shape = this.shape || 'circle'
 
-    this.length = Math.ceil(getPathLength(shape, this.$refs.path))
+    this.length = Math.ceil(getSvgPathLength(shape, this.$refs.path))
 
     window.addEventListener(
       'resize',
       () => {
-        this.length = Math.ceil(getPathLength(shape, this.$refs.path))
+        this.length = Math.ceil(getSvgPathLength(shape, this.$refs.path))
       },
       false
     )

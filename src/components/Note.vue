@@ -1,12 +1,12 @@
 <template>
   <div class="note" :class="activeClass">
     <div class="note_content">
-      <transition appear name="fade">
-        <div class="note_shape">
-          <Shape v-if="type === 'muti' || type === 'circle'" shape="circle" />
-          <Shape v-if="type === 'muti' || type === 'rect'" shape="rect" />
-        </div>
-      </transition>
+      <!-- <transition appear name="fade"> -->
+      <div class="note_shape">
+        <Shape v-if="type === 'muti' || type === 'circle'" shape="circle" />
+        <Shape v-if="type === 'muti' || type === 'rect'" shape="rect" />
+      </div>
+      <!-- </transition> -->
     </div>
   </div>
 </template>
