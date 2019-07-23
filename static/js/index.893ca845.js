@@ -1,65 +1,65 @@
 !(function(t) {
-  function g(g) {
+  function e(e) {
     for (
-      var e, p, n = g[0], m = g[1], a = g[2], h = 0, c = [];
-      h < n.length;
+      var o, n, p = e[0], a = e[1], r = e[2], h = 0, c = [];
+      h < p.length;
       h++
     )
-      (p = n[h]), i[p] && c.push(i[p][0]), (i[p] = 0)
-    for (e in m) Object.prototype.hasOwnProperty.call(m, e) && (t[e] = m[e])
-    for (r && r(g); c.length; ) c.shift()()
-    return s.push.apply(s, a || []), o()
+      (n = p[h]), s[n] && c.push(s[n][0]), (s[n] = 0)
+    for (o in a) Object.prototype.hasOwnProperty.call(a, o) && (t[o] = a[o])
+    for (m && m(e); c.length; ) c.shift()()
+    return i.push.apply(i, r || []), g()
   }
-  function o() {
-    for (var t, g = 0; g < s.length; g++) {
-      for (var o = s[g], e = !0, n = 1; n < o.length; n++) {
-        var m = o[n]
-        0 !== i[m] && (e = !1)
+  function g() {
+    for (var t, e = 0; e < i.length; e++) {
+      for (var g = i[e], o = !0, p = 1; p < g.length; p++) {
+        var a = g[p]
+        0 !== s[a] && (o = !1)
       }
-      e && (s.splice(g--, 1), (t = p((p.s = o[0]))))
+      o && (i.splice(e--, 1), (t = n((n.s = g[0]))))
     }
     return t
   }
-  var e = {},
-    i = { 0: 0 },
-    s = []
-  function p(g) {
-    if (e[g]) return e[g].exports
-    var o = (e[g] = { i: g, l: !1, exports: {} })
-    return t[g].call(o.exports, o, o.exports, p), (o.l = !0), o.exports
+  var o = {},
+    s = { 0: 0 },
+    i = []
+  function n(e) {
+    if (o[e]) return o[e].exports
+    var g = (o[e] = { i: e, l: !1, exports: {} })
+    return t[e].call(g.exports, g, g.exports, n), (g.l = !0), g.exports
   }
-  ;(p.m = t),
-    (p.c = e),
-    (p.d = function(t, g, o) {
-      p.o(t, g) || Object.defineProperty(t, g, { enumerable: !0, get: o })
+  ;(n.m = t),
+    (n.c = o),
+    (n.d = function(t, e, g) {
+      n.o(t, e) || Object.defineProperty(t, e, { enumerable: !0, get: g })
     }),
-    (p.r = function(t) {
+    (n.r = function(t) {
       'undefined' !== typeof Symbol &&
         Symbol.toStringTag &&
         Object.defineProperty(t, Symbol.toStringTag, { value: 'Module' }),
         Object.defineProperty(t, '__esModule', { value: !0 })
     }),
-    (p.t = function(t, g) {
-      if ((1 & g && (t = p(t)), 8 & g)) return t
-      if (4 & g && 'object' === typeof t && t && t.__esModule) return t
-      var o = Object.create(null)
+    (n.t = function(t, e) {
+      if ((1 & e && (t = n(t)), 8 & e)) return t
+      if (4 & e && 'object' === typeof t && t && t.__esModule) return t
+      var g = Object.create(null)
       if (
-        (p.r(o),
-        Object.defineProperty(o, 'default', { enumerable: !0, value: t }),
-        2 & g && 'string' != typeof t)
+        (n.r(g),
+        Object.defineProperty(g, 'default', { enumerable: !0, value: t }),
+        2 & e && 'string' != typeof t)
       )
-        for (var e in t)
-          p.d(
+        for (var o in t)
+          n.d(
+            g,
             o,
-            e,
-            function(g) {
-              return t[g]
-            }.bind(null, e)
+            function(e) {
+              return t[e]
+            }.bind(null, o)
           )
-      return o
+      return g
     }),
-    (p.n = function(t) {
-      var g =
+    (n.n = function(t) {
+      var e =
         t && t.__esModule
           ? function() {
               return t.default
@@ -67,60 +67,61 @@
           : function() {
               return t
             }
-      return p.d(g, 'a', g), g
+      return n.d(e, 'a', e), e
     }),
-    (p.o = function(t, g) {
-      return Object.prototype.hasOwnProperty.call(t, g)
+    (n.o = function(t, e) {
+      return Object.prototype.hasOwnProperty.call(t, e)
     }),
-    (p.p = './')
-  var n = (window.webpackJsonp = window.webpackJsonp || []),
-    m = n.push.bind(n)
-  ;(n.push = g), (n = n.slice())
-  for (var a = 0; a < n.length; a++) g(n[a])
-  var r = m
-  s.push([67, 1]), o()
+    (n.p = './')
+  var p = (window.webpackJsonp = window.webpackJsonp || []),
+    a = p.push.bind(p)
+  ;(p.push = e), (p = p.slice())
+  for (var r = 0; r < p.length; r++) e(p[r])
+  var m = a
+  i.push([67, 1]), g()
 })({
-  116: function(t, g, o) {
+  116: function(t, e, g) {},
+  117: function(t, e, g) {
     'use strict'
-    var e = o(25)
-    o.n(e).a
+    var o = g(25)
+    g.n(o).a
   },
-  117: function(t, g, o) {
+  118: function(t, e, g) {
     'use strict'
-    var e = o(26)
-    o.n(e).a
+    var o = g(26)
+    g.n(o).a
   },
-  118: function(t, g, o) {
+  119: function(t, e, g) {
     'use strict'
-    var e = o(27)
-    o.n(e).a
+    var o = g(27)
+    g.n(o).a
   },
-  119: function(t, g, o) {
+  120: function(t, e, g) {
     'use strict'
-    var e = o(28)
-    o.n(e).a
+    var o = g(28)
+    g.n(o).a
   },
-  120: function(t, g, o) {
+  121: function(t, e, g) {
     'use strict'
-    o.r(g)
-    var e = o(41),
-      i = o(66),
-      s = o(63),
-      p = o(64)
-    function n(t, g) {
-      var o = t.reduce(function(t, g) {
-        return t + g
+    g.r(e)
+    var o = g(41),
+      s = (g(116), g(66)),
+      i = g(63),
+      n = g(64)
+    function p(t, e) {
+      var g = t.reduce(function(t, e) {
+        return t + e
       }, 0)
-      if (0 === o) return 0
-      var e = o / t.length
-      return g ? Number(e.toFixed(g)) : e
+      if (0 === g) return 0
+      var o = g / t.length
+      return e ? Number(o.toFixed(e)) : o
     }
-    function m() {
+    function a() {
       return (performance || Date).now()
     }
-    var a = (function() {
+    var r = (function() {
         function t() {
-          Object(s.a)(this, t),
+          Object(i.a)(this, t),
             (this.beginTime = 0),
             (this.prevTime = 0),
             (this._cursor = 0),
@@ -129,31 +130,31 @@
             (this.frames = 0)
         }
         return (
-          Object(p.a)(t, [
+          Object(n.a)(t, [
             {
               key: 'start',
               value: function() {
-                return (this.prevTime = this.beginTime = m()), this.beginTime
+                return (this.prevTime = this.beginTime = a()), this.beginTime
               }
             },
             {
               key: 'check',
               value: function() {
-                return m() - this.beginTime
+                return a() - this.beginTime
               }
             },
             {
               key: '_record',
-              value: function(t, g) {
-                var o = this._history[t]
-                o.unshift(Math.round(g)),
-                  (o.length = Math.min(o.length, this.maxRecords))
+              value: function(t, e) {
+                var g = this._history[t]
+                g.unshift(Math.round(e)),
+                  (g.length = Math.min(g.length, this.maxRecords))
               }
             },
             {
               key: 'tick',
               value: function() {
-                var t = m()
+                var t = a()
                 return (
                   this._frameMark(),
                   this._record('ms', t - this.beginTime),
@@ -179,8 +180,8 @@
             {
               key: '_getFrameRate',
               value: function(t) {
-                var g = (1e3 * this.frames) / (t - this.prevTime)
-                return this._clearMark(t), g
+                var e = (1e3 * this.frames) / (t - this.prevTime)
+                return this._clearMark(t), e
               }
             },
             {
@@ -190,25 +191,173 @@
                     arguments.length > 0 && void 0 !== arguments[0]
                       ? arguments[0]
                       : 'ms',
-                  g =
+                  e =
                     arguments.length > 1 && void 0 !== arguments[1]
                       ? arguments[1]
                       : 10,
-                  o = arguments.length > 2 ? arguments[2] : void 0,
-                  e = this._history[t],
-                  i = e.slice(0, Math.min(e.length, g))
-                return n(i, o)
+                  g = arguments.length > 2 ? arguments[2] : void 0,
+                  o = this._history[t],
+                  s = o.slice(0, Math.min(o.length, e))
+                return p(s, g)
               }
             }
           ]),
           t
         )
       })(),
-      r = {
-        name: 'Item',
-        props: ['type'],
+      m = 'keyframes',
+      h = document.getElementById(m),
+      c = {}
+    var u = function(t, e) {
+      if (((t = t.replace('.', '_')), c[t])) return t
+      var g = '@keyframes '.concat(t, ' {\n    ').concat(e, '\n  }')
+      if (h) {
+        var o = h.sheet
+        o.insertRule(g, o.cssRules.length)
+      } else
+        ((h = document.createElement('style')).id = m),
+          (h.textContent = g),
+          document.head.appendChild(h)
+      return (c[t] = g), t
+    }
+    var l = function(t, e) {
+      var g = e.getTotalLength()
+      return (
+        g ||
+        ('circle' === t
+          ? (function(t) {
+              var e = t.r.baseVal.value
+              return 2 * Math.PI * e
+            })(e)
+          : 'rect' === t
+          ? (function(t) {
+              return 2 * (t.width.baseVal.value + t.height.baseVal.value)
+            })(e)
+          : 0)
+      )
+    }
+    function d() {
+      var t =
+          arguments.length > 0 && void 0 !== arguments[0] ? arguments[0] : 1,
+        e = arguments.length > 1 && void 0 !== arguments[1] ? arguments[1] : 0
+      return Math.floor(Math.random() * (t - e + 1) + e)
+    }
+    var f = {
+        props: ['shape'],
         data: function() {
-          return { isAni: !1, isActive: !1, stopwatch: new a() }
+          return { length: 0, styleObj: { animationName: 'dash' }, angle: 0 }
+        },
+        computed: {
+          rotate: function() {
+            return (
+              'rect' === this.shape
+                ? (this.angle = 45 + 90 * d(3))
+                : (this.angle = 45 * d(7)),
+              {
+                transform: 'rotateZ('
+                  .concat(this.angle, 'deg) rotateY(')
+                  .concat(180 * d(1), 'deg)')
+              }
+            )
+          }
+        },
+        mounted: function() {
+          var t = this,
+            e = this.shape || 'circle'
+          ;(this.length = Math.ceil(l(e, this.$refs.path))),
+            window.addEventListener(
+              'resize',
+              function() {
+                t.length = Math.ceil(l(e, t.$refs.path))
+              },
+              !1
+            ),
+            (this.styleObj.animationName = u(
+              'shape-'.concat(e, '-').concat(this.length),
+              '0% {\n        opacity: 0;\n        stroke-dashoffset: '
+                .concat(
+                  this.length,
+                  ';\n      }\n      50% {\n        opacity: .8;\n        stroke-dashoffset: '
+                )
+                .concat(
+                  this.length / 2,
+                  ';\n      }\n      100% {\n        opacity: 1;\n        stroke-dashoffset: 0;\n      }'
+                )
+            ))
+        }
+      },
+      A = (g(117), g(3)),
+      C = {
+        name: 'Note',
+        props: ['type'],
+        components: {
+          Shape: Object(A.a)(
+            f,
+            function() {
+              var t = this,
+                e = t.$createElement,
+                g = t._self._c || e
+              return g('div', { staticClass: 'shape' }, [
+                'rect' === t.shape
+                  ? g(
+                      'svg',
+                      {
+                        style: t.rotate,
+                        attrs: {
+                          width: '100%',
+                          height: '100%',
+                          viewBox: '0 0 100% 100%',
+                          version: '1.1'
+                        }
+                      },
+                      [
+                        g('rect', {
+                          ref: 'path',
+                          staticClass: 'path',
+                          style: t.styleObj,
+                          attrs: {
+                            'stroke-dasharray': t.length,
+                            'stroke-dashoffset': t.length,
+                            x: '0',
+                            y: '0',
+                            width: '100%',
+                            height: '100%'
+                          }
+                        })
+                      ]
+                    )
+                  : g(
+                      'svg',
+                      {
+                        style: t.rotate,
+                        attrs: { width: '100%', height: '100%', version: '1.1' }
+                      },
+                      [
+                        g('circle', {
+                          ref: 'path',
+                          staticClass: 'path',
+                          style: t.styleObj,
+                          attrs: {
+                            'stroke-dasharray': t.length,
+                            'stroke-dashoffset': t.length,
+                            cx: '50%',
+                            cy: '50%',
+                            r: '50%'
+                          }
+                        })
+                      ]
+                    )
+              ])
+            },
+            [],
+            !1,
+            null,
+            null,
+            null
+          ).exports
+        },
+        data: function() {
+          return { isAni: !1, isActive: !1, stopwatch: new r() }
         },
         computed: {
           activeClass: function() {
@@ -227,48 +376,47 @@
           },
           tapup: function() {
             var t = this,
-              g = this.stopwatch.check()
-            g < 120
+              e = this.stopwatch.check()
+            e < 120
               ? setTimeout(function() {
                   t.isActive = !1
-                }, 120 - g)
+                }, 120 - e)
               : (this.isActive = !1)
           }
         }
       },
-      h = (o(116), o(4)),
-      c = Object(h.a)(
-        r,
-        function() {
-          var t = this.$createElement,
-            g = this._self._c || t
-          return g('div', { staticClass: 'note', class: this.activeClass }, [
-            g(
-              'div',
-              { staticClass: 'note_content' },
-              [
-                g('transition', { attrs: { appear: '', name: 'fade' } }, [
-                  g('div', { staticClass: 'note_shape' }, [
-                    'muti' === this.type || 'cicle' === this.type
-                      ? g('div', { staticClass: 'shape cicle' })
+      v =
+        (g(118),
+        Object(A.a)(
+          C,
+          function() {
+            var t = this.$createElement,
+              e = this._self._c || t
+            return e('div', { staticClass: 'note', class: this.activeClass }, [
+              e('div', { staticClass: 'note_content' }, [
+                e(
+                  'div',
+                  { staticClass: 'note_shape' },
+                  [
+                    'muti' === this.type || 'circle' === this.type
+                      ? e('Shape', { attrs: { shape: 'circle' } })
                       : this._e(),
                     'muti' === this.type || 'rect' === this.type
-                      ? g('div', { staticClass: 'shape rect' })
+                      ? e('Shape', { attrs: { shape: 'rect' } })
                       : this._e()
-                  ])
-                ])
-              ],
-              1
-            )
-          ])
-        },
-        [],
-        !1,
-        null,
-        null,
-        null
-      ).exports
-    function u(t) {
+                  ],
+                  1
+                )
+              ])
+            ])
+          },
+          [],
+          !1,
+          null,
+          null,
+          null
+        ).exports)
+    function D(t) {
       ;(t = t || {}),
         (this.phase = 0),
         (this.run = !1),
@@ -286,19 +434,19 @@
           (function(t) {
             t = t.replace(/^#?([a-f\d])([a-f\d])([a-f\d])$/i, function(
               t,
+              e,
               g,
-              o,
-              e
+              o
             ) {
-              return g + g + o + o + e + e
+              return e + e + g + g + o + o
             })
-            var g = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(t)
-            return g
-              ? parseInt(g[1], 16).toString() +
+            var e = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(t)
+            return e
+              ? parseInt(e[1], 16).toString() +
                   ',' +
-                  parseInt(g[2], 16).toString() +
+                  parseInt(e[2], 16).toString() +
                   ',' +
-                  parseInt(g[3], 16).toString()
+                  parseInt(e[3], 16).toString()
               : null
           })(t.color || '#fff') || '255,255,255'),
         (this.canvas = document.createElement('canvas')),
@@ -313,45 +461,45 @@
         (this.ctx = this.canvas.getContext('2d')),
         t.autostart && this.start()
     }
-    ;(u.prototype._GATF_cache = {}),
-      (u.prototype._globAttFunc = function(t) {
+    ;(D.prototype._GATF_cache = {}),
+      (D.prototype._globAttFunc = function(t) {
         return (
-          null == u.prototype._GATF_cache[t] &&
-            (u.prototype._GATF_cache[t] = Math.pow(
+          null == D.prototype._GATF_cache[t] &&
+            (D.prototype._GATF_cache[t] = Math.pow(
               4 / (4 + Math.pow(t, 4)),
               4
             )),
-          u.prototype._GATF_cache[t]
+          D.prototype._GATF_cache[t]
         )
       }),
-      (u.prototype._xpos = function(t) {
+      (D.prototype._xpos = function(t) {
         return this.width_2 + t * this.width_4
       }),
-      (u.prototype._ypos = function(t, g) {
-        var o = (this.MAX * this.amplitude) / g
+      (D.prototype._ypos = function(t, e) {
+        var g = (this.MAX * this.amplitude) / e
         return (
           this.height_2 +
-          this._globAttFunc(t) * o * Math.sin(this.frequency * t - this.phase)
+          this._globAttFunc(t) * g * Math.sin(this.frequency * t - this.phase)
         )
       }),
-      (u.prototype._drawLine = function(t, g, o) {
+      (D.prototype._drawLine = function(t, e, g) {
         this.ctx.moveTo(0, 0),
           this.ctx.beginPath(),
-          (this.ctx.strokeStyle = g),
-          (this.ctx.lineWidth = o || 1)
-        for (var e = -2; (e += 0.01) <= 2; ) {
-          var i = this._ypos(e, t)
-          Math.abs(e) >= 1.9 && (i = this.height_2),
-            this.ctx.lineTo(this._xpos(e), i)
+          (this.ctx.strokeStyle = e),
+          (this.ctx.lineWidth = g || 1)
+        for (var o = -2; (o += 0.01) <= 2; ) {
+          var s = this._ypos(o, t)
+          Math.abs(o) >= 1.9 && (s = this.height_2),
+            this.ctx.lineTo(this._xpos(o), s)
         }
         this.ctx.stroke()
       }),
-      (u.prototype._clear = function() {
+      (D.prototype._clear = function() {
         ;(this.ctx.globalCompositeOperation = 'destination-out'),
           this.ctx.fillRect(0, 0, this.width, this.height),
           (this.ctx.globalCompositeOperation = 'source-over')
       }),
-      (u.prototype._draw = function() {
+      (D.prototype._draw = function() {
         !1 !== this.run &&
           ((this.phase = (this.phase + Math.PI * this.speed) % (2 * Math.PI)),
           this._clear(),
@@ -364,26 +512,26 @@
             ? requestAnimationFrame(this._draw.bind(this))
             : setTimeout(this._draw.bind(this), 20))
       }),
-      (u.prototype.start = function() {
+      (D.prototype.start = function() {
         ;(this.phase = 0), (this.run = !0), this._draw()
       }),
-      (u.prototype.stop = function() {
+      (D.prototype.stop = function() {
         ;(this.phase = 0), (this.run = !1)
       }),
-      (u.prototype.setSpeed = function(t) {
+      (D.prototype.setSpeed = function(t) {
         this.speed = t
       }),
-      (u.prototype.setNoise = u.prototype.setAmplitude = function(t) {
+      (D.prototype.setNoise = D.prototype.setAmplitude = function(t) {
         this.amplitude = Math.max(Math.min(t, 1), 0)
       })
-    var l = u,
-      d = {
+    var F = D,
+      G = {
         props: ['amplitude', 'speed', 'width', 'height'],
         data: function() {
           return { wave: null }
         },
         mounted: function() {
-          this.wave = new l({
+          this.wave = new F({
             container: document.getElementById('waveform'),
             width: this.width,
             height: 80,
@@ -426,8 +574,8 @@
           }
         }
       },
-      f = Object(h.a)(
-        d,
+      b = Object(A.a)(
+        G,
         function() {
           var t = this.$createElement
           return (this._self._c || t)('div', { attrs: { id: 'waveform' } })
@@ -438,16 +586,16 @@
         null,
         null
       ).exports,
-      A = o(17),
-      C = o.n(A)
+      w = g(17),
+      y = g.n(w)
     document.querySelector('body').addEventListener(
       'click',
       function() {
-        C.a.start()
+        y.a.start()
       },
       !1
     )
-    var v = {
+    var E = {
         C2: 'a49.mp3',
         D2: 'a50.mp3',
         E2: 'a51.mp3',
@@ -510,7 +658,7 @@
         'G#6': 'b86.mp3',
         'A#6': 'b66.mp3'
       },
-      D = {
+      _ = {
         minify: !1,
         ext: '.[mp3|ogg]',
         baseUrl: './static/media/',
@@ -538,61 +686,61 @@
         ],
         onload: null,
         setExt: function(t) {
-          var g
-          for (g = 0; g <= this.list.length - 1; g++)
-            for (var o in this[this.list[g]])
-              this[this.list[g]][o] = this[this.list[g]][o].replace(this.ext, t)
+          var e
+          for (e = 0; e <= this.list.length - 1; e++)
+            for (var g in this[this.list[e]])
+              this[this.list[e]][g] = this[this.list[e]][g].replace(this.ext, t)
           return (
             (this.ext = t), console.log('sample extensions set to ' + this.ext)
           )
         },
         load: function(t) {
-          var g, o, e
+          var e, g, o
           if (
-            (((g = t || {}).instruments = g.instruments || this.list),
-            (g.baseUrl = g.baseUrl || this.baseUrl),
-            (g.onload = g.onload || this.onload),
-            g.ext &&
-              (g.ext != this.ext && this.setExt(g.ext), (g.ext = this.ext)),
-            (o = {}),
-            Array.isArray(g.instruments))
+            (((e = t || {}).instruments = e.instruments || this.list),
+            (e.baseUrl = e.baseUrl || this.baseUrl),
+            (e.onload = e.onload || this.onload),
+            e.ext &&
+              (e.ext != this.ext && this.setExt(e.ext), (e.ext = this.ext)),
+            (g = {}),
+            Array.isArray(e.instruments))
           ) {
-            for (e = 0; e <= g.instruments.length - 1; e++) {
-              var i = this[g.instruments[e]]
-              if (!0 === this.minify || !0 === g.minify) {
-                var s = 1
-                Object.keys(i).length >= 17 && (s = 2),
-                  Object.keys(i).length >= 33 && (s = 4),
-                  Object.keys(i).length >= 49 && (s = 6)
-                var p = Object.keys(i).filter(function(t, g) {
-                  return g % s != 0
+            for (o = 0; o <= e.instruments.length - 1; o++) {
+              var s = this[e.instruments[o]]
+              if (!0 === this.minify || !0 === e.minify) {
+                var i = 1
+                Object.keys(s).length >= 17 && (i = 2),
+                  Object.keys(s).length >= 33 && (i = 4),
+                  Object.keys(s).length >= 49 && (i = 6)
+                var n = Object.keys(s).filter(function(t, e) {
+                  return e % i != 0
                 })
-                p.forEach(function(t) {
-                  delete i[t]
+                n.forEach(function(t) {
+                  delete s[t]
                 })
               }
-              o[g.instruments[e]] = new C.a.Sampler(i, {
-                baseUrl: g.baseUrl + g.instruments[e] + '/',
-                onload: g.onload
+              g[e.instruments[o]] = new y.a.Sampler(s, {
+                baseUrl: e.baseUrl + e.instruments[o] + '/',
+                onload: e.onload
               })
             }
-            return o
+            return g
           }
           return (
-            (i = this[g.instruments]),
-            (!0 !== this.minify && !0 !== g.minify) ||
-              ((s = 1),
-              Object.keys(i).length >= 17 && (s = 2),
-              Object.keys(i).length >= 33 && (s = 4),
-              Object.keys(i).length >= 49 && (s = 6),
-              (p = Object.keys(i).filter(function(t, g) {
-                return g % s != 0
+            (s = this[e.instruments]),
+            (!0 !== this.minify && !0 !== e.minify) ||
+              ((i = 1),
+              Object.keys(s).length >= 17 && (i = 2),
+              Object.keys(s).length >= 33 && (i = 4),
+              Object.keys(s).length >= 49 && (i = 6),
+              (n = Object.keys(s).filter(function(t, e) {
+                return e % i != 0
               })).forEach(function(t) {
-                delete i[t]
+                delete s[t]
               })),
-            new C.a.Sampler(i, {
-              baseUrl: g.baseUrl + g.instruments + '/',
-              onload: g.onload
+            new y.a.Sampler(s, {
+              baseUrl: e.baseUrl + e.instruments + '/',
+              onload: e.onload
             })
           )
         },
@@ -890,68 +1038,68 @@
           C2: 'C2.[mp3|ogg]'
         },
         piano: {
-          A2: v.A2,
-          A3: v.A3,
-          A4: v.A4,
-          A5: v.A5,
-          A6: v.A6,
-          'A#3': v['A#3'],
-          'A#4': v['A#4'],
-          'A#5': v['A#5'],
-          'A#6': v['A#6'],
-          B2: v.B2,
-          B3: v.B3,
-          B4: v.B4,
-          B5: v.B5,
-          B6: v.B6,
-          C2: v.C2,
-          C3: v.C3,
-          C4: v.C4,
-          C5: v.C5,
-          C6: v.C6,
-          C7: v.C7,
-          'C#2': v['C#2'],
-          'C#3': v['C#3'],
-          'C#4': v['C#4'],
-          'C#5': v['C#5'],
-          'C#6': v['C#6'],
-          D0: v.D0,
-          D1: v.D1,
-          D2: v.D2,
-          D3: v.D3,
-          D4: v.D4,
-          D5: v.D5,
-          D6: v.D6,
-          'D#2': v['D#2'],
-          'D#3': v['D#3'],
-          'D#4': v['D#4'],
-          'D#5': v['D#5'],
-          'D#6': v['D#6'],
-          E2: v.E2,
-          E3: v.E3,
-          E4: v.E4,
-          E5: v.E5,
-          E6: v.E6,
-          F2: v.F2,
-          F3: v.F3,
-          F4: v.F4,
-          F5: v.F5,
-          F6: v.F6,
-          'F#2': v['F#2'],
-          'F#3': v['F#3'],
-          'F#4': v['F#4'],
-          'F#5': v['F#5'],
-          'F#6': v['F#6'],
-          G2: v.G2,
-          G3: v.G3,
-          G4: v.G4,
-          G5: v.G5,
-          G6: v.G6,
-          'G#2': v['G#2'],
-          'G#3': v['G#3'],
-          'G#4': v['G#4'],
-          'G#5': v['G#5'],
-          'G#6': v['G#6']
+          A2: E.A2,
+          A3: E.A3,
+          A4: E.A4,
+          A5: E.A5,
+          A6: E.A6,
+          'A#3': E['A#3'],
+          'A#4': E['A#4'],
+          'A#5': E['A#5'],
+          'A#6': E['A#6'],
+          B2: E.B2,
+          B3: E.B3,
+          B4: E.B4,
+          B5: E.B5,
+          B6: E.B6,
+          C2: E.C2,
+          C3: E.C3,
+          C4: E.C4,
+          C5: E.C5,
+          C6: E.C6,
+          C7: E.C7,
+          'C#2': E['C#2'],
+          'C#3': E['C#3'],
+          'C#4': E['C#4'],
+          'C#5': E['C#5'],
+          'C#6': E['C#6'],
+          D0: E.D0,
+          D1: E.D1,
+          D2: E.D2,
+          D3: E.D3,
+          D4: E.D4,
+          D5: E.D5,
+          D6: E.D6,
+          'D#2': E['D#2'],
+          'D#3': E['D#3'],
+          'D#4': E['D#4'],
+          'D#5': E['D#5'],
+          'D#6': E['D#6'],
+          E2: E.E2,
+          E3: E.E3,
+          E4: E.E4,
+          E5: E.E5,
+          E6: E.E6,
+          F2: E.F2,
+          F3: E.F3,
+          F4: E.F4,
+          F5: E.F5,
+          F6: E.F6,
+          'F#2': E['F#2'],
+          'F#3': E['F#3'],
+          'F#4': E['F#4'],
+          'F#5': E['F#5'],
+          'F#6': E['F#6'],
+          G2: E.G2,
+          G3: E.G3,
+          G4: E.G4,
+          G5: E.G5,
+          G6: E.G6,
+          'G#2': E['G#2'],
+          'G#3': E['G#3'],
+          'G#4': E['G#4'],
+          'G#5': E['G#5'],
+          'G#6': E['G#6']
         },
         saxophone: {
           'D#4': 'Ds4.[mp3|ogg]',
@@ -1057,58 +1205,58 @@
           C6: 'C6.[mp3|ogg]'
         }
       },
-      F = o(40),
-      G = o.n(F)
-    var b = {
-      isDebug: (function(t) {
-        var g = new RegExp('(^|&)' + t + '=([^&]*)(&|$)'),
-          o = window.location.search.substr(1).match(g)
-        return null === o ? null : decodeURI(o[2])
-      })('__debug'),
-      version: '0.3.0'
-    }
-    G.a.config({ output: b.isDebug && 'default', color: '#fff' })
-    var w = G.a,
-      E = {
+      x = g(40),
+      B = g.n(x),
+      k = {
+        isDebug: (function(t) {
+          var e = new RegExp('(^|&)' + t + '=([^&]*)(&|$)'),
+            g = window.location.search.substr(1).match(e)
+          return null === g ? null : decodeURI(g[2])
+        })('__debug'),
+        version: '0.4.0'
+      }
+    B.a.config({ output: k.isDebug && 'default', color: '#fff' })
+    var S = B.a,
+      O = {
         total: 15,
         tone: 4,
-        shapes: ['muti', 'rect', 'cicle'],
+        shapes: ['muti', 'rect', 'circle'],
         notes: ['C', 'D', 'E', 'F', 'G', 'A', 'B']
       }
-    function y(t) {
-      var g = t.total,
-        o = t.tone,
-        e = t.notes,
-        s = t.shapes,
-        p = s[0],
-        n = s.slice(1),
-        m = e.length,
-        a = o - 1
-      return Object(i.a)(Array(g)).map(function(t, g) {
-        var o = g % m == 0 ? p : n[g % n.length],
-          i = e[g % m]
-        return i === e[0] && a++, { shape: o, note: i + a, index: g }
+    function j(t) {
+      var e = t.total,
+        g = t.tone,
+        o = t.notes,
+        i = t.shapes,
+        n = i[0],
+        p = i.slice(1),
+        a = o.length,
+        r = g - 1
+      return Object(s.a)(Array(e)).map(function(t, e) {
+        var g = e % a == 0 ? n : p[e % p.length],
+          s = o[e % a]
+        return s === o[0] && r++, { shape: g, note: s + r, index: e }
       })
     }
-    var _ = {
+    var T = {
         name: 'Keyboard',
-        props: ['stageWidth'],
-        components: { Item: c, Waveline: f },
+        props: ['stageSize'],
+        components: { Note: v, Waveline: b },
         data: function() {
           return {
             hasTouchEvt: !1,
             amplitude: 0.5,
             waveSpeed: 0.01,
-            rateTimer: 3500,
-            stopwatch: new a(),
-            list: y(E)
+            rateTimer: 3e3,
+            stopwatch: new r(),
+            list: j(O)
           }
         },
         created: function() {
-          console.table(y(E))
+          console.table(j(O))
         },
         mounted: function() {
-          ;(this.synth = D.load({ instruments: 'piano' }).toMaster()),
+          ;(this.synth = _.load({ instruments: 'piano' }).toMaster()),
             this.initRateRecord(),
             this.$refs.waveline.start()
         },
@@ -1116,26 +1264,22 @@
           play: function(t) {
             this.synth.triggerAttackRelease(t, '1n')
           },
-          tap: function(t, g) {
-            var o = t.index,
-              e = t.note,
-              i = 'touchstart' === g.type
-            if ((i && this.markTouchScreen(), !this.hasTouchEvt || i)) {
-              this.getNoteIns(o).tapdown(),
-                this.setWave(0.5 + (o + 1) / 5, this.heartRate()),
-                this.play(e)
-              var s = [
-                i ? 'tap' : 'click',
-                '{'.concat(g.target.className, '}'),
-                e
-              ]
-              console.log.apply(console, s), w.$('event').apply(null, s)
+          tap: function(t, e) {
+            var g = t.index,
+              o = t.note,
+              s = 'touchstart' === e.type
+            if ((s && this.markTouchScreen(), !this.hasTouchEvt || s)) {
+              this.getNoteIns(g).tapdown(),
+                this.setWave(0.5 + (g + 1) / 5, this.heartRate()),
+                this.play(o)
+              var i = [s ? 'tap' : 'click', o]
+              console.log.apply(console, i), S.$('event').apply(null, i)
             }
           },
-          tapEnd: function(t, g) {
-            var o = t.index,
-              e = 'touchend' === g.type
-            ;(this.hasTouchEvt && !e) || this.getNoteIns(o).tapup()
+          tapEnd: function(t, e) {
+            var g = t.index,
+              o = 'touchend' === e.type
+            ;(this.hasTouchEvt && !o) || this.getNoteIns(g).tapup()
           },
           markTouchScreen: function() {
             this.hasTouchEvt = !0
@@ -1155,58 +1299,58 @@
             return t > 5 ? 5 : Number((0.8 * t + 1).toFixed(3))
           },
           setWave: function(t) {
-            var g =
+            var e =
                 arguments.length > 1 && void 0 !== arguments[1]
                   ? arguments[1]
                   : 1,
-              o = this.$refs.waveline,
-              e = this.waveSpeed * g
-            o &&
-              (o.setSpeed(e),
-              console.log('wave beats', t, g),
-              w.$('wave')('amp:', t, 'speed:', g))
+              g = this.$refs.waveline,
+              o = this.waveSpeed * e
+            g &&
+              (g.setSpeed(o),
+              console.log('wave beats', t, e),
+              S.$('wave')('amp:', t, 'speed:', e))
           }
         }
       },
-      x =
-        (o(117),
-        Object(h.a)(
-          _,
+      M =
+        (g(119),
+        Object(A.a)(
+          T,
           function() {
             var t = this,
-              g = t.$createElement,
-              o = t._self._c || g
-            return o(
+              e = t.$createElement,
+              g = t._self._c || e
+            return g(
               'div',
               { staticClass: 'main' },
               [
-                o(
+                g(
                   'ul',
                   { staticClass: 'keyboard' },
-                  t._l(t.list, function(g) {
-                    return o(
+                  t._l(t.list, function(e) {
+                    return g(
                       'li',
                       {
                         on: {
-                          mousedown: function(o) {
-                            return t.tap(g, o)
+                          mousedown: function(g) {
+                            return t.tap(e, g)
                           },
-                          mouseup: function(o) {
-                            return t.tapEnd(g, o)
+                          mouseup: function(g) {
+                            return t.tapEnd(e, g)
                           },
-                          touchstart: function(o) {
-                            return t.tap(g, o)
+                          touchstart: function(g) {
+                            return t.tap(e, g)
                           },
-                          touchend: function(o) {
-                            return t.tapEnd(g, o)
+                          touchend: function(g) {
+                            return t.tapEnd(e, g)
                           }
                         }
                       },
                       [
-                        o('Item', {
-                          ref: 'n_' + g.index,
+                        g('Note', {
+                          ref: 'n_' + e.index,
                           refInFor: !0,
-                          attrs: { type: g.shape }
+                          attrs: { type: e.shape }
                         })
                       ],
                       1
@@ -1214,12 +1358,12 @@
                   }),
                   0
                 ),
-                o('Waveline', {
+                g('Waveline', {
                   ref: 'waveline',
                   attrs: {
                     amplitude: t.amplitude,
                     speed: t.waveSpeed,
-                    width: t.stageWidth
+                    width: t.stageSize.width
                   }
                 })
               ],
@@ -1232,34 +1376,34 @@
           null,
           null
         ).exports),
-      B = {
+      I = {
         data: function() {
           return { files: [] }
         },
         methods: {
           getImg: function() {
             var t = this,
-              g = this.$refs.fileInput.files[0],
-              o = new FileReader()
-            g &&
-              ((o.onload = function(g) {
-                var o = g.target.result
-                t.$emit('get-bg', o)
+              e = this.$refs.fileInput.files[0],
+              g = new FileReader()
+            e &&
+              ((g.onload = function(e) {
+                var g = e.target.result
+                t.$emit('get-bg', g)
               }),
-              o.readAsDataURL(g))
+              g.readAsDataURL(e))
           }
         }
       },
-      k =
-        (o(118),
-        Object(h.a)(
-          B,
+      $ =
+        (g(120),
+        Object(A.a)(
+          I,
           function() {
             var t = this.$createElement,
-              g = this._self._c || t
-            return g('form', { staticClass: 'input-form' }, [
-              g('label', { staticClass: 'bg-btn' }, [
-                g(
+              e = this._self._c || t
+            return e('form', { staticClass: 'input-form' }, [
+              e('label', { staticClass: 'bg-btn' }, [
+                e(
                   'svg',
                   {
                     staticClass: 'bg-icon',
@@ -1270,7 +1414,7 @@
                     }
                   },
                   [
-                    g('path', {
+                    e('path', {
                       attrs: {
                         d:
                           'M928 160H96c-17.7 0-32 14.3-32 32v640c0 17.7 14.3 32 32 32h832c17.7 0 32-14.3 32-32V192c0-17.7-14.3-32-32-32z m-40 632H136v-39.9l138.5-164.3 150.1 178L658.1 489 888 761.6V792z m0-129.8L664.2 396.8c-3.2-3.8-9-3.8-12.2 0L424.6 666.4l-144-170.7c-3.2-3.8-9-3.8-12.2 0L136 652.7V232h752v430.2z',
@@ -1278,7 +1422,7 @@
                         fill: '#fefcb2'
                       }
                     }),
-                    g('path', {
+                    e('path', {
                       attrs: {
                         d:
                           'M304 456c48.6 0 88-39.4 88-88s-39.4-88-88-88-88 39.4-88 88 39.4 88 88 88z m0-116c15.5 0 28 12.5 28 28s-12.5 28-28 28-28-12.5-28-28 12.5-28 28-28z',
@@ -1288,7 +1432,7 @@
                     })
                   ]
                 ),
-                g('input', {
+                e('input', {
                   ref: 'fileInput',
                   attrs: {
                     type: 'file',
@@ -1305,55 +1449,67 @@
           null,
           null
         ).exports)
-    function T() {
+    function R() {
       var t =
           screen.msOrientation ||
           screen.mozOrientation ||
           (screen.orientation || {}).type,
-        g = {
+        e = {
           width: document.documentElement.clientWidth,
           height: document.documentElement.clientHeight
         }
       return 'portrait-secondary' === t || 'portrait-primary' === t
         ? (function(t) {
-            var g = { height: t.width, width: t.height }
+            var e = { height: t.width, width: t.height }
             return (
               console.log(
                 'force landscape:',
+                'height',
+                e.height,
+                'width',
+                e.width
+              ),
+              S.$('screen')('force,', 'height', e.height, 'width', e.width),
+              e
+            )
+          })(e)
+        : (function(t) {
+            var e = [t.height, t.width].sort(function(t, e) {
+                return t - e
+              }),
+              g = { height: e[0], width: e[1] }
+            return (
+              console.log(
+                'auto orientation:',
                 'height',
                 g.height,
                 'width',
                 g.width
               ),
-              w.$('screen')('force,', 'height', g.height, 'width', g.width),
+              S.$('screen')('auto,', 'height', g.height, 'width', g.width),
               g
             )
-          })(g)
-        : (function(t) {
-            var g = [t.height, t.width].sort(function(t, g) {
-                return t - g
-              }),
-              o = { height: g[0], width: g[1] }
-            return (
-              console.log(
-                'auto orientation:',
-                'height',
-                o.height,
-                'width',
-                o.width
-              ),
-              w.$('screen')('auto,', 'height', o.height, 'width', o.width),
-              o
-            )
-          })(g)
+          })(e)
     }
-    var O = o(65),
-      j = o.n(O),
-      M = {
+    var z = g(65),
+      U = g.n(z),
+      L = {
         name: 'app',
-        components: { Keyboard: x, SetBg: k },
+        components: { Keyboard: M, SetBg: $ },
         data: function() {
-          return { stageWidth: T().width, version: b.version, bgUrl: j.a }
+          return { stageSize: R(), version: k.version, bgUrl: U.a }
+        },
+        computed: {
+          frameStyle: function() {
+            var t = this.stageSize,
+              e = t.width,
+              g = t.height
+            return {
+              backgroundImage: 'url('.concat(this.bgUrl, ')'),
+              height: g + 'px',
+              width: e + 'px'
+            }
+          }
         },
         created: function() {
           var t = localStorage.getItem('bgUrl')
@@ -1364,7 +1520,7 @@
           window.addEventListener(
             'resize',
             function() {
-              t.stageWidth = T().width
+              t.stageSize = R()
             },
             !1
           )
@@ -1375,54 +1531,49 @@
           }
         }
       },
-      S =
-        (o(119),
-        Object(h.a)(
-          M,
-          function() {
-            var t = this.$createElement,
-              g = this._self._c || t
-            return g(
-              'div',
-              {
-                style: { backgroundImage: 'url(' + this.bgUrl + ')' },
-                attrs: { id: 'app' }
-              },
-              [
-                g('Keyboard', { attrs: { stageWidth: this.stageWidth } }),
-                g('SetBg', {
-                  staticClass: 'set-bg',
-                  on: { 'get-bg': this.changeBg }
-                }),
-                g('span', { staticClass: 'version' }, [
-                  this._v('v' + this._s(this.version))
-                ]),
-                g('div')
-              ],
-              1
-            )
-          },
-          [],
-          !1,
-          null,
-          null,
-          null
-        ).exports)
-    ;(e.a.config.productionTip = !1),
-      new e.a({
+      N = Object(A.a)(
+        L,
+        function() {
+          var t = this.$createElement,
+            e = this._self._c || t
+          return e(
+            'div',
+            { style: this.frameStyle, attrs: { id: 'app' } },
+            [
+              e('Keyboard', { attrs: { stageSize: this.stageSize } }),
+              e('SetBg', {
+                staticClass: 'set-bg',
+                on: { 'get-bg': this.changeBg }
+              }),
+              e('span', { staticClass: 'version' }, [
+                this._v('v' + this._s(this.version))
+              ]),
+              e('div')
+            ],
+            1
+          )
+        },
+        [],
+        !1,
+        null,
+        null,
+        null
+      ).exports
+    ;(o.a.config.productionTip = !1),
+      new o.a({
         render: function(t) {
-          return t(S)
+          return t(N)
         }
       }).$mount('#app')
   },
-  25: function(t, g, o) {},
-  26: function(t, g, o) {},
-  27: function(t, g, o) {},
-  28: function(t, g, o) {},
-  65: function(t, g, o) {
-    t.exports = o.p + 'static/img/bg.d24257d1.jpg'
+  25: function(t, e, g) {},
+  26: function(t, e, g) {},
+  27: function(t, e, g) {},
+  28: function(t, e, g) {},
+  65: function(t, e, g) {
+    t.exports = g.p + 'static/img/bg.d24257d1.jpg'
   },
-  67: function(t, g, o) {
-    o(68), (t.exports = o(120))
+  67: function(t, e, g) {
+    g(68), (t.exports = g(121))
   }
 })
