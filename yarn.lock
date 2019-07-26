@@ -6511,6 +6511,16 @@ micromatch@^4.0.0, micromatch@^4.0.2:
     braces "^3.0.1"
     picomatch "^2.0.5"
 
+midi-file@^1.1.1:
+  version "1.1.1"
+  resolved "https://registry.npm.taobao.org/midi-file/download/midi-file-1.1.1.tgz#eb82876a2a7ac83174170e27bf57d4e2c8816112"
+  integrity sha1-64KHaip6yDF0Fw4nv1fU4siBYRI=
+
+midi-player-js@^2.0.5:
+  version "2.0.5"
+  resolved "https://registry.npm.taobao.org/midi-player-js/download/midi-player-js-2.0.5.tgz#9e30738ffefd81febeb14b0437b0aec4b0231a1e"
+  integrity sha1-njBzj/79gf6+sUsEN7CuxLAjGh4=
+
 miller-rabin@^4.0.0:
   version "4.0.1"
   resolved "https://registry.npmjs.org/miller-rabin/-/miller-rabin-4.0.1.tgz#f080351c865b0dc562a8462966daa53543c78a4d"

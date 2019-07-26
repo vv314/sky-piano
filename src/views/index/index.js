@@ -1,6 +1,6 @@
+import '~/css/style.css'
 import Vue from 'vue'
-import style from '../../css/style.css'
-import App from './App.vue'
+import App from '~/components/App.vue'
 
 Vue.config.productionTip = false
 

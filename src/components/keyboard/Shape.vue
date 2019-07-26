@@ -4,7 +4,6 @@
       v-if="shape === 'rect'"
       width="100%"
       height="100%"
-      viewBox="0 0 100% 100%"
       version="1.1"
       :style="rotate"
     >
@@ -36,9 +35,9 @@
 </template>
 
 <script>
-import createKeyframes from '../lib/createKeyframes'
-import getSvgPathLength from '../lib/getSvgPathLength'
-import { random } from '../lib/util'
+import createKeyframes from '../../lib/createKeyframes'
+import getSvgPathLength from '../../lib/getSvgPathLength'
+import { random } from '../../lib/util'
 
 export default {
   props: ['shape'],
@@ -103,6 +102,7 @@ export default {
   left: 50%;
   top: 50%;
   float: left;
+  overflow: hidden;
   transform: translate(-50%, -50%);
   transform-style: preserve-3d;
   position: absolute;
@@ -128,7 +128,6 @@ export default {
   opacity: 0;
   animation: fadeIn 3s ease 1s;
   animation-fill-mode: forwards;
-  /*box-shadow: 0px 0px 2px 0px #fefcb2;*/
 }
 
 .shape svg {
@@ -143,13 +142,14 @@ export default {
   stroke-width: 2;
   stroke: #fefcb2;
   fill: transparent;
+  opacity: 0;
+  /* 使用缩放控制大小，确保边框不被剪裁 */
+  transform: scale(0.5);
+  transform-origin: center;
   animation: dash 2s linear 0.5s;
   animation-fill-mode: forwards;
   /*animation-iteration-count: infinite;
   animation-direction: alternate;*/
-  opacity: 0;
-  transform: scale(0.5);
-  transform-origin: center;
 }
 
 @keyframes dash {

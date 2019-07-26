@@ -12,6 +12,8 @@
   "homepage": "https://vv314.github.io/sky-piano",
   "dependencies": {
     "howler": "^2.1.2",
+    "midi-file": "^1.1.1",
+    "midi-player-js": "^2.0.5",
     "tone": "^13.4.9",
     "vue": "^2.6.10"
   },

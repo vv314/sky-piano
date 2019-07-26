@@ -1,18 +1,16 @@
 <template>
   <div class="note" :class="activeClass">
     <div class="note_content">
-      <!-- <transition appear name="fade"> -->
       <div class="note_shape">
         <Shape v-if="type === 'muti' || type === 'circle'" shape="circle" />
         <Shape v-if="type === 'muti' || type === 'rect'" shape="rect" />
       </div>
-      <!-- </transition> -->
     </div>
   </div>
 </template>
 
 <script>
-import Stopwatch from '../lib/Stopwatch'
+import Stopwatch from '../../lib/Stopwatch'
 import Shape from './Shape.vue'
 
 export default {
@@ -47,7 +45,7 @@ export default {
       // 防止点击过快，保证动画完整性
       setTimeout(() => {
         this.isAni = false
-      }, 250)
+      }, 300)
     },
     tapup() {
       const ms = this.stopwatch.check()
@@ -61,30 +59,16 @@ export default {
       } else {
         this.isActive = false
       }
+    },
+    animationEnd() {
+      console.log('animationEnd')
     }
   }
 }
 </script>
 
 <style>
-/*.fade-enter-active,
-.fade-leave-active {
-  transition: opacity 0.5s;
-}
-
-.fade-enter,
-.fade-leave-to {
-  opacity: 0;
-}*/
-
 .note {
-  height: 100%;
-  width: 100%;
-  padding: 10%;
-  box-sizing: border-box;
-}
-
-.note_content {
   height: 100%;
   width: 100%;
   border-radius: 10px;
@@ -92,33 +76,41 @@ export default {
   cursor: pointer;
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
   background-color: rgba(0, 0, 0, 0.2);
+  transition: transform 0.1s ease-in;
+}
+
+.note.note--active {
+  transform: scale(0.8);
+  transition-timing-function: ease-out;
+}
+
+.note_content {
+  width: 100%;
+  height: 100%;
+  transform: translateZ(0);
+  transform-style: preserve-3d;
+  backface-visibility: visible;
 }
 
 .note_shape {
   width: 100%;
   height: 100%;
   position: relative;
-  animation: breathe 1s ease-in-out 2.5s both infinite alternate;
   transform-style: preserve-3d;
-  backface-visibility: visible;
+  animation: breathe 1s ease-in-out 2.5s both infinite alternate;
 }
 
-.note--active .note_content {
-  transform: scale(0.8);
-  transition: transform 0.1s;
-}
-
-.note--ani .note_shape {
+.note--ani .note_content {
   animation: rotateY 0.3s;
 }
 
 @keyframes rotateY {
   0% {
-    transform: rotateY(0deg);
+    transform: rotateY(0deg) translateZ(0);
   }
 
   100% {
-    transform: rotateY(360deg);
+    transform: rotateY(360deg) translateZ(0);
   }
 }
 

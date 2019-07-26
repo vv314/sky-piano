@@ -1,34 +1,34 @@
 <template>
-  <form class="input-form">
-    <label class="bg-btn">
-      <svg
-        class="bg-icon"
-        viewBox="0 0 1024 1024"
-        version="1.1"
-        xmlns="http://www.w3.org/2000/svg"
-      >
-        <path
-          d="M928 160H96c-17.7 0-32 14.3-32 32v640c0 17.7 14.3 32 32 32h832c17.7 0 32-14.3 32-32V192c0-17.7-14.3-32-32-32z m-40 632H136v-39.9l138.5-164.3 150.1 178L658.1 489 888 761.6V792z m0-129.8L664.2 396.8c-3.2-3.8-9-3.8-12.2 0L424.6 666.4l-144-170.7c-3.2-3.8-9-3.8-12.2 0L136 652.7V232h752v430.2z"
-          p-id="7970"
-          fill="#fefcb2"
-        ></path>
-        <path
-          d="M304 456c48.6 0 88-39.4 88-88s-39.4-88-88-88-88 39.4-88 88 39.4 88 88 88z m0-116c15.5 0 28 12.5 28 28s-12.5 28-28 28-28-12.5-28-28 12.5-28 28-28z"
-          p-id="7971"
-          fill="#fefcb2"
-        ></path>
-      </svg>
-      <input
-        type="file"
-        ref="fileInput"
-        accept="image/gif,image/jpeg,image/jpg,image/png"
-        @change="getImg"
-      />
-    </label>
-  </form>
+  <div class="bg-btn">
+    <svg
+      class="bg-icon"
+      viewBox="0 0 1024 1024"
+      version="1.1"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M928 160H96c-17.7 0-32 14.3-32 32v640c0 17.7 14.3 32 32 32h832c17.7 0 32-14.3 32-32V192c0-17.7-14.3-32-32-32z m-40 632H136v-39.9l138.5-164.3 150.1 178L658.1 489 888 761.6V792z m0-129.8L664.2 396.8c-3.2-3.8-9-3.8-12.2 0L424.6 666.4l-144-170.7c-3.2-3.8-9-3.8-12.2 0L136 652.7V232h752v430.2z"
+        p-id="7970"
+        fill="#fefcb2"
+      ></path>
+      <path
+        d="M304 456c48.6 0 88-39.4 88-88s-39.4-88-88-88-88 39.4-88 88 39.4 88 88 88z m0-116c15.5 0 28 12.5 28 28s-12.5 28-28 28-28-12.5-28-28 12.5-28 28-28z"
+        p-id="7971"
+        fill="#fefcb2"
+      ></path>
+    </svg>
+    <input
+      type="file"
+      ref="fileInput"
+      accept="image/gif,image/jpeg,image/jpg,image/png"
+      @change="getFile"
+    />
+  </div>
 </template>
 
 <script>
+import readAsDataURL from '../lib/readAsDataURL'
+
 export default {
   data() {
     return {
@@ -36,37 +36,21 @@ export default {
     }
   },
   methods: {
-    getImg() {
+    getFile() {
       const img = this.$refs.fileInput.files[0]
-      const reader = new FileReader()
 
-      if (!img) return
-
-      // 图片读取成功回调函数
-      reader.onload = e => {
-        const base64Url = e.target.result
-
-        this.$emit('get-bg', base64Url)
-      }
-
-      reader.readAsDataURL(img)
+      readAsDataURL(img).then(data => {
+        this.$emit('get-bg', data)
+      })
     }
   }
 }
 </script>
 
 <style>
-.input-form {
+.bg-btn {
   height: 32px;
   width: 32px;
-  display: block;
-}
-
-.bg-btn {
-  width: 100%;
-  height: 100%;
-  display: block;
-  position: relative;
   border: 0px solid #fefcb2;
   /*border-radius: 50%;*/
   overflow: hidden;
@@ -80,9 +64,9 @@ export default {
 }
 
 .bg-btn input {
+  height: 100%;
+  width: 100%;
   opacity: 0;
-  height: 0;
-  width: 0;
 }
 
 .bg-icon {

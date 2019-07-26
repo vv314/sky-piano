@@ -60,6 +60,20 @@ class Stopwatch {
     return this
   }
 
+  emptyFrame() {
+    const time = now()
+
+    // 帧数打点
+    if (this.frames > 0) this.frames--
+
+    // 距离上次打点超过 1s
+    if (time >= this.prevTime + 1000) {
+      this._record('fps', this._getFrameRate(time))
+    }
+
+    return this
+  }
+
   _frameMark() {
     // 帧数打点
     this.frames++
