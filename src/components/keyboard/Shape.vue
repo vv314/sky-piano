@@ -65,13 +65,14 @@ export default {
   },
   mounted() {
     const shape = this.shape || 'circle'
+    const path = this.$refs.path
 
-    this.length = Math.ceil(getSvgPathLength(shape, this.$refs.path))
+    this.length = Math.ceil(getSvgPathLength(shape, path))
 
     window.addEventListener(
       'resize',
       () => {
-        this.length = Math.ceil(getSvgPathLength(shape, this.$refs.path))
+        this.length = Math.ceil(getSvgPathLength(shape, path))
       },
       false
     )

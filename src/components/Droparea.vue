@@ -17,6 +17,9 @@
 </template>
 
 <script>
+/**
+ * 获取文件 base64 内容
+ */
 import readAsDataURL from '../lib/readAsDataURL'
 
 export default {
@@ -35,7 +38,7 @@ export default {
     this.acceptList = (this.accept && this.accept.split(',')) || []
   },
   methods: {
-    validFileType(type) {
+    validate(type) {
       return this.acceptList.indexOf(type) > -1
     },
     onDrop(e) {
@@ -43,7 +46,7 @@ export default {
 
       this.showDragPanel = false
 
-      if (!this.validFileType(file.type)) {
+      if (!this.validate(file.type)) {
         return this.$emit('drop', { code: 1, data: '', msg: 'type error' })
       }
 

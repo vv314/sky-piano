@@ -74,10 +74,11 @@ export default {
       this.$emit('wave:stop')
     },
     setSpeed(val) {
-      if (this.currentSpeed !== val) {
-        this.$emit('wave:setSpeed', val)
-        this.currentSpeed = val
-      }
+      // 节流
+      if (this.currentSpeed === val) return
+
+      this.$emit('wave:setSpeed', val)
+      this.currentSpeed = val
     },
     setAmplitude(val) {
       this.$emit('wave:setAmplitude', val)
@@ -96,6 +97,7 @@ export default {
         const speedRatio = this.heartRate(fps)
 
         this.setSpeed(this.speed * speedRatio)
+
         console.log('fps', fps, 'wave', speedRatio)
         wintip.$('rate')('fps', fps, 'wave:', speedRatio)
       }, this.rateTimer)

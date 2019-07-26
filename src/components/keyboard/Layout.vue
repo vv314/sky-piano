@@ -1,9 +1,9 @@
 <template>
   <div class="keyboard">
     <ul class="keyboard_wrap">
-      <li v-for="item in list">
+      <li v-for="item in list" :data-tapitem="item.note">
         <!-- 封装点击与触摸 -->
-        <Tap :msg="item.note" @tapdown="tapdown" @tapup="tapup">
+        <Tap :tid="item.note" @tapdown="tapdown" @tapup="tapup">
           <Note :ref="'n_' + item.note" :type="item.shape" />
         </Tap>
       </li>
@@ -36,7 +36,7 @@ export default {
     }
   },
   created() {
-    console.table(createKeyboard(conf))
+    // console.table(createKeyboard(conf))
   },
   mounted() {
     this.synth = SmapleLibrary.load({
@@ -48,11 +48,11 @@ export default {
       this.synth.triggerAttackRelease(noteName)
       this.$emit('play', noteName)
     },
-    tapdown(noteName, track = 1) {
+    tapdown(noteName, channel = 1) {
       this.play(noteName)
       this.tapNote(noteName, 'down')
 
-      console.log('tap', noteName, 'track', track)
+      console.log('tap', noteName, 'channel', channel)
     },
     tapup(noteName) {
       this.tapNote(noteName, 'up')
@@ -68,7 +68,7 @@ export default {
         ins[0].tapup()
       }
     },
-    reset() {
+    release() {
       this.list.forEach(e => this.tapNote(e.note, 'up'))
     }
   }

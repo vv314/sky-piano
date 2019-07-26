@@ -102,11 +102,10 @@ export default {
 
       midiPlayer.on('midiEvent', e => {
         const note = e.noteName
-        console.log(e)
 
         if (e.name === 'Note on') {
           if (e.velocity > 0) {
-            this.keyboard.tapdown(note, e.track)
+            this.keyboard.tapdown(note, e.channel)
           } else {
             this.keyboard.tapup(note)
           }
@@ -116,11 +115,11 @@ export default {
       })
 
       midiPlayer.on('endOfFile', e => {
-        this.keyboard.reset()
+        this.keyboard.release()
       })
 
       midiPlayer.on('pause', e => {
-        this.keyboard.reset()
+        this.keyboard.release()
       })
 
       // 确保在事件监听之后调用，以免错过时机
@@ -128,7 +127,7 @@ export default {
     },
     onDropMidi(res) {
       midiPlayer.stop()
-      this.keyboard.reset()
+      this.keyboard.release()
 
       if (res.code === 0) {
         midiPlayer.load(res.data)

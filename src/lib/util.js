@@ -9,4 +9,26 @@ function random(max = 1, min = 0) {
   return Math.floor(Math.random() * (max - min + 1) + min)
 }
 
-export { getUrlParam, random }
+function findEl(x, y, finder) {
+  let elm = document.elementFromPoint(x, y)
+
+  while (elm) {
+    const item = finder(elm)
+
+    if (item) return item
+
+    elm = elm.parentNode
+  }
+}
+
+function hasParent(c, p) {
+  while (c) {
+    if (c == p) return true
+
+    c = c.parentNode
+  }
+
+  return false
+}
+
+export { getUrlParam, random, findEl, hasParent }
