@@ -20,11 +20,11 @@ export default {
   mounted() {
     this.attachSiriWave()
   },
-  watch: {
-    width() {
-      this.$emit('wave:resize')
-    }
-  },
+  // watch: {
+  //   width() {
+  //     this.$emit('wave:resize')
+  //   }
+  // },
   methods: {
     attachSiriWave() {
       // Setup the "waveform" animation.

@@ -6,6 +6,7 @@
 
     <Waveline
       ref="waveline"
+      class="waveform"
       amplitude="0.5"
       speed="0.01"
       :width="stageSize.width"
@@ -13,7 +14,12 @@
 
     <SetBg class="set-bg" @get-bg="changeBg" />
 
-    <span class="version" @click="autoplay">v{{ version }}</span>
+    <span
+      class="version"
+      :class="{ 'version--active': isMidiPlay }"
+      @click="autoplay"
+      >v{{ version }}</span
+    >
   </div>
 </template>
 
@@ -41,6 +47,7 @@ export default {
       stageSize: fixOrientation(),
       version: config.version,
       bgUrl: defaultBgUrl,
+      isMidiPlay: false,
       tracks: 0
     }
   },
@@ -91,6 +98,8 @@ export default {
         midiPlayer.pause()
       } else {
         midiPlayer.play()
+
+        this.isMidiPlay = true
         console.log('play')
       }
     },
@@ -116,6 +125,7 @@ export default {
 
       midiPlayer.on('endOfFile', e => {
         this.keyboard.release()
+        this.isMidiPlay = false
       })
 
       midiPlayer.on('pause', e => {
@@ -131,10 +141,34 @@ export default {
 
       if (res.code === 0) {
         midiPlayer.load(res.data)
-        console.log('play', res.file)
         midiPlayer.play()
+
+        this.isMidiPlay = false
+        console.log('play', res.file)
       }
     }
   }
 }
 </script>
+
+<style>
+.waveform {
+  position: absolute;
+  bottom: 3vmin;
+  left: 0;
+  width: 100%;
+}
+
+.version {
+  position: absolute;
+  right: 15px;
+  bottom: 5px;
+  opacity: 0.8;
+  color: #fff;
+}
+
+.version--active {
+  color: #fefcb2;
+  text-shadow: 0 0 2px #fefcb2;
+}
+</style>
