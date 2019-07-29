@@ -1,5 +1,5 @@
 <template>
-  <div ref="waveform"></div>
+  <div class="waveform" ref="waveform"></div>
 </template>
 
 <script>
@@ -116,3 +116,12 @@ export default {
   }
 }
 </script>
+
+<style lang="scss">
+.waveform {
+  position: absolute;
+  bottom: 3vmin;
+  left: 0;
+  width: 100%;
+}
+</style>

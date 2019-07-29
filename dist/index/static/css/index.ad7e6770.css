@@ -1,6 +1,6 @@
 /*!
  * @version 0.5.0
- * @date 2019-07-26
+ * @date 2019-07-28
  * @generated web
  */
 body,
@@ -9,7 +9,6 @@ ul {
   margin: 0;
 }
 body {
-  position: absolute;
   top: 0;
   right: 0;
   left: 0;
@@ -19,11 +18,13 @@ body {
   -webkit-perspective: 900px;
   perspective: 900px;
 }
+#app,
+body {
+  position: absolute;
+}
 #app {
-  float: left;
   height: 100vmin;
   width: 100vmax;
-  position: absolute;
   left: 50%;
   top: 50%;
   -webkit-box-sizing: border-box;
@@ -33,7 +34,6 @@ body {
   -webkit-transform: translate(-50%, -50%);
   -ms-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
-  position: relative;
   text-align: center;
   overflow: hidden;
   -webkit-font-smoothing: antialiased;
@@ -51,17 +51,9 @@ body {
   margin: 2% auto 0;
 }
 .set-bg {
+  position: absolute;
   top: 6%;
   right: 4%;
-}
-.set-bg,
-.version {
-  position: absolute;
-}
-.version {
-  right: 15px;
-  bottom: 5px;
-  opacity: 0.8;
 }
 .fade-drop-enter-active,
 .fade-drop-leave-active {
@@ -371,13 +363,31 @@ body {
   opacity: 0;
 }
 .bg-icon {
-  position: absolute;
   left: 50%;
   top: 50%;
-  width: 100%;
   text-align: center;
   opacity: 0.8;
   -webkit-transform: translate(-50%, -50%);
   -ms-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
+}
+.bg-icon,
+.waveform {
+  position: absolute;
+  width: 100%;
+}
+.waveform {
+  bottom: 3vmin;
+  left: 0;
+}
+.version {
+  position: absolute;
+  right: 15px;
+  bottom: 5px;
+  opacity: 0.8;
+  color: #fff;
+}
+.version--active {
+  color: #fefcb2;
+  text-shadow: 0 0 2px #fefcb2;
 }

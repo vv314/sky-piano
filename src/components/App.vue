@@ -6,7 +6,6 @@
 
     <Waveline
       ref="waveline"
-      class="waveform"
       amplitude="0.5"
       speed="0.01"
       :width="stageSize.width"
@@ -14,12 +13,7 @@
 
     <SetBg class="set-bg" @get-bg="changeBg" />
 
-    <span
-      class="version"
-      :class="{ 'version--active': isMidiPlay }"
-      @click="autoplay"
-      >v{{ version }}</span
-    >
+    <Version />
   </div>
 </template>
 
@@ -27,12 +21,12 @@
 import Keyboard from './keyboard/Layout.vue'
 import Droparea from './Droparea.vue'
 import Waveline from './Waveline.vue'
+import Version from './Version.vue'
 import SetBg from './SetBg.vue'
 import { fixOrientation } from '../lib/clientSize'
-import midiPlayer from '../lib/midiPlayer'
 import defaultBgUrl from '../assets/bg.jpg'
+import eventBus from '../lib/events'
 import wintip from '../lib/wintip'
-import config from '../config'
 
 export default {
   name: 'app',
@@ -40,15 +34,19 @@ export default {
     Droparea,
     Keyboard,
     Waveline,
+    Version,
     SetBg
   },
   data() {
     return {
       stageSize: fixOrientation(),
-      version: config.version,
       bgUrl: defaultBgUrl,
-      isMidiPlay: false,
       tracks: 0
+    }
+  },
+  provide() {
+    return {
+      getPlayer: this.getPlayer
     }
   },
   computed: {
@@ -72,7 +70,6 @@ export default {
   mounted() {
     this.keyboard = this.$refs.keyboard
     this.initWaveLine()
-    this.registMidiPlayerEvent()
 
     window.addEventListener(
       'resize',
@@ -93,23 +90,22 @@ export default {
     onPlay(note) {
       this.$refs.waveline.touch()
     },
-    autoplay() {
-      if (midiPlayer.isPlaying()) {
-        midiPlayer.pause()
-      } else {
-        midiPlayer.play()
-
-        this.isMidiPlay = true
-        console.log('play')
+    getPlayer() {
+      if (this._playerPromise) {
+        return this._playerPromise
       }
-    },
-    registMidiPlayerEvent() {
-      midiPlayer.on('fileLoaded', player => {
-        this.tracks = player.tracks.length
-        console.log('tracks', this.tracks)
+
+      this._playerPromise = import('../lib/midiPlayer')
+        .then(mod => mod.default)
+        .then(player => {
+          return player.setEventProxy(eventBus)
+        })
+
+      eventBus.on('player:fileLoaded', ctx => {
+        this.tracks = ctx.tracks.length
       })
 
-      midiPlayer.on('midiEvent', e => {
+      eventBus.on('player:midiEvent', e => {
         const note = e.noteName
 
         if (e.name === 'Note on') {
@@ -123,52 +119,30 @@ export default {
         }
       })
 
-      midiPlayer.on('endOfFile', e => {
-        this.keyboard.release()
-        this.isMidiPlay = false
+      eventBus.on('player:play', () => {
+        console.log('[player] play')
       })
 
-      midiPlayer.on('pause', e => {
+      eventBus.on('player:sleep', () => {
         this.keyboard.release()
+        console.log('[player] sleep')
       })
 
-      // 确保在事件监听之后调用，以免错过时机
-      midiPlayer.load()
+      console.log('[player] regist')
+
+      return this._playerPromise
     },
     onDropMidi(res) {
-      midiPlayer.stop()
-      this.keyboard.release()
+      this.getPlayer().then(player => {
+        player.stop()
 
-      if (res.code === 0) {
-        midiPlayer.load(res.data)
-        midiPlayer.play()
+        if (res.code === 0) {
+          player.load(res.data, res.file).play()
 
-        this.isMidiPlay = false
-        console.log('play', res.file)
-      }
+          console.log('play', res.file)
+        }
+      })
     }
   }
 }
 </script>
-
-<style>
-.waveform {
-  position: absolute;
-  bottom: 3vmin;
-  left: 0;
-  width: 100%;
-}
-
-.version {
-  position: absolute;
-  right: 15px;
-  bottom: 5px;
-  opacity: 0.8;
-  color: #fff;
-}
-
-.version--active {
-  color: #fefcb2;
-  text-shadow: 0 0 2px #fefcb2;
-}
-</style>

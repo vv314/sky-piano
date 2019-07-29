@@ -7,24 +7,124 @@ import { Player } from 'midi-player-js'
 // const input = fs.readFileSync(file)
 
 const player = new Player()
-const starDataUri =
-  'data:audio/midi;base64,TVRoZAAAAAYAAQAFAGBNVHJrAAAAEwD/WAQEAmAIAP9RAwhSrgD/LwBNVHJrAAABigD/AxRNZWxvZHkgICAgICAgICAgICAgIACxAAAAwQMA/1gEBAJgCAD/UQMIUq4AkUhrSIFIQBiRSGtIgUhAGJFPa0iBT0AYkU9rSIFPQBiRUWRIgVFAGJFRa0iBUUAYkU9rgSiBT0AYkU1rSIFNQBiRTWtIgU1AGJFMa0iBTEAYkUxrSIFMQBiRSmtIgUpAGLEyAwCRSmtIgUpAGJFIa3iBSEBIkU9rSIFPQBiRT2tIgU9AGJFNa0iBTUAYkU1rSIFNQBiRTGtIgUxAGJFMa0iBTEAYkUprgRCBSkAwkU9rSIFPQBiRT2tIgU9AGJFNa0iBTUAYkU1rSIFNQBiRTGtIgUxAGJFMa0iBTEAYkUprgRCBSkAwkUhrSIFIQBiRSGtIgUhAGJFPa0iBT0AYkU9rSIFPQBiRUWtIgVFAGJFRa0iBUUAYkU9rfoFPQEKRTWtIgU1AGJFNa0iBTUAYkUxrSIFMQBiRTGtIgUxAGJFKa0iBSkAYkUprSIFKQBiRSGuBQIFIQAD/LwBNVHJrAAADIwD/AxRCYXNzICAgICAgICAgICAgICAgIACyAAAAwkAA/1gEBAJgCAD/UQMIUq4AkjBOMJI3QwGCMEAvkjROAoI3QC6SN0YKgjRAJpIwTgWCN0ArkjdHCIIwQCiSNEYGgjdAKpI3RhuCNEAVkjBSBYI3QCuSOUYGgjBAKpI1VASCOUAskjlMD4I1QCCCOUABkjBOMJI3TRmCMEAXkjRMBoI3QCqSN00DgjRAKoI3QAOSK04wkjVJD4IrQCGSMlQGgjVAKIIyQAKSNUwvgjVAAZIwRDCSN0wTgjBAHZI0TgWCN0AqgjRAAZI3RjCSL0kDgjdALZI3ThGCL0AfkjJSBYI3QCuSN0YGgjJAKpIwUgaCN0Aqkjc8F4IwQBmSNFECgjdALII0QAKSN1QugjdAApIrTjCSMFIJgitAJ5I0UgeCMEApkjBSDII0QCSSK1IBgjBAL5IyVAeCK0ApkjVUBYIyQCuSMlMGgjVAKpIrUgGCMkAvkjBUBoIrQCqCMEAAkjRRMJIwTAeCNEAjgjBABpIrRzCSL00MgitAJIIvQACSMlEvgjJAAZIvUjCSK1EJgi9AJ5IwVAaCK0AqkjRTAoIwQC6SME4BgjRAL5IrVASCMEAskjJUCIIrQCiSNVIBgjJAL5IyUgiCNUAokitNAYIyQC+SMFEGgitAKpI0VwGCMEAvkjBTF4I0QBeCMEACkitTMJIvSQuCK0AlkjJMA4IvQCyCMkABki9QF4IvQBmSMFQwkjc8E4IwQB2SNFIEgjdALJI3SQSCNEAqgjdAApIwVDCSN0cYgjBAGJI0TAiCN0AokjdRCII0QCiCN0AAkjBOMJI5TAyCMEAkkjVSCYI5QCeSOVIJgjVAJoI5QAGSMFMwkjdDEYIwQB+SNE4KgjdAJpI3SQyCNEAkkis8AJItSQSCN0AAgi1ALJI1VA2CK0AjkjJUBYI1QCmCMkACkjVTMJIwVAKCNUAukjc+HYIwQBOSNE4IgjdAKII0QACSN0wwki9SBoI3QCqSNU4Tgi9AHZIyTAWCNUArkjVRBIIyQCySMFQEgjVAgTyCMEAA/y8ATVRyawAABJMA/wMUQ2hvcmRzICAgICAgICAgICAgICAAswAAAMMCAP9YBAQCYAgA/1EDCFKuAJNATgCTQ00wkzxHBYNAQAGDQ0Aqk0BRAJNDTAGDPEAvkzw8A4NAQAGDQ0Ask0BRAJNDUQaDPEAqkzxGA4NAQAuDQ0AggzxAApNAUQCTQ1Qwkzw+AoNAQBCDQ0Aek0FXAJNFVgiDPEAokzxJA4NBQAaDRUAnk0FTAJNFUwyDPEAkkzxMD4NBQAaDRUAbk0BRAJNDUgmDPEAnkzxJCINDQAGDQEAnk0NNAJNAUwmDPEAnkzxJB4NAQAGDQ0AhgzxAB5M+VwCTQVcwkzlMBYM+QAWDQUAmkz5WAJNBVgiDOUAokzlSBYM+QAuDQUATgzlADZNAUwCTQ1Iwg0NAAJM8RwODQEAtk0BZAJNDUQqDPEAmkzxJBoNAQBODQ0ATgzxABJM+UwCTQVIwkztSA4M+QAGDQUAskz5TAJNBVwiDO0AokztTCINBQAGDPkAnkzxQAJNAVAODO0AtkzdQBIM8QAmDQEAjkzxRAJNAUwqDN0Amg0BAAJM3TgKDPEAlgzdACZNASQCTQ04ug0BAApM8TgSDQ0Ask0NZAJNAVwqDPEAmkzxMAoNAQBWDQ0AXgzxAApM+TQCTQVYYkzdHF4M+QASDQUAigzdAC5M+VACTQVYwkzdOB4M+QACDQUApkzxTAJNAUgaDN0AqkzdJAoNAQAGDPEAtk0BWAJM8UguDN0AlkzdSB4NAQAaDPEAjkztRAJM+UwKDN0AukzVUBYM+QAODO0AokztQAJM+VgWDNUArkzVTBIM+QAODO0AegzVAC5NDVACTQFYtg0BAA5M8UAmDQ0Ank0BXAJNDTgyDPEAkkzxUDINAQBqDQ0AEgzxABpM+UwCTQVgvgz5AAINBQAGTO0kwk0FbAJM+UwiDO0AokztRA4NBQAaDPkAhgztABpNAWACTPFQsgzxABINAQACTN0gwkzxjAJNAXQyDN0AkkzdQAYM8QBiDQEAXkztYAJM+VwWDN0ArkzdDBIM7QAODPkApkztSAJM+UwWDN0ArkzdMBIM+QASDO0AokzxWAJNAUwODN0AtkzdMAoNAQAGDPEAtkzxUAJNAVwWDN0ArkzdRBYNAQAGDPEAqk0BDAJNDTQSDN0AskzxSAYNAQAqDQ0Alk0BXAJNDUwSDPEAskzxSBoNAQAGDQ0AhgzxACJNBVgCTRVIwkzlSAYNBQAeDRUAok0FXAJNFUguDOUAlkzlRCINBQCODOUAFk0BTAJNDVAODRUAtkzxSAYNAQAODQ0Ask0BUAJNDUgWDPEArkzxRA4NDQAWDQEAokz5SAJNBUwSDPEAskzlRBYM+QAiDQUAjkz5XAJNBVweDOUApkzlUAoNBQAKDPkAhgzlAC5M8TgCTQFIYkzdJGIM8QASDQEAggzdADJM8WwCTQFswkzdOBoM8QAmDQEAhkztdAJM+VwWDN0ArkzdRA4M+QAGDO0AogzdABJM7UwCTPlYwkzdUCIM7QAKDPkAkgzdAApM8VACTQFmBQIM8QACDQEAA/y8ATVRyawAAASYA/wMURmlsbHMgICAgICAgICAgICAgICAAtAAAAMQNAP9YBAQCYAgA/1EDCFKujXCUSDoThEhABZRKPRCESkAIlExJD4RMQCGUTUkRhE1AH5RPUnWET0B7lFZHEIRWQAiUVEAQhFRACJRTIg+EU0AJlFFDD4RRQAmUT0kMhE9AghSUSEMOhEhACpRKQBGESkAHlExDEYRMQB+UTUMRhE1AH5RPRXmET0B3lE9JEIRPQAiUUT8UhFFABJRTQxeEU0ABlFQ/FoRUQAKUVkwPhFZAgTGUVEkRhFRAH5RPPgqET0AmlFhFDYRYQCOUVD0NhFRAI5RbUg+EW0CBMZRRVxKEUUAelE1DEIRNQCCUVFIOhFRAIpRPUhCET0AglFRJD4RUQAD/LwA='
-let currentMidi = ''
+const _cacheMap = { __sort__: [] }
+let isEnd = false
+let currentName = ''
+
+player.on('endOfFile', () => {
+  isEnd = true
+})
+
+function setCache(name, val) {
+  if (_cacheMap.__sort__.length > 5) {
+    const outdateName = _cacheMap.__sort__.shift(0)
+
+    delete _cacheMap[outdateName]
+  }
+
+  const now = Date.now()
+
+  _cacheMap[name] = {
+    time: now,
+    val: val
+  }
+
+  const index = _cacheMap.__sort__.map(d => d.name).indexOf(name)
+
+  if (index < 0) {
+    _cacheMap.__sort__.push({ name, time: now })
+  } else {
+    _cacheMap.__sort__[index] = { name, time: now }
+  }
+
+  // 按时间顺序递增
+  _cacheMap.__sort__.sort((a, b) => a.time - b.time)
+}
+
+function getCache(name) {
+  return _cacheMap[name]
+}
+
+async function getMid(name, preset) {
+  const baseUrl = process.env.PUBLIC_URL + '/static/midi/'
+  const url = preset ? baseUrl + name : name
+  const response = await fetch(url)
+
+  if (response.ok) {
+    const arrayBuffer = await response.arrayBuffer()
+
+    return arrayBuffer
+  } else {
+    throw new Error(`could not load ${url}`)
+  }
+}
+
+function load(dataUri, name) {
+  const cacheName = `B64_${name}`
+
+  if (getCache(cacheName)) return this
+
+  // Load a MIDI file
+  player.loadDataUri(dataUri)
+  setCache(cacheName, dataUri)
+
+  console.log('[player]', 'load', 'tracks', player.tracks.length)
+  isEnd = false
+  currentName = name
+
+  return this
+}
+
+async function loadUrl(name = 'star.mid', preset = true) {
+  const cacheName = 'BUFF_' + name
+  if (getCache(cacheName)) return this
+
+  return getMid(name, preset).then(arrayBuffer => {
+    // Load a MIDI file
+    player.loadArrayBuffer(arrayBuffer)
+    setCache(cacheName, arrayBuffer)
+
+    console.log('[player]', 'load', `${name},`, 'tracks', player.tracks.length)
+    isEnd = false
+    currentName = name
+
+    return this
+  })
+}
+
+function setEventProxy(eventEmitter) {
+  const events = ['play', 'fileLoaded', 'midiEvent']
+  const sleepEvents = ['pause', 'stop', 'endOfFile']
+
+  events.concat(sleepEvents).forEach(name => {
+    player.on(name, (...args) => {
+      eventEmitter.emit(`player:${name}`, args)
+    })
+
+    if (sleepEvents.indexOf(name) > -1)
+      player.on(name, () => {
+        eventEmitter.emit(`player:sleep`)
+      })
+  })
+
+  return this
+}
 
 export default {
-  load(dataUri = starDataUri) {
-    if (currentMidi !== dataUri) {
-      // Load a MIDI file
-      player.loadDataUri(dataUri)
-      currentMidi = dataUri
-
-      return player.tracks.length
-    }
-  },
+  load,
+  loadUrl,
+  setEventProxy,
   isPlaying() {
     return player.isPlaying()
   },
+  getState() {
+    return {
+      isEnd: isEnd,
+      name: currentName
+    }
+  },
   play() {
+    player.triggerPlayerEvent('play')
     player.play()
   },
   toggle() {
@@ -43,6 +143,8 @@ export default {
     player.on(name, cb)
   },
   stop() {
+    isEnd = true
+    player.triggerPlayerEvent('stop')
     player.stop()
   }
 }
