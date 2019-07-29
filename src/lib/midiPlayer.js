@@ -8,7 +8,8 @@ import { Player } from 'midi-player-js'
 
 const player = new Player()
 const _cacheMap = { __sort__: [] }
-let isEnd = false
+// 是否全曲播放结束
+let isEnd = true
 let currentName = ''
 
 player.on('endOfFile', () => {

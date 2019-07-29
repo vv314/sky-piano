@@ -38,11 +38,13 @@ export default {
         .then(player => {
           if (player.isPlaying()) {
             return player.pause()
-          } else if (player.getState().isEnd) {
-            player.loadUrl('star.mid')
           }
 
-          player.play()
+          if (!player.getState().isEnd) {
+            return player.play()
+          }
+
+          player.loadUrl('star.mid').then(player => player.play())
         })
         .catch(e => {
           console.log('player err', e)
