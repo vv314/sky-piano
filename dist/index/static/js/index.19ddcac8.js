@@ -49,7 +49,7 @@
               'static/js/' +
               ({}[t] || t) +
               '.' +
-              { 2: '4441296e', 3: 'ddfa0d87' }[t] +
+              { 2: '4441296e', 3: 'e780593b' }[t] +
               '.chunk.js'
             )
           })(t))
@@ -1237,7 +1237,7 @@
             o = window.location.search.substr(1).match(e)
           return null === o ? null : decodeURI(o[2])
         })('__debug'),
-        version: '0.6.0'
+        version: '0.6.1'
       }
     k.a.config({ output: B.isDebug && 'default', color: '#fff' })
     var M = k.a,
@@ -1690,8 +1690,13 @@
           playMidi: function() {
             this.getPlayer()
               .then(function(t) {
-                if (t.isPlaying()) return t.pause()
-                t.getState().isEnd && t.loadUrl('star.mid'), t.play()
+                return t.isPlaying()
+                  ? t.pause()
+                  : t.getState().isEnd
+                  ? void t.loadUrl('star.mid').then(function(t) {
+                      return t.play()
+                    })
+                  : t.play()
               })
               .catch(function(t) {
                 console.log('player err', t)
