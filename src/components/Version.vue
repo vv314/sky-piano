@@ -3,7 +3,7 @@
     class="version"
     :class="{ 'version--active': isAutoPlaying }"
     @click="playMidi"
-    >@About_fish {{ version }}</span
+    >{{ version }}</span
   >
 </template>
 

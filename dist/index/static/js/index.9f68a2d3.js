@@ -49,7 +49,7 @@
               'static/js/' +
               ({}[t] || t) +
               '.' +
-              { 2: '7a0fb684', 3: 'd91eb524' }[t] +
+              { 2: '4441296e', 3: 'ddfa0d87' }[t] +
               '.chunk.js'
             )
           })(t))
@@ -131,52 +131,57 @@
   ;(a.push = e), (a = a.slice())
   for (var p = 0; p < a.length; p++) e(a[p])
   var m = r
-  s.push([70, 1]), o()
+  s.push([71, 1]), o()
 })({
-  119: function(t, e, o) {},
-  120: function(t, e, o) {
+  120: function(t, e, o) {},
+  121: function(t, e, o) {
     'use strict'
     var n = o(25)
     o.n(n).a
   },
-  121: function(t, e, o) {
+  122: function(t, e, o) {
     'use strict'
     var n = o(26)
     o.n(n).a
   },
-  122: function(t, e, o) {
+  123: function(t, e, o) {
     'use strict'
     var n = o(27)
     o.n(n).a
   },
-  123: function(t, e, o) {
+  124: function(t, e, o) {
     'use strict'
     var n = o(28)
     o.n(n).a
   },
-  124: function(t, e, o) {
+  125: function(t, e, o) {
     'use strict'
     var n = o(29)
     o.n(n).a
   },
-  125: function(t, e, o) {
+  126: function(t, e, o) {
     'use strict'
     var n = o(30)
     o.n(n).a
   },
-  126: function(t, e, o) {
+  127: function(t, e, o) {
     'use strict'
     var n = o(31)
     o.n(n).a
   },
-  127: function(t, e, o) {
+  128: function(t, e, o) {
+    'use strict'
+    var n = o(32)
+    o.n(n).a
+  },
+  129: function(t, e, o) {
     'use strict'
     o.r(e)
-    o(119)
-    var n = o(45),
-      i = o(32),
-      s = o(67),
-      g = o(68)
+    o(120)
+    var n = o(46),
+      i = o(33),
+      s = o(68),
+      g = o(69)
     function a(t, e) {
       var o = t.reduce(function(t, e) {
         return t + e
@@ -368,8 +373,8 @@
             ))
         }
       },
-      v = (o(120), o(0)),
-      C = {
+      v = (o(121), o(0)),
+      A = {
         name: 'Note',
         props: ['type'],
         components: {
@@ -465,10 +470,10 @@
           }
         }
       },
-      A =
-        (o(121),
+      C =
+        (o(122),
         Object(v.a)(
-          C,
+          A,
           function() {
             var t = this.$createElement,
               e = this._self._c || t
@@ -496,10 +501,10 @@
           null,
           null
         ).exports),
-      D = !1,
-      y = !1
+      y = !1,
+      D = !1
     window.addEventListener('mouseup', function() {
-      return (D = !1)
+      return (y = !1)
     })
     var F = {
         props: ['tid'],
@@ -515,27 +520,27 @@
             this.$emit('tapup', t)
           },
           mouseDown: function(t) {
-            if (!y) {
+            if (!D) {
               var e = this.tid
               this.pressMap[e] ||
-                (this.press(e), (D = !0), (this.pressMap[e] = 'M'))
+                (this.press(e), (y = !0), (this.pressMap[e] = 'M'))
             }
           },
           mouseUp: function(t) {
-            if (!y) {
+            if (!D) {
               var e = this.tid
-              D &&
+              y &&
                 'M' == this.pressMap[e] &&
-                (this.release(e), delete this.pressMap[e], (D = !1))
+                (this.release(e), delete this.pressMap[e], (y = !1))
             }
           },
           mouseOver: function(t) {
             var e = this.tid
-            D && !this.pressMap[e] && (this.press(e), (this.pressMap[e] = 'M'))
+            y && !this.pressMap[e] && (this.press(e), (this.pressMap[e] = 'M'))
           },
           mouseOut: function(t) {
             var e = this.tid
-            D &&
+            y &&
               'M' == this.pressMap[e] &&
               !(function(t, e) {
                 for (; t; ) {
@@ -547,7 +552,7 @@
               (this.release(e), delete this.pressMap[e])
           },
           touchHandle: function(t) {
-            y ? t.preventDefault() : 'touchend' === t.type && (y = !0)
+            D ? t.preventDefault() : 'touchend' === t.type && (D = !0)
             var e = this.getTouchTargets(t.touches)
             return (
               this.releaseTouches(e), (this.touches = this.markTouches(e)), !0
@@ -597,7 +602,7 @@
         }
       },
       w =
-        (o(122),
+        (o(123),
         Object(v.a)(
           F,
           function() {
@@ -1224,18 +1229,18 @@
           C6: 'C6.[mp3|ogg]'
         }
       },
-      k = o(44),
-      x = o.n(k),
+      x = o(45),
+      k = o.n(x),
       B = {
         isDebug: (function(t) {
           var e = new RegExp('(^|&)' + t + '=([^&]*)(&|$)'),
             o = window.location.search.substr(1).match(e)
           return null === o ? null : decodeURI(o[2])
         })('__debug'),
-        version: '0.5.0'
+        version: '0.6.0'
       }
-    x.a.config({ output: B.isDebug && 'default', color: '#fff' })
-    var M = x.a,
+    k.a.config({ output: B.isDebug && 'default', color: '#fff' })
+    var M = k.a,
       O = {
         total: 15,
         tone: 4,
@@ -1257,9 +1262,9 @@
         return i === n[0] && p++, { shape: o, note: i + p, index: e }
       })
     }
-    var $ = {
+    var j = {
         name: 'Keyboard',
-        components: { Note: A, Tap: w },
+        components: { Note: C, Tap: w },
         data: function() {
           return { list: T(O) }
         },
@@ -1293,10 +1298,10 @@
           }
         }
       },
-      j =
-        (o(123),
+      P =
+        (o(124),
         Object(v.a)(
-          $,
+          j,
           function() {
             var t = this,
               e = t.$createElement,
@@ -1339,7 +1344,7 @@
           null,
           null
         ).exports),
-      S = function(t) {
+      $ = function(t) {
         var e = new FileReader()
         return new Promise(function(o, n) {
           if (!t) return n('invalid url')
@@ -1350,7 +1355,7 @@
             e.readAsDataURL(t)
         })
       },
-      P = {
+      S = {
         props: ['accept'],
         data: function() {
           return { acceptList: [], showDragPanel: !1 }
@@ -1379,7 +1384,7 @@
                 data: '',
                 msg: 'type error'
               })
-            S(o).then(function(t) {
+            $(o).then(function(t) {
               e.$emit('drop', { code: 0, data: t, file: o, msg: 'success' })
             })
           },
@@ -1389,9 +1394,9 @@
         }
       },
       L =
-        (o(124),
+        (o(125),
         Object(v.a)(
-          P,
+          S,
           function() {
             var t = this,
               e = t.$createElement,
@@ -1623,19 +1628,100 @@
           }
         }
       },
-      I = Object(v.a)(
-        N,
-        function() {
-          var t = this.$createElement
-          return (this._self._c || t)('div', { ref: 'waveform' })
+      I =
+        (o(126),
+        Object(v.a)(
+          N,
+          function() {
+            var t = this.$createElement
+            return (this._self._c || t)('div', {
+              ref: 'waveform',
+              staticClass: 'waveform'
+            })
+          },
+          [],
+          !1,
+          null,
+          null,
+          null
+        ).exports)
+    function z(t, e) {
+      var o = this._evtMap[t]
+      o &&
+        o.slice().forEach(function(t) {
+          t.apply(null, [].concat(e))
+        })
+    }
+    function q(t, e) {
+      this._evtMap[t] ? this._evtMap[t].push(e) : (this._evtMap[t] = [e])
+    }
+    function V(t, e) {
+      if (this._evtMap[t] && e) {
+        var o = this._evtMap[t].indexOf(e)
+        if (o > -1) return this._evtMap[t].splice(o, 1)[0]
+      }
+      e || (this._evtMap[t] && (this._evtMap[t] = []))
+    }
+    function W() {
+      this._evtMap = {}
+    }
+    ;(W.prototype.emit = z), (W.prototype.off = V), (W.prototype.on = q)
+    var H = { _evtMap: {}, emit: z, off: V, on: q },
+      X = {
+        inject: ['getPlayer'],
+        data: function() {
+          return { isAutoPlaying: !1 }
         },
-        [],
-        !1,
-        null,
-        null,
-        null
-      ).exports,
-      z = {
+        computed: {
+          version: function() {
+            return 'v' + B.version
+          }
+        },
+        mounted: function() {
+          var t = this
+          H.on('player:play', function() {
+            t.isAutoPlaying = !0
+          }),
+            H.on('player:sleep', function() {
+              t.isAutoPlaying = !1
+            })
+        },
+        methods: {
+          playMidi: function() {
+            this.getPlayer()
+              .then(function(t) {
+                if (t.isPlaying()) return t.pause()
+                t.getState().isEnd && t.loadUrl('star.mid'), t.play()
+              })
+              .catch(function(t) {
+                console.log('player err', t)
+              })
+          }
+        }
+      },
+      K =
+        (o(127),
+        Object(v.a)(
+          X,
+          function() {
+            var t = this.$createElement
+            return (this._self._c || t)(
+              'span',
+              {
+                staticClass: 'version',
+                class: { 'version--active': this.isAutoPlaying },
+                on: { click: this.playMidi }
+              },
+              [this._v(this._s(this.version))]
+            )
+          },
+          [],
+          !1,
+          null,
+          null,
+          null
+        ).exports),
+      J = {
         data: function() {
           return { files: [] }
         },
@@ -1643,16 +1729,16 @@
           getFile: function() {
             var t = this,
               e = this.$refs.fileInput.files[0]
-            S(e).then(function(e) {
+            $(e).then(function(e) {
               t.$emit('get-bg', e)
             })
           }
         }
       },
-      q =
-        (o(125),
+      Y =
+        (o(128),
         Object(v.a)(
-          z,
+          J,
           function() {
             var t = this.$createElement,
               e = this._self._c || t
@@ -1702,7 +1788,7 @@
           null,
           null
         ).exports)
-    function W() {
+    function Z() {
       var t =
           screen.msOrientation ||
           screen.mozOrientation ||
@@ -1744,19 +1830,22 @@
             )
           })(e)
     }
-    var H = o(69),
-      V = o.n(H),
-      X = {
+    var Q = o(70),
+      tt = o.n(Q),
+      et = {
         name: 'app',
-        components: { Droparea: L, Keyboard: j, Waveline: I, SetBg: q },
+        components: {
+          Droparea: L,
+          Keyboard: P,
+          Waveline: I,
+          Version: K,
+          SetBg: Y
+        },
         data: function() {
-          return {
-            stageSize: W(),
-            version: B.version,
-            bgUrl: V.a,
-            isMidiPlay: !1,
-            tracks: 0
-          }
+          return { stageSize: Z(), bgUrl: tt.a, tracks: 0 }
+        },
+        provide: function() {
+          return { getPlayer: this.getPlayer }
         },
         computed: {
           frameStyle: function() {
@@ -1781,7 +1870,7 @@
             window.addEventListener(
               'resize',
               function() {
-                t.stageSize = W()
+                t.stageSize = Z()
               },
               !1
             )
@@ -1796,122 +1885,93 @@
           onPlay: function(t) {
             this.$refs.waveline.touch()
           },
-          autoplay: function() {
-            var t = this
-            this.getPlayer().then(function(e) {
-              e.isPlaying()
-                ? e.pause()
-                : (e.play(), (t.isMidiPlay = !0), console.log('play'))
-            })
-          },
           getPlayer: function() {
             var t = this
             return this._playerPromise
               ? this._playerPromise
-              : ((this._playerPromise = Promise.all([o.e(3), o.e(2)])
-                  .then(o.bind(null, 129))
+              : ((this._playerPromise = Promise.all([o.e(2), o.e(3)])
+                  .then(o.bind(null, 134))
                   .then(function(t) {
                     return t.default
                   })
-                  .then(function(e) {
-                    return (
-                      console.log('11111111'),
-                      e.on('fileLoaded', function(e) {
-                        ;(t.tracks = e.tracks.length),
-                          console.log('tracks', t.tracks)
-                      }),
-                      e.on('midiEvent', function(e) {
-                        var o = e.noteName
-                        'Note on' === e.name
-                          ? e.velocity > 0
-                            ? t.keyboard.tapdown(o, e.channel)
-                            : t.keyboard.tapup(o)
-                          : 'Note off' === e.name && t.keyboard.tapup(o)
-                      }),
-                      e.on('endOfFile', function(e) {
-                        t.keyboard.release(), (t.isMidiPlay = !1)
-                      }),
-                      e.on('pause', function(e) {
-                        t.keyboard.release()
-                      }),
-                      e.load(),
-                      e
-                    )
+                  .then(function(t) {
+                    return t.setEventProxy(H)
                   })),
+                H.on('player:fileLoaded', function(e) {
+                  t.tracks = e.tracks.length
+                }),
+                H.on('player:midiEvent', function(e) {
+                  var o = e.noteName
+                  'Note on' === e.name
+                    ? e.velocity > 0
+                      ? t.keyboard.tapdown(o, e.channel)
+                      : t.keyboard.tapup(o)
+                    : 'Note off' === e.name && t.keyboard.tapup(o)
+                }),
+                H.on('player:play', function() {
+                  console.log('[player] play')
+                }),
+                H.on('player:sleep', function() {
+                  t.keyboard.release(), console.log('[player] sleep')
+                }),
+                console.log('[player] regist'),
                 this._playerPromise)
           },
           onDropMidi: function(t) {
-            var e = this
-            this.getPlayer(function(o) {
-              o.stop(),
-                e.keyboard.release(),
+            this.getPlayer().then(function(e) {
+              e.stop(),
                 0 === t.code &&
-                  (o.load(t.data),
-                  o.play(),
-                  (e.isMidiPlay = !1),
-                  console.log('play', t.file))
+                  (e.load(t.data, t.file).play(), console.log('play', t.file))
             })
           }
         }
       },
-      K =
-        (o(126),
-        Object(v.a)(
-          X,
-          function() {
-            var t = this,
-              e = t.$createElement,
-              o = t._self._c || e
-            return o(
-              'div',
-              { style: t.frameStyle, attrs: { id: 'app' } },
-              [
-                o(
-                  'Droparea',
-                  {
-                    staticClass: 'main',
-                    attrs: { accept: 'audio/midi' },
-                    on: { drop: t.onDropMidi }
-                  },
-                  [o('Keyboard', { ref: 'keyboard', on: { play: t.onPlay } })],
-                  1
-                ),
-                o('Waveline', {
-                  ref: 'waveline',
-                  staticClass: 'waveform',
-                  attrs: {
-                    amplitude: '0.5',
-                    speed: '0.01',
-                    width: t.stageSize.width
-                  }
-                }),
-                o('SetBg', {
-                  staticClass: 'set-bg',
-                  on: { 'get-bg': t.changeBg }
-                }),
-                o(
-                  'span',
-                  {
-                    staticClass: 'version',
-                    class: { 'version--active': t.isMidiPlay },
-                    on: { click: t.autoplay }
-                  },
-                  [t._v('v' + t._s(t.version))]
-                )
-              ],
-              1
-            )
-          },
-          [],
-          !1,
-          null,
-          null,
-          null
-        ).exports)
+      ot = Object(v.a)(
+        et,
+        function() {
+          var t = this.$createElement,
+            e = this._self._c || t
+          return e(
+            'div',
+            { style: this.frameStyle, attrs: { id: 'app' } },
+            [
+              e(
+                'Droparea',
+                {
+                  staticClass: 'main',
+                  attrs: { accept: 'audio/midi' },
+                  on: { drop: this.onDropMidi }
+                },
+                [e('Keyboard', { ref: 'keyboard', on: { play: this.onPlay } })],
+                1
+              ),
+              e('Waveline', {
+                ref: 'waveline',
+                attrs: {
+                  amplitude: '0.5',
+                  speed: '0.01',
+                  width: this.stageSize.width
+                }
+              }),
+              e('SetBg', {
+                staticClass: 'set-bg',
+                on: { 'get-bg': this.changeBg }
+              }),
+              e('Version')
+            ],
+            1
+          )
+        },
+        [],
+        !1,
+        null,
+        null,
+        null
+      ).exports
     ;(n.a.config.productionTip = !1),
       new n.a({
         render: function(t) {
-          return t(K)
+          return t(ot)
         }
       }).$mount('#app')
   },
@@ -1922,10 +1982,11 @@
   29: function(t, e, o) {},
   30: function(t, e, o) {},
   31: function(t, e, o) {},
-  69: function(t, e, o) {
+  32: function(t, e, o) {},
+  70: function(t, e, o) {
     t.exports = o.p + 'static/img/bg.d24257d1.jpg'
   },
-  70: function(t, e, o) {
-    o(71), (t.exports = o(127))
+  71: function(t, e, o) {
+    o(72), (t.exports = o(129))
   }
 })

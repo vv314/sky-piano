@@ -1,16 +1,16 @@
 {
   "target": "web",
-  "version": "0.5.0",
+  "version": "0.6.0",
   "env": "online",
   "debug": false,
   "marax": "2.5.0",
   "publicPath": "./",
   "manifest": {
-    "static/js/index.js": "./static/js/index.99780871.js",
-    "static/js/vendors_index.js": "./static/js/vendors_index.315e5d62.chunk.js",
-    "static/js/2.7a0fb684.chunk.js": "./static/js/2.7a0fb684.chunk.js",
-    "static/js/3.d91eb524.chunk.js": "./static/js/3.d91eb524.chunk.js",
-    "static/css/index.css": "./static/css/index.ad7e6770.css",
+    "static/js/index.js": "./static/js/index.9f68a2d3.js",
+    "static/js/vendors_index.js": "./static/js/vendors_index.cd86757e.chunk.js",
+    "static/js/2.4441296e.chunk.js": "./static/js/2.4441296e.chunk.js",
+    "static/js/3.ddfa0d87.chunk.js": "./static/js/3.ddfa0d87.chunk.js",
+    "static/css/index.css": "./static/css/index.f663526a.css",
     "dependencyGraph.json": "./dependencyGraph.json",
     "index.html": "./index.html",
     "manifest.json": "./manifest.json",
@@ -75,6 +75,7 @@
     "static/media/piano/b86.mp3": "./static/media/piano/b86.mp3",
     "static/media/piano/b87.mp3": "./static/media/piano/b87.mp3",
     "static/media/piano/b89.mp3": "./static/media/piano/b89.mp3",
-    "static/media/piano/b90.mp3": "./static/media/piano/b90.mp3"
+    "static/media/piano/b90.mp3": "./static/media/piano/b90.mp3",
+    "static/midi/star.mid": "./static/midi/star.mid"
   }
 }

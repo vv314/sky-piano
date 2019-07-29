@@ -1,24 +1,440 @@
 ;(window.webpackJsonp = window.webpackJsonp || []).push([
-  [3],
+  [2],
   {
-    128: function(t, e, r) {
+    130: function(t, e, r) {
+      t.exports = r(131)
+    },
+    131: function(t, e, r) {
+      var n = (function(t) {
+        'use strict'
+        var e,
+          r = Object.prototype,
+          n = r.hasOwnProperty,
+          i = 'function' === typeof Symbol ? Symbol : {},
+          o = i.iterator || '@@iterator',
+          a = i.asyncIterator || '@@asyncIterator',
+          s = i.toStringTag || '@@toStringTag'
+        function u(t, e, r, n) {
+          var i = e && e.prototype instanceof g ? e : g,
+            o = Object.create(i.prototype),
+            a = new x(n || [])
+          return (
+            (o._invoke = (function(t, e, r) {
+              var n = f
+              return function(i, o) {
+                if (n === l) throw new Error('Generator is already running')
+                if (n === p) {
+                  if ('throw' === i) throw o
+                  return B()
+                }
+                for (r.method = i, r.arg = o; ; ) {
+                  var a = r.delegate
+                  if (a) {
+                    var s = S(a, r)
+                    if (s) {
+                      if (s === y) continue
+                      return s
+                    }
+                  }
+                  if ('next' === r.method) r.sent = r._sent = r.arg
+                  else if ('throw' === r.method) {
+                    if (n === f) throw ((n = p), r.arg)
+                    r.dispatchException(r.arg)
+                  } else 'return' === r.method && r.abrupt('return', r.arg)
+                  n = l
+                  var u = h(t, e, r)
+                  if ('normal' === u.type) {
+                    if (((n = r.done ? p : c), u.arg === y)) continue
+                    return { value: u.arg, done: r.done }
+                  }
+                  'throw' === u.type &&
+                    ((n = p), (r.method = 'throw'), (r.arg = u.arg))
+                }
+              }
+            })(t, r, a)),
+            o
+          )
+        }
+        function h(t, e, r) {
+          try {
+            return { type: 'normal', arg: t.call(e, r) }
+          } catch (n) {
+            return { type: 'throw', arg: n }
+          }
+        }
+        t.wrap = u
+        var f = 'suspendedStart',
+          c = 'suspendedYield',
+          l = 'executing',
+          p = 'completed',
+          y = {}
+        function g() {}
+        function v() {}
+        function d() {}
+        var b = {}
+        b[o] = function() {
+          return this
+        }
+        var m = Object.getPrototypeOf,
+          w = m && m(m(A([])))
+        w && w !== r && n.call(w, o) && (b = w)
+        var k = (d.prototype = g.prototype = Object.create(b))
+        function E(t) {
+          ;['next', 'throw', 'return'].forEach(function(e) {
+            t[e] = function(t) {
+              return this._invoke(e, t)
+            }
+          })
+        }
+        function T(t) {
+          var e
+          this._invoke = function(r, i) {
+            function o() {
+              return new Promise(function(e, o) {
+                !(function e(r, i, o, a) {
+                  var s = h(t[r], t, i)
+                  if ('throw' !== s.type) {
+                    var u = s.arg,
+                      f = u.value
+                    return f && 'object' === typeof f && n.call(f, '__await')
+                      ? Promise.resolve(f.__await).then(
+                          function(t) {
+                            e('next', t, o, a)
+                          },
+                          function(t) {
+                            e('throw', t, o, a)
+                          }
+                        )
+                      : Promise.resolve(f).then(
+                          function(t) {
+                            ;(u.value = t), o(u)
+                          },
+                          function(t) {
+                            return e('throw', t, o, a)
+                          }
+                        )
+                  }
+                  a(s.arg)
+                })(r, i, e, o)
+              })
+            }
+            return (e = e ? e.then(o, o) : o())
+          }
+        }
+        function S(t, r) {
+          var n = t.iterator[r.method]
+          if (n === e) {
+            if (((r.delegate = null), 'throw' === r.method)) {
+              if (
+                t.iterator.return &&
+                ((r.method = 'return'),
+                (r.arg = e),
+                S(t, r),
+                'throw' === r.method)
+              )
+                return y
+              ;(r.method = 'throw'),
+                (r.arg = new TypeError(
+                  "The iterator does not provide a 'throw' method"
+                ))
+            }
+            return y
+          }
+          var i = h(n, t.iterator, r.arg)
+          if ('throw' === i.type)
+            return (r.method = 'throw'), (r.arg = i.arg), (r.delegate = null), y
+          var o = i.arg
+          return o
+            ? o.done
+              ? ((r[t.resultName] = o.value),
+                (r.next = t.nextLoc),
+                'return' !== r.method && ((r.method = 'next'), (r.arg = e)),
+                (r.delegate = null),
+                y)
+              : o
+            : ((r.method = 'throw'),
+              (r.arg = new TypeError('iterator result is not an object')),
+              (r.delegate = null),
+              y)
+        }
+        function I(t) {
+          var e = { tryLoc: t[0] }
+          1 in t && (e.catchLoc = t[1]),
+            2 in t && ((e.finallyLoc = t[2]), (e.afterLoc = t[3])),
+            this.tryEntries.push(e)
+        }
+        function L(t) {
+          var e = t.completion || {}
+          ;(e.type = 'normal'), delete e.arg, (t.completion = e)
+        }
+        function x(t) {
+          ;(this.tryEntries = [{ tryLoc: 'root' }]),
+            t.forEach(I, this),
+            this.reset(!0)
+        }
+        function A(t) {
+          if (t) {
+            var r = t[o]
+            if (r) return r.call(t)
+            if ('function' === typeof t.next) return t
+            if (!isNaN(t.length)) {
+              var i = -1,
+                a = function r() {
+                  for (; ++i < t.length; )
+                    if (n.call(t, i)) return (r.value = t[i]), (r.done = !1), r
+                  return (r.value = e), (r.done = !0), r
+                }
+              return (a.next = a)
+            }
+          }
+          return { next: B }
+        }
+        function B() {
+          return { value: e, done: !0 }
+        }
+        return (
+          (v.prototype = k.constructor = d),
+          (d.constructor = v),
+          (d[s] = v.displayName = 'GeneratorFunction'),
+          (t.isGeneratorFunction = function(t) {
+            var e = 'function' === typeof t && t.constructor
+            return (
+              !!e &&
+              (e === v || 'GeneratorFunction' === (e.displayName || e.name))
+            )
+          }),
+          (t.mark = function(t) {
+            return (
+              Object.setPrototypeOf
+                ? Object.setPrototypeOf(t, d)
+                : ((t.__proto__ = d), s in t || (t[s] = 'GeneratorFunction')),
+              (t.prototype = Object.create(k)),
+              t
+            )
+          }),
+          (t.awrap = function(t) {
+            return { __await: t }
+          }),
+          E(T.prototype),
+          (T.prototype[a] = function() {
+            return this
+          }),
+          (t.AsyncIterator = T),
+          (t.async = function(e, r, n, i) {
+            var o = new T(u(e, r, n, i))
+            return t.isGeneratorFunction(r)
+              ? o
+              : o.next().then(function(t) {
+                  return t.done ? t.value : o.next()
+                })
+          }),
+          E(k),
+          (k[s] = 'Generator'),
+          (k[o] = function() {
+            return this
+          }),
+          (k.toString = function() {
+            return '[object Generator]'
+          }),
+          (t.keys = function(t) {
+            var e = []
+            for (var r in t) e.push(r)
+            return (
+              e.reverse(),
+              function r() {
+                for (; e.length; ) {
+                  var n = e.pop()
+                  if (n in t) return (r.value = n), (r.done = !1), r
+                }
+                return (r.done = !0), r
+              }
+            )
+          }),
+          (t.values = A),
+          (x.prototype = {
+            constructor: x,
+            reset: function(t) {
+              if (
+                ((this.prev = 0),
+                (this.next = 0),
+                (this.sent = this._sent = e),
+                (this.done = !1),
+                (this.delegate = null),
+                (this.method = 'next'),
+                (this.arg = e),
+                this.tryEntries.forEach(L),
+                !t)
+              )
+                for (var r in this)
+                  't' === r.charAt(0) &&
+                    n.call(this, r) &&
+                    !isNaN(+r.slice(1)) &&
+                    (this[r] = e)
+            },
+            stop: function() {
+              this.done = !0
+              var t = this.tryEntries[0].completion
+              if ('throw' === t.type) throw t.arg
+              return this.rval
+            },
+            dispatchException: function(t) {
+              if (this.done) throw t
+              var r = this
+              function i(n, i) {
+                return (
+                  (s.type = 'throw'),
+                  (s.arg = t),
+                  (r.next = n),
+                  i && ((r.method = 'next'), (r.arg = e)),
+                  !!i
+                )
+              }
+              for (var o = this.tryEntries.length - 1; o >= 0; --o) {
+                var a = this.tryEntries[o],
+                  s = a.completion
+                if ('root' === a.tryLoc) return i('end')
+                if (a.tryLoc <= this.prev) {
+                  var u = n.call(a, 'catchLoc'),
+                    h = n.call(a, 'finallyLoc')
+                  if (u && h) {
+                    if (this.prev < a.catchLoc) return i(a.catchLoc, !0)
+                    if (this.prev < a.finallyLoc) return i(a.finallyLoc)
+                  } else if (u) {
+                    if (this.prev < a.catchLoc) return i(a.catchLoc, !0)
+                  } else {
+                    if (!h)
+                      throw new Error('try statement without catch or finally')
+                    if (this.prev < a.finallyLoc) return i(a.finallyLoc)
+                  }
+                }
+              }
+            },
+            abrupt: function(t, e) {
+              for (var r = this.tryEntries.length - 1; r >= 0; --r) {
+                var i = this.tryEntries[r]
+                if (
+                  i.tryLoc <= this.prev &&
+                  n.call(i, 'finallyLoc') &&
+                  this.prev < i.finallyLoc
+                ) {
+                  var o = i
+                  break
+                }
+              }
+              o &&
+                ('break' === t || 'continue' === t) &&
+                o.tryLoc <= e &&
+                e <= o.finallyLoc &&
+                (o = null)
+              var a = o ? o.completion : {}
+              return (
+                (a.type = t),
+                (a.arg = e),
+                o
+                  ? ((this.method = 'next'), (this.next = o.finallyLoc), y)
+                  : this.complete(a)
+              )
+            },
+            complete: function(t, e) {
+              if ('throw' === t.type) throw t.arg
+              return (
+                'break' === t.type || 'continue' === t.type
+                  ? (this.next = t.arg)
+                  : 'return' === t.type
+                  ? ((this.rval = this.arg = t.arg),
+                    (this.method = 'return'),
+                    (this.next = 'end'))
+                  : 'normal' === t.type && e && (this.next = e),
+                y
+              )
+            },
+            finish: function(t) {
+              for (var e = this.tryEntries.length - 1; e >= 0; --e) {
+                var r = this.tryEntries[e]
+                if (r.finallyLoc === t)
+                  return this.complete(r.completion, r.afterLoc), L(r), y
+              }
+            },
+            catch: function(t) {
+              for (var e = this.tryEntries.length - 1; e >= 0; --e) {
+                var r = this.tryEntries[e]
+                if (r.tryLoc === t) {
+                  var n = r.completion
+                  if ('throw' === n.type) {
+                    var i = n.arg
+                    L(r)
+                  }
+                  return i
+                }
+              }
+              throw new Error('illegal catch attempt')
+            },
+            delegateYield: function(t, r, n) {
+              return (
+                (this.delegate = { iterator: A(t), resultName: r, nextLoc: n }),
+                'next' === this.method && (this.arg = e),
+                y
+              )
+            }
+          }),
+          t
+        )
+      })(t.exports)
+      try {
+        regeneratorRuntime = n
+      } catch (i) {
+        Function('r', 'regeneratorRuntime = r')(n)
+      }
+    },
+    132: function(t, e, r) {
+      'use strict'
+      function n(t, e, r, n, i, o, a) {
+        try {
+          var s = t[o](a),
+            u = s.value
+        } catch (h) {
+          return void r(h)
+        }
+        s.done ? e(u) : Promise.resolve(u).then(n, i)
+      }
+      function i(t) {
+        return function() {
+          var e = this,
+            r = arguments
+          return new Promise(function(i, o) {
+            var a = t.apply(e, r)
+            function s(t) {
+              n(a, i, o, s, u, 'next', t)
+            }
+            function u(t) {
+              n(a, i, o, s, u, 'throw', t)
+            }
+            s(void 0)
+          })
+        }
+      }
+      r.d(e, 'a', function() {
+        return i
+      })
+    },
+    133: function(t, e, r) {
       var n
       t.exports = (function t(e, r, i) {
-        function s(o, u) {
-          if (!r[o]) {
-            if (!e[o]) {
+        function o(s, u) {
+          if (!r[s]) {
+            if (!e[s]) {
               var h = 'function' == typeof n && n
-              if (!u && h) return n(o, !0)
-              if (a) return a(o, !0)
-              var f = new Error("Cannot find module '" + o + "'")
+              if (!u && h) return n(s, !0)
+              if (a) return a(s, !0)
+              var f = new Error("Cannot find module '" + s + "'")
               throw ((f.code = 'MODULE_NOT_FOUND'), f)
             }
-            var c = (r[o] = { exports: {} })
-            e[o][0].call(
+            var c = (r[s] = { exports: {} })
+            e[s][0].call(
               c.exports,
               function(t) {
-                var r = e[o][1][t]
-                return s(r || t)
+                var r = e[s][1][t]
+                return o(r || t)
               },
               c,
               c.exports,
@@ -28,11 +444,11 @@
               i
             )
           }
-          return r[o].exports
+          return r[s].exports
         }
-        for (var a = 'function' == typeof n && n, o = 0; o < i.length; o++)
-          s(i[o])
-        return s
+        for (var a = 'function' == typeof n && n, s = 0; s < i.length; s++)
+          o(i[s])
+        return o
       })(
         {
           1: [
@@ -46,10 +462,10 @@
                     r,
                     n,
                     a,
-                    o,
+                    s,
                     u = t.length
                   ;(a = h(t)),
-                    (o = new s((3 * u) / 4 - a)),
+                    (s = new o((3 * u) / 4 - a)),
                     (r = a > 0 ? u - 4 : u)
                   var f = 0
                   for (e = 0; e < r; e += 4)
@@ -58,23 +474,23 @@
                       (i[t.charCodeAt(e + 1)] << 12) |
                       (i[t.charCodeAt(e + 2)] << 6) |
                       i[t.charCodeAt(e + 3)]),
-                      (o[f++] = (n >> 16) & 255),
-                      (o[f++] = (n >> 8) & 255),
-                      (o[f++] = 255 & n)
+                      (s[f++] = (n >> 16) & 255),
+                      (s[f++] = (n >> 8) & 255),
+                      (s[f++] = 255 & n)
                   return (
                     2 === a
                       ? ((n =
                           (i[t.charCodeAt(e)] << 2) |
                           (i[t.charCodeAt(e + 1)] >> 4)),
-                        (o[f++] = 255 & n))
+                        (s[f++] = 255 & n))
                       : 1 === a &&
                         ((n =
                           (i[t.charCodeAt(e)] << 10) |
                           (i[t.charCodeAt(e + 1)] << 4) |
                           (i[t.charCodeAt(e + 2)] >> 2)),
-                        (o[f++] = (n >> 8) & 255),
-                        (o[f++] = 255 & n)),
-                    o
+                        (s[f++] = (n >> 8) & 255),
+                        (s[f++] = 255 & n)),
+                    s
                   )
                 }),
                 (r.fromByteArray = function(t) {
@@ -82,42 +498,42 @@
                     var e,
                       r = t.length,
                       i = r % 3,
-                      s = '',
+                      o = '',
                       a = [],
-                      o = 0,
+                      s = 0,
                       u = r - i;
-                    o < u;
-                    o += 16383
+                    s < u;
+                    s += 16383
                   )
-                    a.push(f(t, o, o + 16383 > u ? u : o + 16383))
+                    a.push(f(t, s, s + 16383 > u ? u : s + 16383))
                   return (
                     1 === i
                       ? ((e = t[r - 1]),
-                        (s += n[e >> 2]),
-                        (s += n[(e << 4) & 63]),
-                        (s += '=='))
+                        (o += n[e >> 2]),
+                        (o += n[(e << 4) & 63]),
+                        (o += '=='))
                       : 2 === i &&
                         ((e = (t[r - 2] << 8) + t[r - 1]),
-                        (s += n[e >> 10]),
-                        (s += n[(e >> 4) & 63]),
-                        (s += n[(e << 2) & 63]),
-                        (s += '=')),
-                    a.push(s),
+                        (o += n[e >> 10]),
+                        (o += n[(e >> 4) & 63]),
+                        (o += n[(e << 2) & 63]),
+                        (o += '=')),
+                    a.push(o),
                     a.join('')
                   )
                 })
               for (
                 var n = [],
                   i = [],
-                  s = 'undefined' !== typeof Uint8Array ? Uint8Array : Array,
+                  o = 'undefined' !== typeof Uint8Array ? Uint8Array : Array,
                   a =
                     'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/',
-                  o = 0,
+                  s = 0,
                   u = a.length;
-                o < u;
-                ++o
+                s < u;
+                ++s
               )
-                (n[o] = a[o]), (i[a.charCodeAt(o)] = o)
+                (n[s] = a[s]), (i[a.charCodeAt(s)] = s)
               function h(t) {
                 var e = t.length
                 if (e % 4 > 0)
@@ -127,13 +543,13 @@
                 return '=' === t[e - 2] ? 2 : '=' === t[e - 1] ? 1 : 0
               }
               function f(t, e, r) {
-                for (var i, s, a = [], o = e; o < r; o += 3)
-                  (i = (t[o] << 16) + (t[o + 1] << 8) + t[o + 2]),
+                for (var i, o, a = [], s = e; s < r; s += 3)
+                  (i = (t[s] << 16) + (t[s + 1] << 8) + t[s + 2]),
                     a.push(
-                      n[((s = i) >> 18) & 63] +
-                        n[(s >> 12) & 63] +
-                        n[(s >> 6) & 63] +
-                        n[63 & s]
+                      n[((o = i) >> 18) & 63] +
+                        n[(o >> 12) & 63] +
+                        n[(o >> 6) & 63] +
+                        n[63 & o]
                     )
                 return a.join('')
               }
@@ -146,18 +562,18 @@
               'use strict'
               var n = t('base64-js'),
                 i = t('ieee754')
-              ;(r.Buffer = o),
+              ;(r.Buffer = s),
                 (r.SlowBuffer = function(t) {
-                  return +t != t && (t = 0), o.alloc(+t)
+                  return +t != t && (t = 0), s.alloc(+t)
                 }),
                 (r.INSPECT_MAX_BYTES = 50)
-              var s = 2147483647
+              var o = 2147483647
               function a(t) {
-                if (t > s) throw new RangeError('Invalid typed array length')
+                if (t > o) throw new RangeError('Invalid typed array length')
                 var e = new Uint8Array(t)
-                return (e.__proto__ = o.prototype), e
+                return (e.__proto__ = s.prototype), e
               }
-              function o(t, e, r) {
+              function s(t, e, r) {
                 if ('number' === typeof t) {
                   if ('string' === typeof e)
                     throw new Error(
@@ -183,7 +599,7 @@
                             ? new Uint8Array(t)
                             : void 0 === r
                             ? new Uint8Array(t, e)
-                            : new Uint8Array(t, e, r)).__proto__ = o.prototype),
+                            : new Uint8Array(t, e, r)).__proto__ = s.prototype),
                         n
                       )
                     })(t, e, r)
@@ -191,7 +607,7 @@
                   ? (function(t, e) {
                       if (
                         (('string' === typeof e && '' !== e) || (e = 'utf8'),
-                        !o.isEncoding(e))
+                        !s.isEncoding(e))
                       )
                         throw new TypeError(
                           '"encoding" must be a valid string encoding'
@@ -202,14 +618,14 @@
                       return i !== r && (n = n.slice(0, i)), n
                     })(t, e)
                   : (function(t) {
-                      if (o.isBuffer(t)) {
+                      if (s.isBuffer(t)) {
                         var e = 0 | l(t.length),
                           r = a(e)
                         return 0 === r.length ? r : (t.copy(r, 0, 0, e), r)
                       }
                       if (t) {
-                        if (z(t) || 'length' in t)
-                          return 'number' !== typeof t.length || H(t.length)
+                        if (G(t) || 'length' in t)
+                          return 'number' !== typeof t.length || z(t.length)
                             ? a(0)
                             : c(t)
                         if ('Buffer' === t.type && Array.isArray(t.data))
@@ -239,17 +655,17 @@
                 return r
               }
               function l(t) {
-                if (t >= s)
+                if (t >= o)
                   throw new RangeError(
                     'Attempt to allocate Buffer larger than maximum size: 0x' +
-                      s.toString(16) +
+                      o.toString(16) +
                       ' bytes'
                   )
                 return 0 | t
               }
               function p(t, e) {
-                if (o.isBuffer(t)) return t.length
-                if (z(t) || j(t)) return t.byteLength
+                if (s.isBuffer(t)) return t.length
+                if (G(t) || j(t)) return t.byteLength
                 'string' !== typeof t && (t = '' + t)
                 var r = t.length
                 if (0 === r) return 0
@@ -262,7 +678,7 @@
                     case 'utf8':
                     case 'utf-8':
                     case void 0:
-                      return O(t).length
+                      return R(t).length
                     case 'ucs2':
                     case 'ucs-2':
                     case 'utf16le':
@@ -271,9 +687,9 @@
                     case 'hex':
                       return r >>> 1
                     case 'base64':
-                      return R(t).length
+                      return D(t).length
                     default:
-                      if (n) return O(t).length
+                      if (n) return R(t).length
                       ;(e = ('' + e).toLowerCase()), (n = !0)
                   }
               }
@@ -290,22 +706,22 @@
                 for (t || (t = 'utf8'); ; )
                   switch (t) {
                     case 'hex':
-                      return L(this, e, r)
+                      return B(this, e, r)
                     case 'utf8':
                     case 'utf-8':
                       return I(this, e, r)
                     case 'ascii':
-                      return B(this, e, r)
+                      return x(this, e, r)
                     case 'latin1':
                     case 'binary':
-                      return C(this, e, r)
+                      return A(this, e, r)
                     case 'base64':
                       return S(this, e, r)
                     case 'ucs2':
                     case 'ucs-2':
                     case 'utf16le':
                     case 'utf-16le':
-                      return x(this, e, r)
+                      return C(this, e, r)
                     default:
                       if (n) throw new TypeError('Unknown encoding: ' + t)
                       ;(t = (t + '').toLowerCase()), (n = !0)
@@ -315,7 +731,7 @@
                 var n = t[e]
                 ;(t[e] = t[r]), (t[r] = n)
               }
-              function d(t, e, r, n, i) {
+              function v(t, e, r, n, i) {
                 if (0 === t.length) return -1
                 if (
                   ('string' === typeof r
@@ -323,7 +739,7 @@
                     : r > 2147483647
                     ? (r = 2147483647)
                     : r < -2147483648 && (r = -2147483648),
-                  H((r = +r)) && (r = i ? 0 : t.length - 1),
+                  z((r = +r)) && (r = i ? 0 : t.length - 1),
                   r < 0 && (r = t.length + r),
                   r >= t.length)
                 ) {
@@ -334,9 +750,9 @@
                   r = 0
                 }
                 if (
-                  ('string' === typeof e && (e = o.from(e, n)), o.isBuffer(e))
+                  ('string' === typeof e && (e = s.from(e, n)), s.isBuffer(e))
                 )
-                  return 0 === e.length ? -1 : v(t, e, r, n, i)
+                  return 0 === e.length ? -1 : d(t, e, r, n, i)
                 if ('number' === typeof e)
                   return (
                     (e &= 255),
@@ -344,14 +760,14 @@
                       ? i
                         ? Uint8Array.prototype.indexOf.call(t, e, r)
                         : Uint8Array.prototype.lastIndexOf.call(t, e, r)
-                      : v(t, [e], r, n, i)
+                      : d(t, [e], r, n, i)
                   )
                 throw new TypeError('val must be string, number or Buffer')
               }
-              function v(t, e, r, n, i) {
-                var s,
+              function d(t, e, r, n, i) {
+                var o,
                   a = 1,
-                  o = t.length,
+                  s = t.length,
                   u = e.length
                 if (
                   void 0 !== n &&
@@ -361,25 +777,25 @@
                     'utf-16le' === n)
                 ) {
                   if (t.length < 2 || e.length < 2) return -1
-                  ;(a = 2), (o /= 2), (u /= 2), (r /= 2)
+                  ;(a = 2), (s /= 2), (u /= 2), (r /= 2)
                 }
                 function h(t, e) {
                   return 1 === a ? t[e] : t.readUInt16BE(e * a)
                 }
                 if (i) {
                   var f = -1
-                  for (s = r; s < o; s++)
-                    if (h(t, s) === h(e, -1 === f ? 0 : s - f)) {
-                      if ((-1 === f && (f = s), s - f + 1 === u)) return f * a
-                    } else -1 !== f && (s -= s - f), (f = -1)
+                  for (o = r; o < s; o++)
+                    if (h(t, o) === h(e, -1 === f ? 0 : o - f)) {
+                      if ((-1 === f && (f = o), o - f + 1 === u)) return f * a
+                    } else -1 !== f && (o -= o - f), (f = -1)
                 } else
-                  for (r + u > o && (r = o - u), s = r; s >= 0; s--) {
+                  for (r + u > s && (r = s - u), o = r; o >= 0; o--) {
                     for (var c = !0, l = 0; l < u; l++)
-                      if (h(t, s + l) !== h(e, l)) {
+                      if (h(t, o + l) !== h(e, l)) {
                         c = !1
                         break
                       }
-                    if (c) return s
+                    if (c) return o
                   }
                 return -1
               }
@@ -387,18 +803,18 @@
                 r = Number(r) || 0
                 var i = t.length - r
                 n ? (n = Number(n)) > i && (n = i) : (n = i)
-                var s = e.length
-                if (s % 2 !== 0) throw new TypeError('Invalid hex string')
-                n > s / 2 && (n = s / 2)
+                var o = e.length
+                if (o % 2 !== 0) throw new TypeError('Invalid hex string')
+                n > o / 2 && (n = o / 2)
                 for (var a = 0; a < n; ++a) {
-                  var o = parseInt(e.substr(2 * a, 2), 16)
-                  if (H(o)) return a
-                  t[r + a] = o
+                  var s = parseInt(e.substr(2 * a, 2), 16)
+                  if (z(s)) return a
+                  t[r + a] = s
                 }
                 return a
               }
               function m(t, e, r, n) {
-                return F(O(e, t.length - r), t, r, n)
+                return F(R(e, t.length - r), t, r, n)
               }
               function w(t, e, r, n) {
                 return F(
@@ -416,22 +832,22 @@
                 return w(t, e, r, n)
               }
               function E(t, e, r, n) {
-                return F(R(e), t, r, n)
+                return F(D(e), t, r, n)
               }
               function T(t, e, r, n) {
                 return F(
                   (function(t, e) {
                     for (
-                      var r, n, i, s = [], a = 0;
+                      var r, n, i, o = [], a = 0;
                       a < t.length && !((e -= 2) < 0);
                       ++a
                     )
                       (r = t.charCodeAt(a)),
                         (n = r >> 8),
                         (i = r % 256),
-                        s.push(i),
-                        s.push(n)
-                    return s
+                        o.push(i),
+                        o.push(n)
+                    return o
                   })(e, t.length - r),
                   t,
                   r,
@@ -446,9 +862,9 @@
               function I(t, e, r) {
                 r = Math.min(t.length, r)
                 for (var n = [], i = e; i < r; ) {
-                  var s,
+                  var o,
                     a,
-                    o,
+                    s,
                     u,
                     h = t[i],
                     f = null,
@@ -459,33 +875,33 @@
                         h < 128 && (f = h)
                         break
                       case 2:
-                        128 === (192 & (s = t[i + 1])) &&
-                          (u = ((31 & h) << 6) | (63 & s)) > 127 &&
+                        128 === (192 & (o = t[i + 1])) &&
+                          (u = ((31 & h) << 6) | (63 & o)) > 127 &&
                           (f = u)
                         break
                       case 3:
-                        ;(s = t[i + 1]),
+                        ;(o = t[i + 1]),
                           (a = t[i + 2]),
-                          128 === (192 & s) &&
+                          128 === (192 & o) &&
                             128 === (192 & a) &&
                             (u =
-                              ((15 & h) << 12) | ((63 & s) << 6) | (63 & a)) >
+                              ((15 & h) << 12) | ((63 & o) << 6) | (63 & a)) >
                               2047 &&
                             (u < 55296 || u > 57343) &&
                             (f = u)
                         break
                       case 4:
-                        ;(s = t[i + 1]),
+                        ;(o = t[i + 1]),
                           (a = t[i + 2]),
-                          (o = t[i + 3]),
-                          128 === (192 & s) &&
+                          (s = t[i + 3]),
+                          128 === (192 & o) &&
                             128 === (192 & a) &&
-                            128 === (192 & o) &&
+                            128 === (192 & s) &&
                             (u =
                               ((15 & h) << 18) |
-                              ((63 & s) << 12) |
+                              ((63 & o) << 12) |
                               ((63 & a) << 6) |
-                              (63 & o)) > 65535 &&
+                              (63 & s)) > 65535 &&
                             u < 1114112 &&
                             (f = u)
                     }
@@ -500,14 +916,14 @@
                 }
                 return (function(t) {
                   var e = t.length
-                  if (e <= A) return String.fromCharCode.apply(String, t)
+                  if (e <= L) return String.fromCharCode.apply(String, t)
                   for (var r = '', n = 0; n < e; )
-                    r += String.fromCharCode.apply(String, t.slice(n, (n += A)))
+                    r += String.fromCharCode.apply(String, t.slice(n, (n += L)))
                   return r
                 })(n)
               }
-              ;(r.kMaxLength = s),
-                (o.TYPED_ARRAY_SUPPORT = (function() {
+              ;(r.kMaxLength = o),
+                (s.TYPED_ARRAY_SUPPORT = (function() {
                   try {
                     var t = new Uint8Array(1)
                     return (
@@ -523,7 +939,7 @@
                     return !1
                   }
                 })()),
-                o.TYPED_ARRAY_SUPPORT ||
+                s.TYPED_ARRAY_SUPPORT ||
                   'undefined' === typeof console ||
                   'function' !== typeof console.error ||
                   console.error(
@@ -531,20 +947,20 @@
                   ),
                 'undefined' !== typeof Symbol &&
                   Symbol.species &&
-                  o[Symbol.species] === o &&
-                  Object.defineProperty(o, Symbol.species, {
+                  s[Symbol.species] === s &&
+                  Object.defineProperty(s, Symbol.species, {
                     value: null,
                     configurable: !0,
                     enumerable: !1,
                     writable: !1
                   }),
-                (o.poolSize = 8192),
-                (o.from = function(t, e, r) {
+                (s.poolSize = 8192),
+                (s.from = function(t, e, r) {
                   return u(t, e, r)
                 }),
-                (o.prototype.__proto__ = Uint8Array.prototype),
-                (o.__proto__ = Uint8Array),
-                (o.alloc = function(t, e, r) {
+                (s.prototype.__proto__ = Uint8Array.prototype),
+                (s.__proto__ = Uint8Array),
+                (s.alloc = function(t, e, r) {
                   return (function(t, e, r) {
                     return (
                       h(t),
@@ -558,22 +974,22 @@
                     )
                   })(t, e, r)
                 }),
-                (o.allocUnsafe = function(t) {
+                (s.allocUnsafe = function(t) {
                   return f(t)
                 }),
-                (o.allocUnsafeSlow = function(t) {
+                (s.allocUnsafeSlow = function(t) {
                   return f(t)
                 }),
-                (o.isBuffer = function(t) {
+                (s.isBuffer = function(t) {
                   return null != t && !0 === t._isBuffer
                 }),
-                (o.compare = function(t, e) {
-                  if (!o.isBuffer(t) || !o.isBuffer(e))
+                (s.compare = function(t, e) {
+                  if (!s.isBuffer(t) || !s.isBuffer(e))
                     throw new TypeError('Arguments must be Buffers')
                   if (t === e) return 0
                   for (
-                    var r = t.length, n = e.length, i = 0, s = Math.min(r, n);
-                    i < s;
+                    var r = t.length, n = e.length, i = 0, o = Math.min(r, n);
+                    i < o;
                     ++i
                   )
                     if (t[i] !== e[i]) {
@@ -582,7 +998,7 @@
                     }
                   return r < n ? -1 : n < r ? 1 : 0
                 }),
-                (o.isEncoding = function(t) {
+                (s.isEncoding = function(t) {
                   switch (String(t).toLowerCase()) {
                     case 'hex':
                     case 'utf8':
@@ -600,30 +1016,30 @@
                       return !1
                   }
                 }),
-                (o.concat = function(t, e) {
+                (s.concat = function(t, e) {
                   if (!Array.isArray(t))
                     throw new TypeError(
                       '"list" argument must be an Array of Buffers'
                     )
-                  if (0 === t.length) return o.alloc(0)
+                  if (0 === t.length) return s.alloc(0)
                   var r
                   if (void 0 === e)
                     for (e = 0, r = 0; r < t.length; ++r) e += t[r].length
-                  var n = o.allocUnsafe(e),
+                  var n = s.allocUnsafe(e),
                     i = 0
                   for (r = 0; r < t.length; ++r) {
-                    var s = t[r]
-                    if (!o.isBuffer(s))
+                    var o = t[r]
+                    if (!s.isBuffer(o))
                       throw new TypeError(
                         '"list" argument must be an Array of Buffers'
                       )
-                    s.copy(n, i), (i += s.length)
+                    o.copy(n, i), (i += o.length)
                   }
                   return n
                 }),
-                (o.byteLength = p),
-                (o.prototype._isBuffer = !0),
-                (o.prototype.swap16 = function() {
+                (s.byteLength = p),
+                (s.prototype._isBuffer = !0),
+                (s.prototype.swap16 = function() {
                   var t = this.length
                   if (t % 2 !== 0)
                     throw new RangeError(
@@ -632,7 +1048,7 @@
                   for (var e = 0; e < t; e += 2) g(this, e, e + 1)
                   return this
                 }),
-                (o.prototype.swap32 = function() {
+                (s.prototype.swap32 = function() {
                   var t = this.length
                   if (t % 4 !== 0)
                     throw new RangeError(
@@ -642,7 +1058,7 @@
                     g(this, e, e + 3), g(this, e + 1, e + 2)
                   return this
                 }),
-                (o.prototype.swap64 = function() {
+                (s.prototype.swap64 = function() {
                   var t = this.length
                   if (t % 8 !== 0)
                     throw new RangeError(
@@ -655,7 +1071,7 @@
                       g(this, e + 3, e + 4)
                   return this
                 }),
-                (o.prototype.toString = function() {
+                (s.prototype.toString = function() {
                   var t = this.length
                   return 0 === t
                     ? ''
@@ -663,12 +1079,12 @@
                     ? I(this, 0, t)
                     : y.apply(this, arguments)
                 }),
-                (o.prototype.equals = function(t) {
-                  if (!o.isBuffer(t))
+                (s.prototype.equals = function(t) {
+                  if (!s.isBuffer(t))
                     throw new TypeError('Argument must be a Buffer')
-                  return this === t || 0 === o.compare(this, t)
+                  return this === t || 0 === s.compare(this, t)
                 }),
-                (o.prototype.inspect = function() {
+                (s.prototype.inspect = function() {
                   var t = '',
                     e = r.INSPECT_MAX_BYTES
                   return (
@@ -680,8 +1096,8 @@
                     '<Buffer ' + t + '>'
                   )
                 }),
-                (o.prototype.compare = function(t, e, r, n, i) {
-                  if (!o.isBuffer(t))
+                (s.prototype.compare = function(t, e, r, n, i) {
+                  if (!s.isBuffer(t))
                     throw new TypeError('Argument must be a Buffer')
                   if (
                     (void 0 === e && (e = 0),
@@ -699,9 +1115,9 @@
                   )
                     return 0
                   for (
-                    var s = i - n,
+                    var o = i - n,
                       a = r - e,
-                      u = Math.min(s, a),
+                      u = Math.min(o, a),
                       h = this.slice(n, i),
                       f = t.slice(e, r),
                       c = 0;
@@ -709,21 +1125,21 @@
                     ++c
                   )
                     if (h[c] !== f[c]) {
-                      ;(s = h[c]), (a = f[c])
+                      ;(o = h[c]), (a = f[c])
                       break
                     }
-                  return s < a ? -1 : a < s ? 1 : 0
+                  return o < a ? -1 : a < o ? 1 : 0
                 }),
-                (o.prototype.includes = function(t, e, r) {
+                (s.prototype.includes = function(t, e, r) {
                   return -1 !== this.indexOf(t, e, r)
                 }),
-                (o.prototype.indexOf = function(t, e, r) {
-                  return d(this, t, e, r, !0)
+                (s.prototype.indexOf = function(t, e, r) {
+                  return v(this, t, e, r, !0)
                 }),
-                (o.prototype.lastIndexOf = function(t, e, r) {
-                  return d(this, t, e, r, !1)
+                (s.prototype.lastIndexOf = function(t, e, r) {
+                  return v(this, t, e, r, !1)
                 }),
-                (o.prototype.write = function(t, e, r, n) {
+                (s.prototype.write = function(t, e, r, n) {
                   if (void 0 === e) (n = 'utf8'), (r = this.length), (e = 0)
                   else if (void 0 === r && 'string' === typeof e)
                     (n = e), (r = this.length), (e = 0)
@@ -746,7 +1162,7 @@
                       'Attempt to write outside buffer bounds'
                     )
                   n || (n = 'utf8')
-                  for (var s = !1; ; )
+                  for (var o = !1; ; )
                     switch (n) {
                       case 'hex':
                         return b(this, t, e, r)
@@ -766,80 +1182,80 @@
                       case 'utf-16le':
                         return T(this, t, e, r)
                       default:
-                        if (s) throw new TypeError('Unknown encoding: ' + n)
-                        ;(n = ('' + n).toLowerCase()), (s = !0)
+                        if (o) throw new TypeError('Unknown encoding: ' + n)
+                        ;(n = ('' + n).toLowerCase()), (o = !0)
                     }
                 }),
-                (o.prototype.toJSON = function() {
+                (s.prototype.toJSON = function() {
                   return {
                     type: 'Buffer',
                     data: Array.prototype.slice.call(this._arr || this, 0)
                   }
                 })
-              var A = 4096
-              function B(t, e, r) {
+              var L = 4096
+              function x(t, e, r) {
                 var n = ''
                 r = Math.min(t.length, r)
                 for (var i = e; i < r; ++i) n += String.fromCharCode(127 & t[i])
                 return n
               }
-              function C(t, e, r) {
+              function A(t, e, r) {
                 var n = ''
                 r = Math.min(t.length, r)
                 for (var i = e; i < r; ++i) n += String.fromCharCode(t[i])
                 return n
               }
-              function L(t, e, r) {
+              function B(t, e, r) {
                 var n,
                   i = t.length
                 ;(!e || e < 0) && (e = 0), (!r || r < 0 || r > i) && (r = i)
-                for (var s = '', a = e; a < r; ++a)
-                  s += (n = t[a]) < 16 ? '0' + n.toString(16) : n.toString(16)
-                return s
+                for (var o = '', a = e; a < r; ++a)
+                  o += (n = t[a]) < 16 ? '0' + n.toString(16) : n.toString(16)
+                return o
               }
-              function x(t, e, r) {
-                for (var n = t.slice(e, r), i = '', s = 0; s < n.length; s += 2)
-                  i += String.fromCharCode(n[s] + 256 * n[s + 1])
+              function C(t, e, r) {
+                for (var n = t.slice(e, r), i = '', o = 0; o < n.length; o += 2)
+                  i += String.fromCharCode(n[o] + 256 * n[o + 1])
                 return i
               }
-              function U(t, e, r) {
+              function _(t, e, r) {
                 if (t % 1 !== 0 || t < 0)
                   throw new RangeError('offset is not uint')
                 if (t + e > r)
                   throw new RangeError('Trying to access beyond buffer length')
               }
-              function _(t, e, r, n, i, s) {
-                if (!o.isBuffer(t))
+              function P(t, e, r, n, i, o) {
+                if (!s.isBuffer(t))
                   throw new TypeError(
                     '"buffer" argument must be a Buffer instance'
                   )
-                if (e > i || e < s)
+                if (e > i || e < o)
                   throw new RangeError('"value" argument is out of bounds')
                 if (r + n > t.length) throw new RangeError('Index out of range')
               }
-              function M(t, e, r, n, i, s) {
+              function U(t, e, r, n, i, o) {
                 if (r + n > t.length) throw new RangeError('Index out of range')
                 if (r < 0) throw new RangeError('Index out of range')
               }
-              function P(t, e, r, n, s) {
+              function N(t, e, r, n, o) {
                 return (
                   (e = +e),
                   (r >>>= 0),
-                  s || M(t, 0, r, 4),
+                  o || U(t, 0, r, 4),
                   i.write(t, e, r, n, 23, 4),
                   r + 4
                 )
               }
-              function N(t, e, r, n, s) {
+              function O(t, e, r, n, o) {
                 return (
                   (e = +e),
                   (r >>>= 0),
-                  s || M(t, 0, r, 8),
+                  o || U(t, 0, r, 8),
                   i.write(t, e, r, n, 52, 8),
                   r + 8
                 )
               }
-              ;(o.prototype.slice = function(t, e) {
+              ;(s.prototype.slice = function(t, e) {
                 var r = this.length
                 ;(t = ~~t) < 0 ? (t += r) < 0 && (t = 0) : t > r && (t = r),
                   (e = void 0 === e ? r : ~~e) < 0
@@ -847,190 +1263,190 @@
                     : e > r && (e = r),
                   e < t && (e = t)
                 var n = this.subarray(t, e)
-                return (n.__proto__ = o.prototype), n
+                return (n.__proto__ = s.prototype), n
               }),
-                (o.prototype.readUIntLE = function(t, e, r) {
-                  ;(t >>>= 0), (e >>>= 0), r || U(t, e, this.length)
-                  for (var n = this[t], i = 1, s = 0; ++s < e && (i *= 256); )
-                    n += this[t + s] * i
+                (s.prototype.readUIntLE = function(t, e, r) {
+                  ;(t >>>= 0), (e >>>= 0), r || _(t, e, this.length)
+                  for (var n = this[t], i = 1, o = 0; ++o < e && (i *= 256); )
+                    n += this[t + o] * i
                   return n
                 }),
-                (o.prototype.readUIntBE = function(t, e, r) {
-                  ;(t >>>= 0), (e >>>= 0), r || U(t, e, this.length)
+                (s.prototype.readUIntBE = function(t, e, r) {
+                  ;(t >>>= 0), (e >>>= 0), r || _(t, e, this.length)
                   for (var n = this[t + --e], i = 1; e > 0 && (i *= 256); )
                     n += this[t + --e] * i
                   return n
                 }),
-                (o.prototype.readUInt8 = function(t, e) {
-                  return (t >>>= 0), e || U(t, 1, this.length), this[t]
+                (s.prototype.readUInt8 = function(t, e) {
+                  return (t >>>= 0), e || _(t, 1, this.length), this[t]
                 }),
-                (o.prototype.readUInt16LE = function(t, e) {
+                (s.prototype.readUInt16LE = function(t, e) {
                   return (
                     (t >>>= 0),
-                    e || U(t, 2, this.length),
+                    e || _(t, 2, this.length),
                     this[t] | (this[t + 1] << 8)
                   )
                 }),
-                (o.prototype.readUInt16BE = function(t, e) {
+                (s.prototype.readUInt16BE = function(t, e) {
                   return (
                     (t >>>= 0),
-                    e || U(t, 2, this.length),
+                    e || _(t, 2, this.length),
                     (this[t] << 8) | this[t + 1]
                   )
                 }),
-                (o.prototype.readUInt32LE = function(t, e) {
+                (s.prototype.readUInt32LE = function(t, e) {
                   return (
                     (t >>>= 0),
-                    e || U(t, 4, this.length),
+                    e || _(t, 4, this.length),
                     (this[t] | (this[t + 1] << 8) | (this[t + 2] << 16)) +
                       16777216 * this[t + 3]
                   )
                 }),
-                (o.prototype.readUInt32BE = function(t, e) {
+                (s.prototype.readUInt32BE = function(t, e) {
                   return (
                     (t >>>= 0),
-                    e || U(t, 4, this.length),
+                    e || _(t, 4, this.length),
                     16777216 * this[t] +
                       ((this[t + 1] << 16) | (this[t + 2] << 8) | this[t + 3])
                   )
                 }),
-                (o.prototype.readIntLE = function(t, e, r) {
-                  ;(t >>>= 0), (e >>>= 0), r || U(t, e, this.length)
-                  for (var n = this[t], i = 1, s = 0; ++s < e && (i *= 256); )
-                    n += this[t + s] * i
+                (s.prototype.readIntLE = function(t, e, r) {
+                  ;(t >>>= 0), (e >>>= 0), r || _(t, e, this.length)
+                  for (var n = this[t], i = 1, o = 0; ++o < e && (i *= 256); )
+                    n += this[t + o] * i
                   return n >= (i *= 128) && (n -= Math.pow(2, 8 * e)), n
                 }),
-                (o.prototype.readIntBE = function(t, e, r) {
-                  ;(t >>>= 0), (e >>>= 0), r || U(t, e, this.length)
+                (s.prototype.readIntBE = function(t, e, r) {
+                  ;(t >>>= 0), (e >>>= 0), r || _(t, e, this.length)
                   for (
-                    var n = e, i = 1, s = this[t + --n];
+                    var n = e, i = 1, o = this[t + --n];
                     n > 0 && (i *= 256);
 
                   )
-                    s += this[t + --n] * i
-                  return s >= (i *= 128) && (s -= Math.pow(2, 8 * e)), s
+                    o += this[t + --n] * i
+                  return o >= (i *= 128) && (o -= Math.pow(2, 8 * e)), o
                 }),
-                (o.prototype.readInt8 = function(t, e) {
+                (s.prototype.readInt8 = function(t, e) {
                   return (
                     (t >>>= 0),
-                    e || U(t, 1, this.length),
+                    e || _(t, 1, this.length),
                     128 & this[t] ? -1 * (255 - this[t] + 1) : this[t]
                   )
                 }),
-                (o.prototype.readInt16LE = function(t, e) {
-                  ;(t >>>= 0), e || U(t, 2, this.length)
+                (s.prototype.readInt16LE = function(t, e) {
+                  ;(t >>>= 0), e || _(t, 2, this.length)
                   var r = this[t] | (this[t + 1] << 8)
                   return 32768 & r ? 4294901760 | r : r
                 }),
-                (o.prototype.readInt16BE = function(t, e) {
-                  ;(t >>>= 0), e || U(t, 2, this.length)
+                (s.prototype.readInt16BE = function(t, e) {
+                  ;(t >>>= 0), e || _(t, 2, this.length)
                   var r = this[t + 1] | (this[t] << 8)
                   return 32768 & r ? 4294901760 | r : r
                 }),
-                (o.prototype.readInt32LE = function(t, e) {
+                (s.prototype.readInt32LE = function(t, e) {
                   return (
                     (t >>>= 0),
-                    e || U(t, 4, this.length),
+                    e || _(t, 4, this.length),
                     this[t] |
                       (this[t + 1] << 8) |
                       (this[t + 2] << 16) |
                       (this[t + 3] << 24)
                   )
                 }),
-                (o.prototype.readInt32BE = function(t, e) {
+                (s.prototype.readInt32BE = function(t, e) {
                   return (
                     (t >>>= 0),
-                    e || U(t, 4, this.length),
+                    e || _(t, 4, this.length),
                     (this[t] << 24) |
                       (this[t + 1] << 16) |
                       (this[t + 2] << 8) |
                       this[t + 3]
                   )
                 }),
-                (o.prototype.readFloatLE = function(t, e) {
+                (s.prototype.readFloatLE = function(t, e) {
                   return (
                     (t >>>= 0),
-                    e || U(t, 4, this.length),
+                    e || _(t, 4, this.length),
                     i.read(this, t, !0, 23, 4)
                   )
                 }),
-                (o.prototype.readFloatBE = function(t, e) {
+                (s.prototype.readFloatBE = function(t, e) {
                   return (
                     (t >>>= 0),
-                    e || U(t, 4, this.length),
+                    e || _(t, 4, this.length),
                     i.read(this, t, !1, 23, 4)
                   )
                 }),
-                (o.prototype.readDoubleLE = function(t, e) {
+                (s.prototype.readDoubleLE = function(t, e) {
                   return (
                     (t >>>= 0),
-                    e || U(t, 8, this.length),
+                    e || _(t, 8, this.length),
                     i.read(this, t, !0, 52, 8)
                   )
                 }),
-                (o.prototype.readDoubleBE = function(t, e) {
+                (s.prototype.readDoubleBE = function(t, e) {
                   return (
                     (t >>>= 0),
-                    e || U(t, 8, this.length),
+                    e || _(t, 8, this.length),
                     i.read(this, t, !1, 52, 8)
                   )
                 }),
-                (o.prototype.writeUIntLE = function(t, e, r, n) {
+                (s.prototype.writeUIntLE = function(t, e, r, n) {
                   if (((t = +t), (e >>>= 0), (r >>>= 0), !n)) {
                     var i = Math.pow(2, 8 * r) - 1
-                    _(this, t, e, r, i, 0)
+                    P(this, t, e, r, i, 0)
                   }
-                  var s = 1,
+                  var o = 1,
                     a = 0
-                  for (this[e] = 255 & t; ++a < r && (s *= 256); )
-                    this[e + a] = (t / s) & 255
+                  for (this[e] = 255 & t; ++a < r && (o *= 256); )
+                    this[e + a] = (t / o) & 255
                   return e + r
                 }),
-                (o.prototype.writeUIntBE = function(t, e, r, n) {
+                (s.prototype.writeUIntBE = function(t, e, r, n) {
                   if (((t = +t), (e >>>= 0), (r >>>= 0), !n)) {
                     var i = Math.pow(2, 8 * r) - 1
-                    _(this, t, e, r, i, 0)
+                    P(this, t, e, r, i, 0)
                   }
-                  var s = r - 1,
+                  var o = r - 1,
                     a = 1
-                  for (this[e + s] = 255 & t; --s >= 0 && (a *= 256); )
-                    this[e + s] = (t / a) & 255
+                  for (this[e + o] = 255 & t; --o >= 0 && (a *= 256); )
+                    this[e + o] = (t / a) & 255
                   return e + r
                 }),
-                (o.prototype.writeUInt8 = function(t, e, r) {
+                (s.prototype.writeUInt8 = function(t, e, r) {
                   return (
                     (t = +t),
                     (e >>>= 0),
-                    r || _(this, t, e, 1, 255, 0),
+                    r || P(this, t, e, 1, 255, 0),
                     (this[e] = 255 & t),
                     e + 1
                   )
                 }),
-                (o.prototype.writeUInt16LE = function(t, e, r) {
+                (s.prototype.writeUInt16LE = function(t, e, r) {
                   return (
                     (t = +t),
                     (e >>>= 0),
-                    r || _(this, t, e, 2, 65535, 0),
+                    r || P(this, t, e, 2, 65535, 0),
                     (this[e] = 255 & t),
                     (this[e + 1] = t >>> 8),
                     e + 2
                   )
                 }),
-                (o.prototype.writeUInt16BE = function(t, e, r) {
+                (s.prototype.writeUInt16BE = function(t, e, r) {
                   return (
                     (t = +t),
                     (e >>>= 0),
-                    r || _(this, t, e, 2, 65535, 0),
+                    r || P(this, t, e, 2, 65535, 0),
                     (this[e] = t >>> 8),
                     (this[e + 1] = 255 & t),
                     e + 2
                   )
                 }),
-                (o.prototype.writeUInt32LE = function(t, e, r) {
+                (s.prototype.writeUInt32LE = function(t, e, r) {
                   return (
                     (t = +t),
                     (e >>>= 0),
-                    r || _(this, t, e, 4, 4294967295, 0),
+                    r || P(this, t, e, 4, 4294967295, 0),
                     (this[e + 3] = t >>> 24),
                     (this[e + 2] = t >>> 16),
                     (this[e + 1] = t >>> 8),
@@ -1038,11 +1454,11 @@
                     e + 4
                   )
                 }),
-                (o.prototype.writeUInt32BE = function(t, e, r) {
+                (s.prototype.writeUInt32BE = function(t, e, r) {
                   return (
                     (t = +t),
                     (e >>>= 0),
-                    r || _(this, t, e, 4, 4294967295, 0),
+                    r || P(this, t, e, 4, 4294967295, 0),
                     (this[e] = t >>> 24),
                     (this[e + 1] = t >>> 16),
                     (this[e + 2] = t >>> 8),
@@ -1050,67 +1466,67 @@
                     e + 4
                   )
                 }),
-                (o.prototype.writeIntLE = function(t, e, r, n) {
+                (s.prototype.writeIntLE = function(t, e, r, n) {
                   if (((t = +t), (e >>>= 0), !n)) {
                     var i = Math.pow(2, 8 * r - 1)
-                    _(this, t, e, r, i - 1, -i)
+                    P(this, t, e, r, i - 1, -i)
                   }
-                  var s = 0,
+                  var o = 0,
                     a = 1,
-                    o = 0
-                  for (this[e] = 255 & t; ++s < r && (a *= 256); )
-                    t < 0 && 0 === o && 0 !== this[e + s - 1] && (o = 1),
-                      (this[e + s] = (((t / a) >> 0) - o) & 255)
+                    s = 0
+                  for (this[e] = 255 & t; ++o < r && (a *= 256); )
+                    t < 0 && 0 === s && 0 !== this[e + o - 1] && (s = 1),
+                      (this[e + o] = (((t / a) >> 0) - s) & 255)
                   return e + r
                 }),
-                (o.prototype.writeIntBE = function(t, e, r, n) {
+                (s.prototype.writeIntBE = function(t, e, r, n) {
                   if (((t = +t), (e >>>= 0), !n)) {
                     var i = Math.pow(2, 8 * r - 1)
-                    _(this, t, e, r, i - 1, -i)
+                    P(this, t, e, r, i - 1, -i)
                   }
-                  var s = r - 1,
+                  var o = r - 1,
                     a = 1,
-                    o = 0
-                  for (this[e + s] = 255 & t; --s >= 0 && (a *= 256); )
-                    t < 0 && 0 === o && 0 !== this[e + s + 1] && (o = 1),
-                      (this[e + s] = (((t / a) >> 0) - o) & 255)
+                    s = 0
+                  for (this[e + o] = 255 & t; --o >= 0 && (a *= 256); )
+                    t < 0 && 0 === s && 0 !== this[e + o + 1] && (s = 1),
+                      (this[e + o] = (((t / a) >> 0) - s) & 255)
                   return e + r
                 }),
-                (o.prototype.writeInt8 = function(t, e, r) {
+                (s.prototype.writeInt8 = function(t, e, r) {
                   return (
                     (t = +t),
                     (e >>>= 0),
-                    r || _(this, t, e, 1, 127, -128),
+                    r || P(this, t, e, 1, 127, -128),
                     t < 0 && (t = 255 + t + 1),
                     (this[e] = 255 & t),
                     e + 1
                   )
                 }),
-                (o.prototype.writeInt16LE = function(t, e, r) {
+                (s.prototype.writeInt16LE = function(t, e, r) {
                   return (
                     (t = +t),
                     (e >>>= 0),
-                    r || _(this, t, e, 2, 32767, -32768),
+                    r || P(this, t, e, 2, 32767, -32768),
                     (this[e] = 255 & t),
                     (this[e + 1] = t >>> 8),
                     e + 2
                   )
                 }),
-                (o.prototype.writeInt16BE = function(t, e, r) {
+                (s.prototype.writeInt16BE = function(t, e, r) {
                   return (
                     (t = +t),
                     (e >>>= 0),
-                    r || _(this, t, e, 2, 32767, -32768),
+                    r || P(this, t, e, 2, 32767, -32768),
                     (this[e] = t >>> 8),
                     (this[e + 1] = 255 & t),
                     e + 2
                   )
                 }),
-                (o.prototype.writeInt32LE = function(t, e, r) {
+                (s.prototype.writeInt32LE = function(t, e, r) {
                   return (
                     (t = +t),
                     (e >>>= 0),
-                    r || _(this, t, e, 4, 2147483647, -2147483648),
+                    r || P(this, t, e, 4, 2147483647, -2147483648),
                     (this[e] = 255 & t),
                     (this[e + 1] = t >>> 8),
                     (this[e + 2] = t >>> 16),
@@ -1118,11 +1534,11 @@
                     e + 4
                   )
                 }),
-                (o.prototype.writeInt32BE = function(t, e, r) {
+                (s.prototype.writeInt32BE = function(t, e, r) {
                   return (
                     (t = +t),
                     (e >>>= 0),
-                    r || _(this, t, e, 4, 2147483647, -2147483648),
+                    r || P(this, t, e, 4, 2147483647, -2147483648),
                     t < 0 && (t = 4294967295 + t + 1),
                     (this[e] = t >>> 24),
                     (this[e + 1] = t >>> 16),
@@ -1131,19 +1547,19 @@
                     e + 4
                   )
                 }),
-                (o.prototype.writeFloatLE = function(t, e, r) {
-                  return P(this, t, e, !0, r)
-                }),
-                (o.prototype.writeFloatBE = function(t, e, r) {
-                  return P(this, t, e, !1, r)
-                }),
-                (o.prototype.writeDoubleLE = function(t, e, r) {
+                (s.prototype.writeFloatLE = function(t, e, r) {
                   return N(this, t, e, !0, r)
                 }),
-                (o.prototype.writeDoubleBE = function(t, e, r) {
+                (s.prototype.writeFloatBE = function(t, e, r) {
                   return N(this, t, e, !1, r)
                 }),
-                (o.prototype.copy = function(t, e, r, n) {
+                (s.prototype.writeDoubleLE = function(t, e, r) {
+                  return O(this, t, e, !0, r)
+                }),
+                (s.prototype.writeDoubleBE = function(t, e, r) {
+                  return O(this, t, e, !1, r)
+                }),
+                (s.prototype.copy = function(t, e, r, n) {
                   if (
                     (r || (r = 0),
                     n || 0 === n || (n = this.length),
@@ -1161,16 +1577,16 @@
                   n > this.length && (n = this.length),
                     t.length - e < n - r && (n = t.length - e + r)
                   var i,
-                    s = n - r
+                    o = n - r
                   if (this === t && r < e && e < n)
-                    for (i = s - 1; i >= 0; --i) t[i + e] = this[i + r]
-                  else if (s < 1e3)
-                    for (i = 0; i < s; ++i) t[i + e] = this[i + r]
+                    for (i = o - 1; i >= 0; --i) t[i + e] = this[i + r]
+                  else if (o < 1e3)
+                    for (i = 0; i < o; ++i) t[i + e] = this[i + r]
                   else
-                    Uint8Array.prototype.set.call(t, this.subarray(r, r + s), e)
-                  return s
+                    Uint8Array.prototype.set.call(t, this.subarray(r, r + o), e)
+                  return o
                 }),
-                (o.prototype.fill = function(t, e, r, n) {
+                (s.prototype.fill = function(t, e, r, n) {
                   if ('string' === typeof t) {
                     if (
                       ('string' === typeof e
@@ -1183,60 +1599,60 @@
                     }
                     if (void 0 !== n && 'string' !== typeof n)
                       throw new TypeError('encoding must be a string')
-                    if ('string' === typeof n && !o.isEncoding(n))
+                    if ('string' === typeof n && !s.isEncoding(n))
                       throw new TypeError('Unknown encoding: ' + n)
                   } else 'number' === typeof t && (t &= 255)
                   if (e < 0 || this.length < e || this.length < r)
                     throw new RangeError('Out of range index')
                   if (r <= e) return this
-                  var s
+                  var o
                   if (
                     ((e >>>= 0),
                     (r = void 0 === r ? this.length : r >>> 0),
                     t || (t = 0),
                     'number' === typeof t)
                   )
-                    for (s = e; s < r; ++s) this[s] = t
+                    for (o = e; o < r; ++o) this[o] = t
                   else {
-                    var a = o.isBuffer(t) ? t : new o(t, n),
+                    var a = s.isBuffer(t) ? t : new s(t, n),
                       u = a.length
-                    for (s = 0; s < r - e; ++s) this[s + e] = a[s % u]
+                    for (o = 0; o < r - e; ++o) this[o + e] = a[o % u]
                   }
                   return this
                 })
-              var D = /[^+\/0-9A-Za-z-_]/g
-              function O(t, e) {
+              var M = /[^+\/0-9A-Za-z-_]/g
+              function R(t, e) {
                 var r
                 e = e || 1 / 0
-                for (var n = t.length, i = null, s = [], a = 0; a < n; ++a) {
+                for (var n = t.length, i = null, o = [], a = 0; a < n; ++a) {
                   if ((r = t.charCodeAt(a)) > 55295 && r < 57344) {
                     if (!i) {
                       if (r > 56319) {
-                        ;(e -= 3) > -1 && s.push(239, 191, 189)
+                        ;(e -= 3) > -1 && o.push(239, 191, 189)
                         continue
                       }
                       if (a + 1 === n) {
-                        ;(e -= 3) > -1 && s.push(239, 191, 189)
+                        ;(e -= 3) > -1 && o.push(239, 191, 189)
                         continue
                       }
                       i = r
                       continue
                     }
                     if (r < 56320) {
-                      ;(e -= 3) > -1 && s.push(239, 191, 189), (i = r)
+                      ;(e -= 3) > -1 && o.push(239, 191, 189), (i = r)
                       continue
                     }
                     r = 65536 + (((i - 55296) << 10) | (r - 56320))
-                  } else i && (e -= 3) > -1 && s.push(239, 191, 189)
+                  } else i && (e -= 3) > -1 && o.push(239, 191, 189)
                   if (((i = null), r < 128)) {
                     if ((e -= 1) < 0) break
-                    s.push(r)
+                    o.push(r)
                   } else if (r < 2048) {
                     if ((e -= 2) < 0) break
-                    s.push((r >> 6) | 192, (63 & r) | 128)
+                    o.push((r >> 6) | 192, (63 & r) | 128)
                   } else if (r < 65536) {
                     if ((e -= 3) < 0) break
-                    s.push(
+                    o.push(
                       (r >> 12) | 224,
                       ((r >> 6) & 63) | 128,
                       (63 & r) | 128
@@ -1244,7 +1660,7 @@
                   } else {
                     if (!(r < 1114112)) throw new Error('Invalid code point')
                     if ((e -= 4) < 0) break
-                    s.push(
+                    o.push(
                       (r >> 18) | 240,
                       ((r >> 12) & 63) | 128,
                       ((r >> 6) & 63) | 128,
@@ -1252,12 +1668,12 @@
                     )
                   }
                 }
-                return s
+                return o
               }
-              function R(t) {
+              function D(t) {
                 return n.toByteArray(
                   (function(t) {
-                    if ((t = t.trim().replace(D, '')).length < 2) return ''
+                    if ((t = t.trim().replace(M, '')).length < 2) return ''
                     for (; t.length % 4 !== 0; ) t += '='
                     return t
                   })(t)
@@ -1281,13 +1697,13 @@
                     'number' === typeof t.byteLength)
                 )
               }
-              function z(t) {
+              function G(t) {
                 return (
                   'function' === typeof ArrayBuffer.isView &&
                   ArrayBuffer.isView(t)
                 )
               }
-              function H(t) {
+              function z(t) {
                 return t !== t
               }
             },
@@ -1296,63 +1712,63 @@
           3: [
             function(t, e, r) {
               ;(r.read = function(t, e, r, n, i) {
-                var s,
+                var o,
                   a,
-                  o = 8 * i - n - 1,
-                  u = (1 << o) - 1,
+                  s = 8 * i - n - 1,
+                  u = (1 << s) - 1,
                   h = u >> 1,
                   f = -7,
                   c = r ? i - 1 : 0,
                   l = r ? -1 : 1,
                   p = t[e + c]
                 for (
-                  c += l, s = p & ((1 << -f) - 1), p >>= -f, f += o;
+                  c += l, o = p & ((1 << -f) - 1), p >>= -f, f += s;
                   f > 0;
-                  s = 256 * s + t[e + c], c += l, f -= 8
+                  o = 256 * o + t[e + c], c += l, f -= 8
                 );
                 for (
-                  a = s & ((1 << -f) - 1), s >>= -f, f += n;
+                  a = o & ((1 << -f) - 1), o >>= -f, f += n;
                   f > 0;
                   a = 256 * a + t[e + c], c += l, f -= 8
                 );
-                if (0 === s) s = 1 - h
+                if (0 === o) o = 1 - h
                 else {
-                  if (s === u) return a ? NaN : (1 / 0) * (p ? -1 : 1)
-                  ;(a += Math.pow(2, n)), (s -= h)
+                  if (o === u) return a ? NaN : (1 / 0) * (p ? -1 : 1)
+                  ;(a += Math.pow(2, n)), (o -= h)
                 }
-                return (p ? -1 : 1) * a * Math.pow(2, s - n)
+                return (p ? -1 : 1) * a * Math.pow(2, o - n)
               }),
-                (r.write = function(t, e, r, n, i, s) {
+                (r.write = function(t, e, r, n, i, o) {
                   var a,
-                    o,
+                    s,
                     u,
-                    h = 8 * s - i - 1,
+                    h = 8 * o - i - 1,
                     f = (1 << h) - 1,
                     c = f >> 1,
                     l = 23 === i ? Math.pow(2, -24) - Math.pow(2, -77) : 0,
-                    p = n ? 0 : s - 1,
+                    p = n ? 0 : o - 1,
                     y = n ? 1 : -1,
                     g = e < 0 || (0 === e && 1 / e < 0) ? 1 : 0
                   for (
                     e = Math.abs(e),
                       isNaN(e) || e === 1 / 0
-                        ? ((o = isNaN(e) ? 1 : 0), (a = f))
+                        ? ((s = isNaN(e) ? 1 : 0), (a = f))
                         : ((a = Math.floor(Math.log(e) / Math.LN2)),
                           e * (u = Math.pow(2, -a)) < 1 && (a--, (u *= 2)),
                           (e += a + c >= 1 ? l / u : l * Math.pow(2, 1 - c)) *
                             u >=
                             2 && (a++, (u /= 2)),
                           a + c >= f
-                            ? ((o = 0), (a = f))
+                            ? ((s = 0), (a = f))
                             : a + c >= 1
-                            ? ((o = (e * u - 1) * Math.pow(2, i)), (a += c))
-                            : ((o = e * Math.pow(2, c - 1) * Math.pow(2, i)),
+                            ? ((s = (e * u - 1) * Math.pow(2, i)), (a += c))
+                            : ((s = e * Math.pow(2, c - 1) * Math.pow(2, i)),
                               (a = 0)));
                     i >= 8;
-                    t[r + p] = 255 & o, p += y, o /= 256, i -= 8
+                    t[r + p] = 255 & s, p += y, s /= 256, i -= 8
                   );
                   for (
-                    a = (a << i) | o, h += i;
+                    a = (a << i) | s, h += i;
                     h > 0;
                     t[r + p] = 255 & a, p += y, a /= 256, h -= 8
                   );
@@ -1411,20 +1827,20 @@
                     ['A#', 'Bb'],
                     ['B']
                   ],
-                  s = 0,
+                  o = 0,
                   a = function(t) {
                     i.forEach(function(e) {
                       e.forEach(function(e) {
-                        return (n.NOTES[s] = e + t)
+                        return (n.NOTES[o] = e + t)
                       }),
-                        s++
+                        o++
                     })
                   },
-                  o = -1;
-                o <= 9;
-                o++
+                  s = -1;
+                s <= 9;
+                s++
               )
-                a(o)
+                a(s)
               r.Constants = n
             },
             {}
@@ -1434,11 +1850,11 @@
               'use strict'
               var n = t('./player'),
                 i = t('./utils'),
-                s = t('./constants')
+                o = t('./constants')
               e.exports = {
                 Player: n.Player,
                 Utils: i.Utils,
-                Constants: s.Constants
+                Constants: o.Constants
               }
             },
             { './constants': 4, './player': 6, './utils': 8 }
@@ -1474,13 +1890,13 @@
                     return r && t(e.prototype, r), n && t(e, n), e
                   }
                 })(),
-                s = t('./utils').Utils,
+                o = t('./utils').Utils,
                 a = t('./track').Track
               Uint8Array.prototype.forEach ||
                 Object.defineProperty(Uint8Array.prototype, 'forEach', {
                   value: Array.prototype.forEach
                 })
-              var o = (function() {
+              var s = (function() {
                 function e(t, r) {
                   !(function(t, e) {
                     if (!(t instanceof e))
@@ -1529,7 +1945,7 @@
                       key: 'loadDataUri',
                       value: function(t) {
                         for (
-                          var e = s.atob(t.split(',')[1]),
+                          var e = o.atob(t.split(',')[1]),
                             r = new Uint8Array(e.length),
                             n = 0;
                           n < e.length;
@@ -1562,7 +1978,7 @@
                       value: function() {
                         return (
                           'MThd' ===
-                          s.bytesToLetters(this.buffer.subarray(0, 4))
+                          o.bytesToLetters(this.buffer.subarray(0, 4))
                         )
                       }
                     },
@@ -1570,7 +1986,7 @@
                       key: 'getFormat',
                       value: function() {
                         return (
-                          (this.format = s.bytesToNumber(
+                          (this.format = o.bytesToNumber(
                             this.buffer.subarray(8, 10)
                           )),
                           this
@@ -1584,9 +2000,9 @@
                         for (var t = 0; t < this.buffer.length; ) {
                           if (
                             'MTrk' ==
-                            s.bytesToLetters(this.buffer.subarray(t, t + 4))
+                            o.bytesToLetters(this.buffer.subarray(t, t + 4))
                           ) {
-                            var e = s.bytesToNumber(
+                            var e = o.bytesToNumber(
                               this.buffer.subarray(t + 4, t + 8)
                             )
                             this.tracks.push(
@@ -1597,7 +2013,7 @@
                             )
                           }
                           t +=
-                            s.bytesToNumber(
+                            o.bytesToNumber(
                               this.buffer.subarray(t + 4, t + 8)
                             ) + 8
                         }
@@ -1620,7 +2036,7 @@
                       key: 'getDivision',
                       value: function() {
                         return (
-                          (this.division = s.bytesToNumber(
+                          (this.division = o.bytesToNumber(
                             this.buffer.subarray(12, 14)
                           )),
                           this
@@ -1923,7 +2339,7 @@
                   e
                 )
               })()
-              r.Player = o
+              r.Player = s
             },
             { './track': 7, './utils': 8, fs: 'fs' }
           ],
@@ -1945,7 +2361,7 @@
                   }
                 })(),
                 i = t('./constants').Constants,
-                s = t('./utils').Utils,
+                o = t('./utils').Utils,
                 a = (function() {
                   function t(e, r) {
                     !(function(t, e) {
@@ -2017,7 +2433,7 @@
                       {
                         key: 'getDelta',
                         value: function() {
-                          return s.readVarInt(
+                          return o.readVarInt(
                             this.data.subarray(
                               this.pointer,
                               this.pointer + this.getDeltaByteCount()
@@ -2033,8 +2449,8 @@
                               n = this.getDelta(),
                               i = r >= n
                             if (this.pointer < this.data.length && (e || i)) {
-                              var s = this.parseEvent()
-                              if (this.enabled) return s
+                              var o = this.parseEvent()
+                              if (this.enabled) return o
                             }
                           } else if (
                             this.events[this.eventIndex] &&
@@ -2049,10 +2465,10 @@
                         key: 'getStringData',
                         value: function(t) {
                           this.pointer
-                          var e = s.readVarInt(
+                          var e = o.readVarInt(
                             this.data.subarray(t + 2, t + 2 + 1)
                           )
-                          return s.bytesToLetters(
+                          return o.bytesToLetters(
                             this.data.subarray(t + 1 + 2, t + 1 + e + 2)
                           )
                         }
@@ -2111,7 +2527,7 @@
                                 break
                               case 33:
                                 ;(e.name = 'MIDI Port'),
-                                  (e.data = s.bytesToNumber([this.data[t + 3]]))
+                                  (e.data = o.bytesToNumber([this.data[t + 3]]))
                                 break
                               case 47:
                                 e.name = 'End of Track'
@@ -2120,7 +2536,7 @@
                                 ;(e.name = 'Set Tempo'),
                                   (e.data = Math.round(
                                     6e7 /
-                                      s.bytesToNumber(
+                                      o.bytesToNumber(
                                         this.data.subarray(t + 3, t + 6)
                                       )
                                   )),
