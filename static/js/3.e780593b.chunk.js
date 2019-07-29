@@ -10,7 +10,7 @@
         i = e(133),
         u = new i.Player(),
         c = { __sort__: [] },
-        s = !1,
+        s = !0,
         l = ''
       function f(t, n) {
         if (c.__sort__.length > 5) {
