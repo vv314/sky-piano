@@ -1,64 +1,114 @@
 !(function(t) {
   function e(e) {
     for (
-      var g, s, a = e[0], r = e[1], p = e[2], m = 0, h = [];
-      m < a.length;
-      m++
+      var n, g, a = e[0], r = e[1], p = e[2], c = 0, h = [];
+      c < a.length;
+      c++
     )
-      (s = a[m]), i[s] && h.push(i[s][0]), (i[s] = 0)
-    for (g in r) Object.prototype.hasOwnProperty.call(r, g) && (t[g] = r[g])
-    for (A && A(e); h.length; ) h.shift()()
-    return n.push.apply(n, p || []), o()
+      (g = a[c]), i[g] && h.push(i[g][0]), (i[g] = 0)
+    for (n in r) Object.prototype.hasOwnProperty.call(r, n) && (t[n] = r[n])
+    for (m && m(e); h.length; ) h.shift()()
+    return s.push.apply(s, p || []), o()
   }
   function o() {
-    for (var t, e = 0; e < n.length; e++) {
-      for (var o = n[e], g = !0, a = 1; a < o.length; a++) {
+    for (var t, e = 0; e < s.length; e++) {
+      for (var o = s[e], n = !0, a = 1; a < o.length; a++) {
         var r = o[a]
-        0 !== i[r] && (g = !1)
+        0 !== i[r] && (n = !1)
       }
-      g && (n.splice(e--, 1), (t = s((s.s = o[0]))))
+      n && (s.splice(e--, 1), (t = g((g.s = o[0]))))
     }
     return t
   }
-  var g = {},
+  var n = {},
     i = { 0: 0 },
-    n = []
-  function s(e) {
-    if (g[e]) return g[e].exports
-    var o = (g[e] = { i: e, l: !1, exports: {} })
-    return t[e].call(o.exports, o, o.exports, s), (o.l = !0), o.exports
+    s = []
+  function g(e) {
+    if (n[e]) return n[e].exports
+    var o = (n[e] = { i: e, l: !1, exports: {} })
+    return t[e].call(o.exports, o, o.exports, g), (o.l = !0), o.exports
   }
-  ;(s.m = t),
-    (s.c = g),
-    (s.d = function(t, e, o) {
-      s.o(t, e) || Object.defineProperty(t, e, { enumerable: !0, get: o })
+  ;(g.e = function(t) {
+    var e = [],
+      o = i[t]
+    if (0 !== o)
+      if (o) e.push(o[2])
+      else {
+        var n = new Promise(function(e, n) {
+          o = i[t] = [e, n]
+        })
+        e.push((o[2] = n))
+        var s,
+          a = document.createElement('script')
+        ;(a.charset = 'utf-8'),
+          (a.timeout = 120),
+          g.nc && a.setAttribute('nonce', g.nc),
+          (a.src = (function(t) {
+            return (
+              g.p +
+              'static/js/' +
+              ({}[t] || t) +
+              '.' +
+              { 2: '4441296e', 3: 'ddfa0d87' }[t] +
+              '.chunk.js'
+            )
+          })(t))
+        var r = new Error()
+        s = function(e) {
+          ;(a.onerror = a.onload = null), clearTimeout(p)
+          var o = i[t]
+          if (0 !== o) {
+            if (o) {
+              var n = e && ('load' === e.type ? 'missing' : e.type),
+                s = e && e.target && e.target.src
+              ;(r.message =
+                'Loading chunk ' + t + ' failed.\n(' + n + ': ' + s + ')'),
+                (r.name = 'ChunkLoadError'),
+                (r.type = n),
+                (r.request = s),
+                o[1](r)
+            }
+            i[t] = void 0
+          }
+        }
+        var p = setTimeout(function() {
+          s({ type: 'timeout', target: a })
+        }, 12e4)
+        ;(a.onerror = a.onload = s), document.head.appendChild(a)
+      }
+    return Promise.all(e)
+  }),
+    (g.m = t),
+    (g.c = n),
+    (g.d = function(t, e, o) {
+      g.o(t, e) || Object.defineProperty(t, e, { enumerable: !0, get: o })
     }),
-    (s.r = function(t) {
+    (g.r = function(t) {
       'undefined' !== typeof Symbol &&
         Symbol.toStringTag &&
         Object.defineProperty(t, Symbol.toStringTag, { value: 'Module' }),
         Object.defineProperty(t, '__esModule', { value: !0 })
     }),
-    (s.t = function(t, e) {
-      if ((1 & e && (t = s(t)), 8 & e)) return t
+    (g.t = function(t, e) {
+      if ((1 & e && (t = g(t)), 8 & e)) return t
       if (4 & e && 'object' === typeof t && t && t.__esModule) return t
       var o = Object.create(null)
       if (
-        (s.r(o),
+        (g.r(o),
         Object.defineProperty(o, 'default', { enumerable: !0, value: t }),
         2 & e && 'string' != typeof t)
       )
-        for (var g in t)
-          s.d(
+        for (var n in t)
+          g.d(
             o,
-            g,
+            n,
             function(e) {
               return t[e]
-            }.bind(null, g)
+            }.bind(null, n)
           )
       return o
     }),
-    (s.n = function(t) {
+    (g.n = function(t) {
       var e =
         t && t.__esModule
           ? function() {
@@ -67,72 +117,85 @@
           : function() {
               return t
             }
-      return s.d(e, 'a', e), e
+      return g.d(e, 'a', e), e
     }),
-    (s.o = function(t, e) {
+    (g.o = function(t, e) {
       return Object.prototype.hasOwnProperty.call(t, e)
     }),
-    (s.p = './')
+    (g.p = './'),
+    (g.oe = function(t) {
+      throw (console.error(t), t)
+    })
   var a = (window.webpackJsonp = window.webpackJsonp || []),
     r = a.push.bind(a)
   ;(a.push = e), (a = a.slice())
   for (var p = 0; p < a.length; p++) e(a[p])
-  var A = r
-  n.push([70, 1]), o()
+  var m = r
+  s.push([71, 1]), o()
 })({
-  119: function(t, e, o) {},
-  120: function(t, e, o) {
-    'use strict'
-    var g = o(25)
-    o.n(g).a
-  },
+  120: function(t, e, o) {},
   121: function(t, e, o) {
     'use strict'
-    var g = o(26)
-    o.n(g).a
+    var n = o(25)
+    o.n(n).a
   },
   122: function(t, e, o) {
     'use strict'
-    var g = o(27)
-    o.n(g).a
+    var n = o(26)
+    o.n(n).a
   },
   123: function(t, e, o) {
     'use strict'
-    var g = o(28)
-    o.n(g).a
+    var n = o(27)
+    o.n(n).a
   },
   124: function(t, e, o) {
     'use strict'
-    var g = o(29)
-    o.n(g).a
+    var n = o(28)
+    o.n(n).a
   },
   125: function(t, e, o) {
     'use strict'
-    var g = o(30)
-    o.n(g).a
+    var n = o(29)
+    o.n(n).a
   },
   126: function(t, e, o) {
     'use strict'
+    var n = o(30)
+    o.n(n).a
+  },
+  127: function(t, e, o) {
+    'use strict'
+    var n = o(31)
+    o.n(n).a
+  },
+  128: function(t, e, o) {
+    'use strict'
+    var n = o(32)
+    o.n(n).a
+  },
+  129: function(t, e, o) {
+    'use strict'
     o.r(e)
-    o(119)
-    var g = o(44),
-      i = o(31),
-      n = o(66),
-      s = o(67)
+    o(120)
+    var n = o(46),
+      i = o(33),
+      s = o(68),
+      g = o(69)
     function a(t, e) {
       var o = t.reduce(function(t, e) {
         return t + e
       }, 0)
       if (0 === o) return 0
-      var g = o / t.length
-      return e ? Number(g.toFixed(e)) : g
+      var n = o / t.length
+      return e ? Number(n.toFixed(e)) : n
     }
     function r() {
       return (performance || Date).now()
     }
     var p = (function() {
         function t() {
-          Object(n.a)(this, t),
+          Object(s.a)(this, t),
             (this.beginTime = 0),
             (this.prevTime = 0),
             (this._cursor = 0),
@@ -141,7 +204,7 @@
             (this.frames = 0)
         }
         return (
-          Object(s.a)(t, [
+          Object(g.a)(t, [
             {
               key: 'start',
               value: function() {
@@ -219,8 +282,8 @@
                       ? arguments[1]
                       : 10,
                   o = arguments.length > 2 ? arguments[2] : void 0,
-                  g = this._history[t],
-                  i = g.slice(0, Math.min(g.length, e))
+                  n = this._history[t],
+                  i = n.slice(0, Math.min(n.length, e))
                 return a(i, o)
               }
             }
@@ -228,22 +291,22 @@
           t
         )
       })(),
-      A = 'keyframes',
-      m = document.getElementById(A),
+      m = 'keyframes',
+      c = document.getElementById(m),
       h = {}
-    var c = function(t, e) {
+    var u = function(t, e) {
       if (((t = t.replace('.', '_')), h[t])) return t
       var o = '@keyframes '.concat(t, ' {\n    ').concat(e, '\n  }')
-      if (m) {
-        var g = m.sheet
-        g.insertRule(o, g.cssRules.length)
+      if (c) {
+        var n = c.sheet
+        n.insertRule(o, n.cssRules.length)
       } else
-        ((m = document.createElement('style')).id = A),
-          (m.textContent = o),
-          document.head.appendChild(m)
+        ((c = document.createElement('style')).id = m),
+          (c.textContent = o),
+          document.head.appendChild(c)
       return (h[t] = o), t
     }
-    var u = function(t, e) {
+    var l = function(t, e) {
       var o = e.getTotalLength()
       return (
         o ||
@@ -259,7 +322,7 @@
           : 0)
       )
     }
-    function l() {
+    function f() {
       var t =
           arguments.length > 0 && void 0 !== arguments[0] ? arguments[0] : 1,
         e = arguments.length > 1 && void 0 !== arguments[1] ? arguments[1] : 0
@@ -274,12 +337,12 @@
           rotate: function() {
             return (
               'rect' === this.shape
-                ? (this.angle = 45 + 90 * l(3))
-                : (this.angle = 45 * l(7)),
+                ? (this.angle = 45 + 90 * f(3))
+                : (this.angle = 45 * f(7)),
               {
                 transform: 'rotateZ('
                   .concat(this.angle, 'deg) rotateY(')
-                  .concat(180 * l(1), 'deg)')
+                  .concat(180 * f(1), 'deg)')
               }
             )
           }
@@ -288,15 +351,15 @@
           var t = this,
             e = this.shape || 'circle',
             o = this.$refs.path
-          ;(this.length = Math.ceil(u(e, o))),
+          ;(this.length = Math.ceil(l(e, o))),
             window.addEventListener(
               'resize',
               function() {
-                t.length = Math.ceil(u(e, o))
+                t.length = Math.ceil(l(e, o))
               },
               !1
             ),
-            (this.styleObj.animationName = c(
+            (this.styleObj.animationName = u(
               'shape-'.concat(e, '-').concat(this.length),
               '0% {\n        opacity: 0;\n        stroke-dashoffset: '
                 .concat(
@@ -310,12 +373,12 @@
             ))
         }
       },
-      f = (o(120), o(0)),
-      C = {
+      v = (o(121), o(0)),
+      A = {
         name: 'Note',
         props: ['type'],
         components: {
-          Shape: Object(f.a)(
+          Shape: Object(v.a)(
             d,
             function() {
               var t = this,
@@ -407,10 +470,10 @@
           }
         }
       },
-      D =
-        (o(121),
-        Object(f.a)(
-          C,
+      C =
+        (o(122),
+        Object(v.a)(
+          A,
           function() {
             var t = this.$createElement,
               e = this._self._c || t
@@ -438,12 +501,12 @@
           null,
           null
         ).exports),
-      v = !1,
-      F = !1
+      y = !1,
+      D = !1
     window.addEventListener('mouseup', function() {
-      return (v = !1)
+      return (y = !1)
     })
-    var k = {
+    var F = {
         props: ['tid'],
         data: function() {
           return { touches: [], pressMap: {} }
@@ -457,27 +520,27 @@
             this.$emit('tapup', t)
           },
           mouseDown: function(t) {
-            if (!F) {
+            if (!D) {
               var e = this.tid
               this.pressMap[e] ||
-                (this.press(e), (v = !0), (this.pressMap[e] = 'M'))
+                (this.press(e), (y = !0), (this.pressMap[e] = 'M'))
             }
           },
           mouseUp: function(t) {
-            if (!F) {
+            if (!D) {
               var e = this.tid
-              v &&
+              y &&
                 'M' == this.pressMap[e] &&
-                (this.release(e), delete this.pressMap[e], (v = !1))
+                (this.release(e), delete this.pressMap[e], (y = !1))
             }
           },
           mouseOver: function(t) {
             var e = this.tid
-            v && !this.pressMap[e] && (this.press(e), (this.pressMap[e] = 'M'))
+            y && !this.pressMap[e] && (this.press(e), (this.pressMap[e] = 'M'))
           },
           mouseOut: function(t) {
             var e = this.tid
-            v &&
+            y &&
               'M' == this.pressMap[e] &&
               !(function(t, e) {
                 for (; t; ) {
@@ -489,7 +552,7 @@
               (this.release(e), delete this.pressMap[e])
           },
           touchHandle: function(t) {
-            F ? t.preventDefault() : 'touchend' === t.type && (F = !0)
+            D ? t.preventDefault() : 'touchend' === t.type && (D = !0)
             var e = this.getTouchTargets(t.touches)
             return (
               this.releaseTouches(e), (this.touches = this.markTouches(e)), !0
@@ -524,10 +587,10 @@
             return Object(i.a)(t)
               .map(function(t) {
                 return (function(t, e, o) {
-                  for (var g = document.elementFromPoint(t, e); g; ) {
-                    var i = o(g)
+                  for (var n = document.elementFromPoint(t, e); n; ) {
+                    var i = o(n)
                     if (i) return i
-                    g = g.parentNode
+                    n = n.parentNode
                   }
                 })(t.clientX, t.clientY, e)
               })
@@ -539,9 +602,9 @@
         }
       },
       w =
-        (o(122),
-        Object(f.a)(
-          k,
+        (o(123),
+        Object(v.a)(
+          F,
           function() {
             var t = this,
               e = t.$createElement
@@ -572,16 +635,16 @@
           '797b489a',
           null
         ).exports),
-      E = o(17),
-      B = o.n(E)
+      G = o(17),
+      b = o.n(G)
     document.querySelector('body').addEventListener(
       'click',
       function() {
-        B.a.start()
+        b.a.start()
       },
       !1
     )
-    var G = {
+    var E = {
         C2: 'a49.mp3',
         D2: 'a50.mp3',
         E2: 'a51.mp3',
@@ -619,7 +682,7 @@
         B6: 'a78.mp3',
         C7: 'a77.mp3'
       },
-      Q = {
+      _ = {
         minify: !1,
         ext: '.[mp3|ogg]',
         baseUrl: './static/media/',
@@ -656,7 +719,7 @@
           )
         },
         load: function(t) {
-          var e, o, g
+          var e, o, n
           if (
             (((e = t || {}).instruments = e.instruments || this.list),
             (e.baseUrl = e.baseUrl || this.baseUrl),
@@ -666,22 +729,22 @@
             (o = {}),
             Array.isArray(e.instruments))
           ) {
-            for (g = 0; g <= e.instruments.length - 1; g++) {
-              var i = this[e.instruments[g]]
+            for (n = 0; n <= e.instruments.length - 1; n++) {
+              var i = this[e.instruments[n]]
               if (!0 === this.minify || !0 === e.minify) {
-                var n = 1
-                Object.keys(i).length >= 17 && (n = 2),
-                  Object.keys(i).length >= 33 && (n = 4),
-                  Object.keys(i).length >= 49 && (n = 6)
-                var s = Object.keys(i).filter(function(t, e) {
-                  return e % n != 0
+                var s = 1
+                Object.keys(i).length >= 17 && (s = 2),
+                  Object.keys(i).length >= 33 && (s = 4),
+                  Object.keys(i).length >= 49 && (s = 6)
+                var g = Object.keys(i).filter(function(t, e) {
+                  return e % s != 0
                 })
-                s.forEach(function(t) {
+                g.forEach(function(t) {
                   delete i[t]
                 })
               }
-              o[e.instruments[g]] = new B.a.Sampler(i, {
-                baseUrl: e.baseUrl + e.instruments[g] + '/',
+              o[e.instruments[n]] = new b.a.Sampler(i, {
+                baseUrl: e.baseUrl + e.instruments[n] + '/',
                 onload: e.onload
               })
             }
@@ -690,16 +753,16 @@
           return (
             (i = this[e.instruments]),
             (!0 !== this.minify && !0 !== e.minify) ||
-              ((n = 1),
-              Object.keys(i).length >= 17 && (n = 2),
-              Object.keys(i).length >= 33 && (n = 4),
-              Object.keys(i).length >= 49 && (n = 6),
-              (s = Object.keys(i).filter(function(t, e) {
-                return e % n != 0
+              ((s = 1),
+              Object.keys(i).length >= 17 && (s = 2),
+              Object.keys(i).length >= 33 && (s = 4),
+              Object.keys(i).length >= 49 && (s = 6),
+              (g = Object.keys(i).filter(function(t, e) {
+                return e % s != 0
               })).forEach(function(t) {
                 delete i[t]
               })),
-            new B.a.Sampler(i, {
+            new b.a.Sampler(i, {
               baseUrl: e.baseUrl + e.instruments + '/',
               onload: e.onload
             })
@@ -999,68 +1062,68 @@
           C2: 'C2.[mp3|ogg]'
         },
         piano: {
-          A2: G.A2,
-          A3: G.A3,
-          A4: G.A4,
-          A5: G.A5,
-          A6: G.A6,
-          'A#3': G['A#3'],
-          'A#4': G['A#4'],
-          'A#5': G['A#5'],
-          'A#6': G['A#6'],
-          B2: G.B2,
-          B3: G.B3,
-          B4: G.B4,
-          B5: G.B5,
-          B6: G.B6,
-          C2: G.C2,
-          C3: G.C3,
-          C4: G.C4,
-          C5: G.C5,
-          C6: G.C6,
-          C7: G.C7,
-          'C#2': G['C#2'],
-          'C#3': G['C#3'],
-          'C#4': G['C#4'],
-          'C#5': G['C#5'],
-          'C#6': G['C#6'],
-          D0: G.D0,
-          D1: G.D1,
-          D2: G.D2,
-          D3: G.D3,
-          D4: G.D4,
-          D5: G.D5,
-          D6: G.D6,
-          'D#2': G['D#2'],
-          'D#3': G['D#3'],
-          'D#4': G['D#4'],
-          'D#5': G['D#5'],
-          'D#6': G['D#6'],
-          E2: G.E2,
-          E3: G.E3,
-          E4: G.E4,
-          E5: G.E5,
-          E6: G.E6,
-          F2: G.F2,
-          F3: G.F3,
-          F4: G.F4,
-          F5: G.F5,
-          F6: G.F6,
-          'F#2': G['F#2'],
-          'F#3': G['F#3'],
-          'F#4': G['F#4'],
-          'F#5': G['F#5'],
-          'F#6': G['F#6'],
-          G2: G.G2,
-          G3: G.G3,
-          G4: G.G4,
-          G5: G.G5,
-          G6: G.G6,
-          'G#2': G['G#2'],
-          'G#3': G['G#3'],
-          'G#4': G['G#4'],
-          'G#5': G['G#5'],
-          'G#6': G['G#6']
+          A2: E.A2,
+          A3: E.A3,
+          A4: E.A4,
+          A5: E.A5,
+          A6: E.A6,
+          'A#3': E['A#3'],
+          'A#4': E['A#4'],
+          'A#5': E['A#5'],
+          'A#6': E['A#6'],
+          B2: E.B2,
+          B3: E.B3,
+          B4: E.B4,
+          B5: E.B5,
+          B6: E.B6,
+          C2: E.C2,
+          C3: E.C3,
+          C4: E.C4,
+          C5: E.C5,
+          C6: E.C6,
+          C7: E.C7,
+          'C#2': E['C#2'],
+          'C#3': E['C#3'],
+          'C#4': E['C#4'],
+          'C#5': E['C#5'],
+          'C#6': E['C#6'],
+          D0: E.D0,
+          D1: E.D1,
+          D2: E.D2,
+          D3: E.D3,
+          D4: E.D4,
+          D5: E.D5,
+          D6: E.D6,
+          'D#2': E['D#2'],
+          'D#3': E['D#3'],
+          'D#4': E['D#4'],
+          'D#5': E['D#5'],
+          'D#6': E['D#6'],
+          E2: E.E2,
+          E3: E.E3,
+          E4: E.E4,
+          E5: E.E5,
+          E6: E.E6,
+          F2: E.F2,
+          F3: E.F3,
+          F4: E.F4,
+          F5: E.F5,
+          F6: E.F6,
+          'F#2': E['F#2'],
+          'F#3': E['F#3'],
+          'F#4': E['F#4'],
+          'F#5': E['F#5'],
+          'F#6': E['F#6'],
+          G2: E.G2,
+          G3: E.G3,
+          G4: E.G4,
+          G5: E.G5,
+          G6: E.G6,
+          'G#2': E['G#2'],
+          'G#3': E['G#3'],
+          'G#4': E['G#4'],
+          'G#5': E['G#5'],
+          'G#6': E['G#6']
         },
         saxophone: {
           'D#4': 'Ds4.[mp3|ogg]',
@@ -1166,48 +1229,48 @@
           C6: 'C6.[mp3|ogg]'
         }
       },
-      I = o(43),
-      y = o.n(I),
-      M = {
+      x = o(45),
+      k = o.n(x),
+      B = {
         isDebug: (function(t) {
           var e = new RegExp('(^|&)' + t + '=([^&]*)(&|$)'),
             o = window.location.search.substr(1).match(e)
           return null === o ? null : decodeURI(o[2])
         })('__debug'),
-        version: '0.5.0'
+        version: '0.6.0'
       }
-    y.a.config({ output: M.isDebug && 'default', color: '#fff' })
-    var U = y.a,
-      N = {
+    k.a.config({ output: B.isDebug && 'default', color: '#fff' })
+    var M = k.a,
+      O = {
         total: 15,
         tone: 4,
         shapes: ['muti', 'rect', 'circle'],
         notes: ['C', 'D', 'E', 'F', 'G', 'A', 'B']
       }
-    function S(t) {
+    function T(t) {
       var e = t.total,
         o = t.tone,
-        g = t.notes,
-        n = t.shapes,
-        s = n[0],
-        a = n.slice(1),
-        r = g.length,
+        n = t.notes,
+        s = t.shapes,
+        g = s[0],
+        a = s.slice(1),
+        r = n.length,
         p = o - 1
       return Object(i.a)(Array(e)).map(function(t, e) {
-        var o = e % r == 0 ? s : a[e % a.length],
-          i = g[e % r]
-        return i === g[0] && p++, { shape: o, note: i + p, index: e }
+        var o = e % r == 0 ? g : a[e % a.length],
+          i = n[e % r]
+        return i === n[0] && p++, { shape: o, note: i + p, index: e }
       })
     }
-    var b = {
+    var j = {
         name: 'Keyboard',
-        components: { Note: D, Tap: w },
+        components: { Note: C, Tap: w },
         data: function() {
-          return { list: S(N) }
+          return { list: T(O) }
         },
         created: function() {},
         mounted: function() {
-          this.synth = Q.load({ instruments: 'piano' }).toMaster()
+          this.synth = _.load({ instruments: 'piano' }).toMaster()
         },
         methods: {
           play: function(t) {
@@ -1235,10 +1298,10 @@
           }
         }
       },
-      T =
-        (o(123),
-        Object(f.a)(
-          b,
+      P =
+        (o(124),
+        Object(v.a)(
+          j,
           function() {
             var t = this,
               e = t.$createElement,
@@ -1281,10 +1344,10 @@
           null,
           null
         ).exports),
-      R = function(t) {
+      $ = function(t) {
         var e = new FileReader()
-        return new Promise(function(o, g) {
-          if (!t) return g('invalid url')
+        return new Promise(function(o, n) {
+          if (!t) return n('invalid url')
           ;(e.onload = function(t) {
             var e = t.target.result
             o(e)
@@ -1292,7 +1355,7 @@
             e.readAsDataURL(t)
         })
       },
-      x = {
+      S = {
         props: ['accept'],
         data: function() {
           return { acceptList: [], showDragPanel: !1 }
@@ -1321,7 +1384,7 @@
                 data: '',
                 msg: 'type error'
               })
-            R(o).then(function(t) {
+            $(o).then(function(t) {
               e.$emit('drop', { code: 0, data: t, file: o, msg: 'success' })
             })
           },
@@ -1330,10 +1393,10 @@
           }
         }
       },
-      j =
-        (o(124),
-        Object(f.a)(
-          x,
+      L =
+        (o(125),
+        Object(v.a)(
+          S,
           function() {
             var t = this,
               e = t.$createElement,
@@ -1376,7 +1439,7 @@
           'f194e6c6',
           null
         ).exports)
-    function J(t) {
+    function R(t) {
       ;(t = t || {}),
         (this.phase = 0),
         (this.run = !1),
@@ -1396,9 +1459,9 @@
               t,
               e,
               o,
-              g
+              n
             ) {
-              return e + e + o + o + g + g
+              return e + e + o + o + n + n
             })
             var e = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(t)
             return e
@@ -1421,45 +1484,45 @@
         (this.ctx = this.canvas.getContext('2d')),
         t.autostart && this.start()
     }
-    ;(J.prototype._GATF_cache = {}),
-      (J.prototype._globAttFunc = function(t) {
+    ;(R.prototype._GATF_cache = {}),
+      (R.prototype._globAttFunc = function(t) {
         return (
-          null == J.prototype._GATF_cache[t] &&
-            (J.prototype._GATF_cache[t] = Math.pow(
+          null == R.prototype._GATF_cache[t] &&
+            (R.prototype._GATF_cache[t] = Math.pow(
               4 / (4 + Math.pow(t, 4)),
               4
             )),
-          J.prototype._GATF_cache[t]
+          R.prototype._GATF_cache[t]
         )
       }),
-      (J.prototype._xpos = function(t) {
+      (R.prototype._xpos = function(t) {
         return this.width_2 + t * this.width_4
       }),
-      (J.prototype._ypos = function(t, e) {
+      (R.prototype._ypos = function(t, e) {
         var o = (this.MAX * this.amplitude) / e
         return (
           this.height_2 +
           this._globAttFunc(t) * o * Math.sin(this.frequency * t - this.phase)
         )
       }),
-      (J.prototype._drawLine = function(t, e, o) {
+      (R.prototype._drawLine = function(t, e, o) {
         this.ctx.moveTo(0, 0),
           this.ctx.beginPath(),
           (this.ctx.strokeStyle = e),
           (this.ctx.lineWidth = o || 1)
-        for (var g = -2; (g += 0.01) <= 2; ) {
-          var i = this._ypos(g, t)
-          Math.abs(g) >= 1.9 && (i = this.height_2),
-            this.ctx.lineTo(this._xpos(g), i)
+        for (var n = -2; (n += 0.01) <= 2; ) {
+          var i = this._ypos(n, t)
+          Math.abs(n) >= 1.9 && (i = this.height_2),
+            this.ctx.lineTo(this._xpos(n), i)
         }
         this.ctx.stroke()
       }),
-      (J.prototype._clear = function() {
+      (R.prototype._clear = function() {
         ;(this.ctx.globalCompositeOperation = 'destination-out'),
           this.ctx.fillRect(0, 0, this.width, this.height),
           (this.ctx.globalCompositeOperation = 'source-over')
       }),
-      (J.prototype._draw = function() {
+      (R.prototype._draw = function() {
         !1 !== this.run &&
           ((this.phase = (this.phase + Math.PI * this.speed) % (2 * Math.PI)),
           this._clear(),
@@ -1472,20 +1535,20 @@
             ? requestAnimationFrame(this._draw.bind(this))
             : setTimeout(this._draw.bind(this), 20))
       }),
-      (J.prototype.start = function() {
+      (R.prototype.start = function() {
         ;(this.phase = 0), (this.run = !0), this._draw()
       }),
-      (J.prototype.stop = function() {
+      (R.prototype.stop = function() {
         ;(this.phase = 0), (this.run = !1)
       }),
-      (J.prototype.setSpeed = function(t) {
+      (R.prototype.setSpeed = function(t) {
         this.speed = t
       }),
-      (J.prototype.setNoise = J.prototype.setAmplitude = function(t) {
+      (R.prototype.setNoise = R.prototype.setAmplitude = function(t) {
         this.amplitude = Math.max(Math.min(t, 1), 0)
       })
-    var _ = J,
-      z = {
+    var U = R,
+      N = {
         props: ['amplitude', 'speed', 'width', 'height'],
         data: function() {
           return {
@@ -1498,15 +1561,10 @@
         mounted: function() {
           this.attachSiriWave()
         },
-        watch: {
-          width: function() {
-            this.$emit('wave:resize')
-          }
-        },
         methods: {
           attachSiriWave: function() {
             var t = this,
-              e = new _({
+              e = new U({
                 container: this.$refs.waveform,
                 width: this.width,
                 height: 80,
@@ -1562,7 +1620,7 @@
                   o = t.heartRate(e)
                 t.setSpeed(t.speed * o),
                   console.log('fps', e, 'wave', o),
-                  U.$('rate')('fps', e, 'wave:', o)
+                  M.$('rate')('fps', e, 'wave:', o)
               }, this.rateTimer)
           },
           heartRate: function(t) {
@@ -1570,19 +1628,100 @@
           }
         }
       },
-      O = Object(f.a)(
-        z,
-        function() {
-          var t = this.$createElement
-          return (this._self._c || t)('div', { ref: 'waveform' })
+      I =
+        (o(126),
+        Object(v.a)(
+          N,
+          function() {
+            var t = this.$createElement
+            return (this._self._c || t)('div', {
+              ref: 'waveform',
+              staticClass: 'waveform'
+            })
+          },
+          [],
+          !1,
+          null,
+          null,
+          null
+        ).exports)
+    function z(t, e) {
+      var o = this._evtMap[t]
+      o &&
+        o.slice().forEach(function(t) {
+          t.apply(null, [].concat(e))
+        })
+    }
+    function q(t, e) {
+      this._evtMap[t] ? this._evtMap[t].push(e) : (this._evtMap[t] = [e])
+    }
+    function V(t, e) {
+      if (this._evtMap[t] && e) {
+        var o = this._evtMap[t].indexOf(e)
+        if (o > -1) return this._evtMap[t].splice(o, 1)[0]
+      }
+      e || (this._evtMap[t] && (this._evtMap[t] = []))
+    }
+    function W() {
+      this._evtMap = {}
+    }
+    ;(W.prototype.emit = z), (W.prototype.off = V), (W.prototype.on = q)
+    var H = { _evtMap: {}, emit: z, off: V, on: q },
+      X = {
+        inject: ['getPlayer'],
+        data: function() {
+          return { isAutoPlaying: !1 }
         },
-        [],
-        !1,
-        null,
-        null,
-        null
-      ).exports,
-      P = {
+        computed: {
+          version: function() {
+            return 'v' + B.version
+          }
+        },
+        mounted: function() {
+          var t = this
+          H.on('player:play', function() {
+            t.isAutoPlaying = !0
+          }),
+            H.on('player:sleep', function() {
+              t.isAutoPlaying = !1
+            })
+        },
+        methods: {
+          playMidi: function() {
+            this.getPlayer()
+              .then(function(t) {
+                if (t.isPlaying()) return t.pause()
+                t.getState().isEnd && t.loadUrl('star.mid'), t.play()
+              })
+              .catch(function(t) {
+                console.log('player err', t)
+              })
+          }
+        }
+      },
+      K =
+        (o(127),
+        Object(v.a)(
+          X,
+          function() {
+            var t = this.$createElement
+            return (this._self._c || t)(
+              'span',
+              {
+                staticClass: 'version',
+                class: { 'version--active': this.isAutoPlaying },
+                on: { click: this.playMidi }
+              },
+              [this._v(this._s(this.version))]
+            )
+          },
+          [],
+          !1,
+          null,
+          null,
+          null
+        ).exports),
+      J = {
         data: function() {
           return { files: [] }
         },
@@ -1590,16 +1729,16 @@
           getFile: function() {
             var t = this,
               e = this.$refs.fileInput.files[0]
-            R(e).then(function(e) {
+            $(e).then(function(e) {
               t.$emit('get-bg', e)
             })
           }
         }
       },
-      V =
-        (o(125),
-        Object(f.a)(
-          P,
+      Y =
+        (o(128),
+        Object(v.a)(
+          J,
           function() {
             var t = this.$createElement,
               e = this._self._c || t
@@ -1649,7 +1788,7 @@
           null,
           null
         ).exports)
-    function Y() {
+    function Z() {
       var t =
           screen.msOrientation ||
           screen.mozOrientation ||
@@ -1669,7 +1808,7 @@
                 'width',
                 e.width
               ),
-              U.$('screen')('force,', 'height', e.height, 'width', e.width),
+              M.$('screen')('force,', 'height', e.height, 'width', e.width),
               e
             )
           })(e)
@@ -1686,42 +1825,27 @@
                 'width',
                 o.width
               ),
-              U.$('screen')('auto,', 'height', o.height, 'width', o.width),
+              M.$('screen')('auto,', 'height', o.height, 'width', o.width),
               o
             )
           })(e)
     }
-    var $ = new (o(68)).Player(),
-      K =
-        'data:audio/midi;base64,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',
-      L = '',
-      W = function() {
-        var t =
-          arguments.length > 0 && void 0 !== arguments[0] ? arguments[0] : K
-        if (L !== t) return $.loadDataUri(t), (L = t), $.tracks.length
-      },
-      q = function() {
-        return $.isPlaying()
-      },
-      H = function() {
-        $.play()
-      },
-      Z = function() {
-        $.triggerPlayerEvent('pause'), $.pause()
-      },
-      X = function(t, e) {
-        $.on(t, e)
-      },
-      tt = function() {
-        $.stop()
-      },
-      et = o(69),
-      ot = o.n(et),
-      gt = {
+    var Q = o(70),
+      tt = o.n(Q),
+      et = {
         name: 'app',
-        components: { Droparea: j, Keyboard: T, Waveline: O, SetBg: V },
+        components: {
+          Droparea: L,
+          Keyboard: P,
+          Waveline: I,
+          Version: K,
+          SetBg: Y
+        },
         data: function() {
-          return { stageSize: Y(), version: M.version, bgUrl: ot.a, tracks: 0 }
+          return { stageSize: Z(), bgUrl: tt.a, tracks: 0 }
+        },
+        provide: function() {
+          return { getPlayer: this.getPlayer }
         },
         computed: {
           frameStyle: function() {
@@ -1743,11 +1867,10 @@
           var t = this
           ;(this.keyboard = this.$refs.keyboard),
             this.initWaveLine(),
-            this.registMidiPlayerEvent(),
             window.addEventListener(
               'resize',
               function() {
-                t.stageSize = Y()
+                t.stageSize = Z()
               },
               !1
             )
@@ -1762,72 +1885,79 @@
           onPlay: function(t) {
             this.$refs.waveline.touch()
           },
-          autoplay: function() {
-            q() ? Z() : (H(), console.log('play'))
-          },
-          registMidiPlayerEvent: function() {
+          getPlayer: function() {
             var t = this
-            X('fileLoaded', function(e) {
-              ;(t.tracks = e.tracks.length), console.log('tracks', t.tracks)
-            }),
-              X('midiEvent', function(e) {
-                var o = e.noteName
-                'Note on' === e.name
-                  ? e.velocity > 0
-                    ? t.keyboard.tapdown(o, e.channel)
-                    : t.keyboard.tapup(o)
-                  : 'Note off' === e.name && t.keyboard.tapup(o)
-              }),
-              X('endOfFile', function(e) {
-                t.keyboard.release()
-              }),
-              X('pause', function(e) {
-                t.keyboard.release()
-              }),
-              W()
+            return this._playerPromise
+              ? this._playerPromise
+              : ((this._playerPromise = Promise.all([o.e(2), o.e(3)])
+                  .then(o.bind(null, 134))
+                  .then(function(t) {
+                    return t.default
+                  })
+                  .then(function(t) {
+                    return t.setEventProxy(H)
+                  })),
+                H.on('player:fileLoaded', function(e) {
+                  t.tracks = e.tracks.length
+                }),
+                H.on('player:midiEvent', function(e) {
+                  var o = e.noteName
+                  'Note on' === e.name
+                    ? e.velocity > 0
+                      ? t.keyboard.tapdown(o, e.channel)
+                      : t.keyboard.tapup(o)
+                    : 'Note off' === e.name && t.keyboard.tapup(o)
+                }),
+                H.on('player:play', function() {
+                  console.log('[player] play')
+                }),
+                H.on('player:sleep', function() {
+                  t.keyboard.release(), console.log('[player] sleep')
+                }),
+                console.log('[player] regist'),
+                this._playerPromise)
           },
           onDropMidi: function(t) {
-            tt(),
-              this.keyboard.release(),
-              0 === t.code && (W(t.data), console.log('play', t.file), H())
+            this.getPlayer().then(function(e) {
+              e.stop(),
+                0 === t.code &&
+                  (e.load(t.data, t.file).play(), console.log('play', t.file))
+            })
           }
         }
       },
-      it = Object(f.a)(
-        gt,
+      ot = Object(v.a)(
+        et,
         function() {
-          var t = this,
-            e = t.$createElement,
-            o = t._self._c || e
-          return o(
+          var t = this.$createElement,
+            e = this._self._c || t
+          return e(
             'div',
-            { style: t.frameStyle, attrs: { id: 'app' } },
+            { style: this.frameStyle, attrs: { id: 'app' } },
             [
-              o(
+              e(
                 'Droparea',
                 {
                   staticClass: 'main',
                   attrs: { accept: 'audio/midi' },
-                  on: { drop: t.onDropMidi }
+                  on: { drop: this.onDropMidi }
                 },
-                [o('Keyboard', { ref: 'keyboard', on: { play: t.onPlay } })],
+                [e('Keyboard', { ref: 'keyboard', on: { play: this.onPlay } })],
                 1
               ),
-              o('Waveline', {
+              e('Waveline', {
                 ref: 'waveline',
                 attrs: {
                   amplitude: '0.5',
                   speed: '0.01',
-                  width: t.stageSize.width
+                  width: this.stageSize.width
                 }
               }),
-              o('SetBg', {
+              e('SetBg', {
                 staticClass: 'set-bg',
-                on: { 'get-bg': t.changeBg }
+                on: { 'get-bg': this.changeBg }
               }),
-              o('span', { staticClass: 'version', on: { click: t.autoplay } }, [
-                t._v('v' + t._s(t.version))
-              ])
+              e('Version')
             ],
             1
           )
@@ -1838,10 +1968,10 @@
         null,
         null
       ).exports
-    ;(g.a.config.productionTip = !1),
-      new g.a({
+    ;(n.a.config.productionTip = !1),
+      new n.a({
         render: function(t) {
-          return t(it)
+          return t(ot)
         }
       }).$mount('#app')
   },
@@ -1851,10 +1981,12 @@
   28: function(t, e, o) {},
   29: function(t, e, o) {},
   30: function(t, e, o) {},
-  69: function(t, e, o) {
+  31: function(t, e, o) {},
+  32: function(t, e, o) {},
+  70: function(t, e, o) {
     t.exports = o.p + 'static/img/bg.d24257d1.jpg'
   },
-  70: function(t, e, o) {
-    o(71), (t.exports = o(126))
+  71: function(t, e, o) {
+    o(72), (t.exports = o(129))
   }
 })
